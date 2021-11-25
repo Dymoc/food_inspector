@@ -28,8 +28,7 @@ class CreateRecipesTable extends Migration
             $table->foreignId('author')
                 ->default(1)
                 ->comment('Автор рецепта')
-                ->constrained('users')
-                ->nullOnDelete();
+                ->constrained('users');
             $table->unsignedSmallInteger('cooking_time')
                 ->comment('Время приготовления');
             $table->enum('cooking_level', ['easy', 'medium', 'hard'])
