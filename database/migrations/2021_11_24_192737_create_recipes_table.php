@@ -35,14 +35,6 @@ class CreateRecipesTable extends Migration
                 ->comment('Уровень кулинарного мастерства');
             $table->unsignedDecimal('weight')
                 ->comment('Вес готового блюда');
-            $table->unsignedDecimal('calories')
-                ->comment('Каллорийность блюда');
-            $table->unsignedDecimal('proteins')->nullable()
-                ->comment('Белки');
-            $table->unsignedDecimal('fats')->nullable()
-                ->comment('Жиры');
-            $table->unsignedDecimal('carbohydrates')->nullable()
-                ->comment('Углеводы');
             $table->timestamps();
         });
     }
