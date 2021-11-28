@@ -14,7 +14,7 @@ class RecipesTypeSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('ingredients_categories')->insert($this->getType());
+        DB::table('recipes_types')->insert($this->getType());
     }
 
     public function getType(): array
