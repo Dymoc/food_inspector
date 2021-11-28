@@ -27,8 +27,7 @@
     $(".scroll-to-target").on("click", function () {
       var target = $(this).attr("data-target");
       // animate
-      $("html, body").animate(
-        {
+      $("html, body").animate({
           scrollTop: $(target).offset().top
         },
         1000
@@ -290,8 +289,8 @@
     if ($(this).next().val() > 1) {
       if ($(this).next().val() > 1)
         $(this)
-          .next()
-          .val(+$(this).next().val() - 1);
+        .next()
+        .val(+$(this).next().val() - 1);
     }
   });
 
@@ -334,8 +333,8 @@
       behaviour: "drag",
       connect: true,
       range: {
-        min: 10,
-        max: 200
+        min: 5,
+        max: 600
       }
     });
 
@@ -343,6 +342,30 @@
     var limitFieldMax = document.getElementById("max-value-rangeslider");
 
     priceRange.noUiSlider.on("update", function (values, handle) {
+      (handle ? $(limitFieldMax) : $(limitFieldMin)).text(values[handle]);
+    });
+  }
+  if ($(".range-slider-kcal").length) {
+    var kcalRange = document.getElementById("range-slider-kcal");
+
+    noUiSlider.create(kcalRange, {
+      start: [50, 200],
+      limit: 600,
+      behaviour: "drag",
+      connect: true,
+      range: {
+        min: 5,
+        max: 600
+      },
+      format: wNumb({
+        decimals: 0,
+
+      })
+    });
+    var limitFieldMin = document.getElementById("min-value-rangeslider");
+    var limitFieldMax = document.getElementById("max-value-rangeslider");
+
+    kcalRange.noUiSlider.on("update", function (values, handle) {
       (handle ? $(limitFieldMax) : $(limitFieldMin)).text(values[handle]);
     });
   }
@@ -355,6 +378,7 @@
       let thmSwiperSlider = new Swiper(swiperelm, swiperOptions);
     });
   }
+
   function thmTinyInit() {
     // tiny slider
     const tinyElm = document.querySelectorAll(".thm-tiny__slider");
@@ -426,6 +450,34 @@
         $(this).append("<sup>[" + count + "]</sup>");
       });
     }
+    $('#recipe').hide();
+    $('#ingridients').hide();
+    $('#naming').hide();
+    $('#recipe').show();
+    $('#recipe-tab').on("click", function () {
+      $('#recipe').fadeIn();
+      $('#ingridients').hide();
+      $('#naming').hide();
+      $('#ingridients-tab').removeClass('active');
+      $('#naming-tab').removeClass('active');
+      $('#recipe-tab').addClass('active');
+    });
+    $('#ingridients-tab').on("click", function () {
+      $('#recipe').hide();
+      $('#ingridients').fadeIn();
+      $('#naming').hide();
+      $('#ingridients-tab').addClass('active');
+      $('#naming-tab').removeClass('active');
+      $('#recipe-tab').removeClass('active');
+    });
+    $('#naming-tab').on("click", function () {
+      $('#recipe').hide();
+      $('#ingridients').hide();
+      $('#naming').fadeIn();
+      $('#ingridients-tab').removeClass('active');
+      $('#naming-tab').addClass('active');
+      $('#recipe-tab').removeClass('active');
+    });
   });
 
   // window scroll event
