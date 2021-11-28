@@ -23,7 +23,8 @@ class CreateRecipesTable extends Migration
                 ->comment('Название рецепта');
             $table->text('text')
                 ->comment('Текст рецепта');
-            $table->string('img', 255)->nullable()
+            $table->string('img', 255)
+                ->nullable()
                 ->comment('Изображение готового блюда');
             $table->foreignId('author')
                 ->default(1)
