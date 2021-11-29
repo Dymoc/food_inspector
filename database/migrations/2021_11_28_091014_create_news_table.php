@@ -23,7 +23,10 @@ class CreateNewsTable extends Migration
                 ->comment('Заголовок статьи');
             $table->text('description')
                 ->comment('Текст статьи');
-            $table->integer('user_id');
+            $table->foreignId('user_id')
+                ->comment('ИД Пользователя')
+                ->constrained('users')
+                ->onDelete('cascade');
             $table->string('img', 255)
                 ->nullable()
                 ->comment('Изображение для статьи');
