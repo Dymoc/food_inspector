@@ -18,6 +18,8 @@ class DatabaseSeeder extends Seeder
             RecipesCategorySeeder::class,
             IngredientsSeeder::class,
             RecipesTypeSeeder::class,
+            NewsCategoriesSeeder::class,
+            NewsSeeder::class
         ]);
     }
 }
