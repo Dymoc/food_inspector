@@ -25,6 +25,7 @@ Route::get('/about', function () {
 
 Route::group(['prefix' => 'news'], function () {
     Route::get('/', [NewsController::class, 'index'])->name('news');
+    Route::get('/{categoryid}', [NewsController::class, 'index'])->where('categoryid', '\d+')->name('news.category');
     Route::get('/show/{news}', [NewsController::class, 'show'])->where('news', '\d+')->name('news.show');
 });
 

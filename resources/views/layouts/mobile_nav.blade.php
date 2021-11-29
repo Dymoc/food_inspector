@@ -15,17 +15,17 @@
         <ul class="mobile-nav__contact list-unstyled">
             <li>
                 <i class="organik-icon-email"></i>
-                <a href="mailto:needhelp@organik.com">needhelp@organik.com</a>
+                <a href="mailto:info@foodinspector.ru">info@foodinspector.ru</a>
             </li>
             <li>
                 <i class="organik-icon-calling"></i>
-                <a href="tel:666-888-0000">666 888 0000</a>
+                <a href="tel:+74951230101">+7 (495) 123 01 01</a>
             </li>
         </ul><!-- /.mobile-nav__contact -->
         <div class="mobile-nav__top">
 
             <div class="main-menu__login">
-                <a href="#"><i class="organik-icon-user"></i>Login / Register</a>
+                <a href="#"><i class="organik-icon-user"></i>Войти / Зарегистрироваться</a>
             </div><!-- /.main-menu__login -->
         </div><!-- /.mobile-nav__top -->
 

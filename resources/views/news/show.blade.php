@@ -13,7 +13,7 @@
         <div class="container">
             <h2>{{ $news->title }}</h2>
             <ul class="thm-breadcrumb list-unstyled">
-                <li><a href="{{ route('index') }}">Home</a></li>
+                <li><a href="{{ route('index') }}">Главная</a></li>
                 <li>/</li>
                 <li><span>{{ $news->title }}</span></li>
             </ul><!-- /.thm-breadcrumb list-unstyled -->
@@ -30,7 +30,7 @@
                         <img src="{{ asset($news->img) }}" class="img-fluid" alt="{{ $news->title }}">
                     </div><!-- /.blog-card__image -->
                     <div class="blog-card__meta">
-                        <a href="{{ route('news.show', $news) }}"><i class="far fa-user-circle"></i> by Admin</a>
+                        <a href="{{ route('news.show', $news) }}"><i class="far fa-user-circle"></i> Администратор</a>
                     </div><!-- /.blog-card__meta -->
                     <div class="blog-details__content blog-card__content">
                         <h3>{{ $news->title }}</h3>
@@ -64,7 +64,7 @@
                             <ul>
                                 @foreach ($categories as $c)
                                     <li>
-                                        <a href="#">{{$c->name}} <i class="fa fa-angle-right"></i>
+                                        <a href="{{ route('news.category', $c->id) }}">{{$c->name}} <i class="fa fa-angle-right"></i>
                                         </a>
                                     </li>
                                 @endforeach
