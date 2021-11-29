@@ -40,17 +40,17 @@
             </div><!-- /.main-menu__login -->
             <ul class="main-menu__list">
                 <li class="dropdown">
-                    <a href="index.html">Главная</a>
+                    <a href="{{route('index')}}">Главная</a>
 
                 </li>
                 <li>
-                    <a href="about.html">Популярные рецепты</a>
+                    <a href="#">Популярные рецепты</a>
                 </li>
-                <li class="dropdown">
-                    <a href="products.html">О проекте</a>
+                <li>
+                    <a href="{{route('about')}}">О проекте</a>
 
                 </li>
-                <li class="dropdown"><a href="news.html">Новости</a>
+                <li class="dropdown"><a href="{{route('news')}}">Новости</a>
 
                 </li>
             </ul>
