@@ -21,8 +21,6 @@ class CreateRecipesTable extends Migration
                 ->onDelete('cascade');
             $table->string('name', 255)
                 ->comment('Название рецепта');
-            $table->text('text')
-                ->comment('Текст рецепта');
             $table->string('img', 255)
                 ->nullable()
                 ->comment('Изображение готового блюда');

@@ -19,7 +19,10 @@ class DatabaseSeeder extends Seeder
             IngredientsSeeder::class,
             RecipesTypeSeeder::class,
             NewsCategoriesSeeder::class,
-            NewsSeeder::class
+            NewsSeeder::class,
+            RecipesSeeder::class,
+            RecipeIngredientsSeeder::class,
+            RecipeStepsSeeder::class,
         ]);
     }
 }
