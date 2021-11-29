@@ -28,7 +28,7 @@ Route::group(['prefix' => 'news'], function () {
     Route::get('/show/{news}', [NewsController::class, 'show'])->where('news', '\d+')->name('news.show');
 });
 
-});
+
 
 
 Route::group(['prefix' => 'admin'], function () {
