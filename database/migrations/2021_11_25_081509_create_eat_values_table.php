@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateEatValueTable extends Migration
+class CreateEatValuesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateEatValueTable extends Migration
      */
     public function up()
     {
-        Schema::create('eat_value', function (Blueprint $table) {
+        Schema::create('eat_values', function (Blueprint $table) {
             $table->foreignId('ingredient_id')
                 ->constrained('ingredients')
                 ->onDelete('cascade')
@@ -37,6 +37,6 @@ class CreateEatValueTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('eat_value');
+        Schema::dropIfExists('eat_values');
     }
 }
