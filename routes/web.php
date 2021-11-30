@@ -3,6 +3,7 @@
 use App\Http\Controllers\NewsController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\IngredientContorller as IngredientContorller;
+use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,10 +16,11 @@ use App\Http\Controllers\IngredientContorller as IngredientContorller;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-
-})->name('index');
+//Route::get('/', function () {
+//    return view('index');
+//
+//})->name('index');
+Route::get('/', [HomeController::class, 'index'])->name('index');
 
 Route::get('/about', function () {
     return view('about');
