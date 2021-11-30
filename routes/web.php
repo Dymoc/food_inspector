@@ -4,6 +4,7 @@ use App\Http\Controllers\NewsController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\IngredientContorller as IngredientContorller;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\RecipeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,11 +17,8 @@ use App\Http\Controllers\HomeController;
 |
 */
 
-//Route::get('/', function () {
-//    return view('index');
-//
-//})->name('index');
 Route::get('/', [HomeController::class, 'index'])->name('index');
+Route::get('/popular', [RecipeController::class, 'popular'])->name('popular');
 
 Route::get('/about', function () {
     return view('about');

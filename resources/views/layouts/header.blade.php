@@ -44,7 +44,7 @@
 
                 </li>
                 <li>
-                    <a href="#">Популярные рецепты</a>
+                    <a href="{{route('popular')}}">Популярные рецепты</a>
                 </li>
                 <li>
                     <a href="{{route('about')}}">О проекте</a>
