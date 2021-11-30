@@ -1,2 +1,1 @@
-<?php
-@dd($ingredient);
+@dd($ingredient, $categories)

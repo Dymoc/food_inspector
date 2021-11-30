@@ -15,24 +15,40 @@ class IngredientContorller extends Controller
      */
     public function index() {
         return view('ingredient.index', [
-                'ingredients' => Ingredients::query()->get()
+                'ingredients' => Ingredients::all()
             ]);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Ingredients $ingredient)
+    public function show(Ingredients $ingredient, $id)
     {
-        return view('ingredient.show', [
-            'recentIngredient' => Ingredients::query()->limit(3)->get(),
-            'ingredient' => $ingredient,
+          return view('ingredient.show', [
+            'ingredient' => Ingredients::query()->where('id', $id)->get(),
             'categories' => IngredientsCategory::all()
         ]);
     }
+
+    public function category(Ingredients $ingredient, IngredientsCategory $ingredientsCategory, $category_id)
+    {
+        return view('ingredient.category', [
+            'categories' => IngredientsCategory::where('id', $category_id)->get(),
+            'ingredients' => Ingredients::where('category_id', $category_id)->get()
+        ]);
+    }
+
+    public function getCategoryList()
+    {
+        return IngredientsCategory::all();
+    }
+
+
+
+
+
+
+
+
+
+
 
     /**
      * Show the form for creating a new resource.

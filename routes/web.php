@@ -33,15 +33,18 @@ Route::group(['prefix' => 'news'], function () {
 //Route::resource('ingredient', IngredientContorller::class)
 //    ->name('ingredient');
 
-Route::group(['prefix' => 'ingrediet'], function () {
+Route::group(['prefix' => 'ingredient'], function () {
     Route::get('/', [IngredientContorller::class, 'index'])
-        ->name('ingrediets');
-    Route::get('/{categoryid}', [IngredientContorller::class, 'index'])
-        ->where('categoryid', '\d+')
-        ->name('ingrediet.category');
-    Route::get('/show/{news}', [IngredientContorller::class, 'show'])
-        ->where('ingrediet', '\d+')
-        ->name('ingrediet.show');
+        ->name('ingredients');
+
+    Route::get('/{category_id}', [IngredientContorller::class, 'category'])
+        ->where('category_id', '\d+')
+        ->name('ingredient.category');
+
+    Route::get('/show/{id}', [IngredientContorller::class, 'show'])
+        ->where('ingredient', '\d+')
+        ->name('ingredient.show');
+
 });
 
 
