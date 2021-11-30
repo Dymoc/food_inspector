@@ -18,20 +18,20 @@ class RecipeIngredientsSeeder extends Seeder
     }
     public function getRecipes()
     {
-        $recipes = [
-            1 => [
-                [36],
-                [240],
-                [216],
-            ]
+        $recipeIngredients = [
+            1 => [36, 240, 216],
+            2 => [64, 302, 269, 60, 194, 230, 2],
+            3 => [213, 49, 249, 36, 183, 94],
+            4 => [49, 322, 252, 212, 107, 36, 178],
+            5 => [87, 49, 171, 183, 106]
         ];
         $data = [];
 
-        foreach ($recipes as $key => $category) {
-            for ($i = 0; $i < count($category); $i++) {
+        foreach ($recipeIngredients as $key => $ingredientList) {
+            for ($i = 0; $i < count($ingredientList); $i++) {
                 $data[] = [
                     'recipe_id' => $key,
-                    'ingredient_id' => $category[$i][0],
+                    'ingredient_id' => $ingredientList[$i],
                     'updated_at' => now(),
                     'created_at' => now()
                 ];
