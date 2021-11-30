@@ -36,13 +36,13 @@
                     <h3 class="footer-widget__title">Быстрые ссылки</h3><!-- /.footer-widget__title -->
                     <ul class="list-unstyled footer-widget__links">
                         <li>
-                            <a href="index.html">О компании</a>
+                            <a href="{{route('about')}}">О компании</a>
                         </li>
                         <li>
-                            <a href="products.html">Политика конфиденциальности</a>
+                            <a href="#">Политика конфиденциальности</a>
                         </li>
                         <li>
-                            <a href="about.html">Новости</a>
+                            <a href="{{route('news')}}">Новости</a>
                         </li>
 
                     </ul><!-- /.list-unstyled footer-widget__contact -->
