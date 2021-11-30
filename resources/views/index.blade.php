@@ -302,7 +302,7 @@
                     <div class="search-tab-pane">
                         <form action="#">
                             <label for="search" class="sr-only">search here</label><!-- /.sr-only -->
-                            <input type="text" id="search" placeholder="Search Here..." />
+                            <input type="text" id="search" placeholder="Ищу..." />
                             <button type="submit" aria-label="search submit" class="thm-btn">
                                 <i class="organik-icon-magnifying-glass"></i>
                             </button>
@@ -315,7 +315,22 @@
                         @endforeach
                     </div>
                 </div>
-                <div class="tab-pane  gray-border" id="naming" role="tabpanel" aria-labelledby="contact-tab">789
+                <div class="tab-pane gray-border" id="naming" role="tabpanel" aria-labelledby="contact-tab">
+                    <div class="search-tab-pane">
+                        <form action="#">
+                            <label for="search" class="sr-only">search here</label><!-- /.sr-only -->
+                            <input type="text" id="search" placeholder="Ищу..." />
+                            <button type="submit" aria-label="search submit" class="thm-btn">
+                                <i class="organik-icon-magnifying-glass"></i>
+                            </button>
+                        </form>
+                    </div>
+                    <div class="row ml-10 mr-10">
+                        @foreach($recipeCategories as $category)
+                            <div class="col-md-3"><a href=#{{ $category->id }}>{{ $category->name }}
+                                </a></div>
+                        @endforeach
+                    </div>
                 </div>
             </div>
 

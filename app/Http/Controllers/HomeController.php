@@ -21,6 +21,7 @@ class HomeController extends Controller
             'recipeList' => $recipes,
             'favorList' => $favorRecipes,
             'recipeTypes' => RecipesType::all(),
+            'recipeCategories' => RecipesCategory::all(),
             'ingredientList' => Ingredient::all(),
             'ingredientsCategories' => IngredientsCategory::all()
         ]);
