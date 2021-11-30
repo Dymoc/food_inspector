@@ -10,11 +10,17 @@ class IngredientsCategory extends Model
 {
     use HasFactory;
 
-    protected $table = 'ingredients_categories';
+    use HasFactory;
+    protected $table = "ingredients_categories";
     protected $fillable = ['name'];
 
-    public function ingredient(): HasMany
+    /**
+     * Get all of the news for the Category
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function news(): HasMany
     {
-        return $this->hasMany(Ingredient::class, 'category_id', 'id');
+        return $this->hasMany(Ingredients::class, 'category_id');
     }
 }
