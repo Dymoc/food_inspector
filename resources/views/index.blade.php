@@ -101,10 +101,10 @@
                                                     <div class="product-sorter">
                                                         <div class="product-sorter__select">
                                                             <select class="selectpicker">
-                                                                <option value="#">Все</option>
-                                                                <option value="#">Супы</option>
-                                                                <option value="#">Основные блюда</option>
-                                                                <option value="#">Салаты</option>
+                                                                <option value="0">Все</option>
+                                                                @foreach($recipeTypes as $type)
+                                                                    <option value="{{ $type->id }}">{{ $type->name }}</option>
+                                                                @endforeach
                                                             </select>
                                                         </div><!-- /.product-sorter__select -->
                                                     </div><!-- /.product-sorter -->
@@ -309,79 +309,10 @@
                         </form>
                     </div>
                     <div class="row ml-10 mr-10">
-                        <div class="col-md-3"><a href=#>Овощи
-                            </a></div>
-                        <div class="col-md-3"><a href=#>Орехи, семечки
-                            </a></div>
-                        <div class="col-md-3"><a href=#>Фрукты, цитрусовые и ягоды
-                            </a></div>
-                        <div class="col-md-3"><a href=#>Бахчевые культуры
-                            </a></div>
-                        <div class="col-md-3"><a href=#>Грибы
-                            </a></div>
-                        <div class="col-md-3"><a href=#>Сушеные овощи
-                            </a></div>
-                        <div class="col-md-3"><a href=#>Фрукты сушеные
-                            </a></div>
-                        <div class="col-md-3"><a href=#>Хлебобулочные изделия
-                            </a></div>
-                        <div class="col-md-3"><a href=#>Крупа
-                            </a></div>
-                        <div class="col-md-3"><a href=#>Зернобобовые
-                            </a></div>
-                        <div class="col-md-3"><a href=#>Молочные продукты
-                            </a></div>
-                        <div class="col-md-3"><a href=#>Мясные продукты
-                            </a></div>
-                        <div class="col-md-3"><a href=#>Субпродукты бараньи
-                            </a></div>
-                        <div class="col-md-3"><a href=#>Субпродукты говяжьи
-                            </a></div>
-                        <div class="col-md-3"><a href=#>Субпродукты свиные
-                            </a></div>
-                        <div class="col-md-3"><a href=#>Птица домашняя
-                            </a></div>
-                        <div class="col-md-3"><a href=#>Вареные колбасы
-                            </a></div>
-                        <div class="col-md-3"><a href=#>Сардельки
-                            </a></div>
-                        <div class="col-md-3"><a href=#>Сосиски
-                            </a></div>
-                        <div class="col-md-3"><a href=#>Варено-копченые колбасы
-                            </a></div>
-                        <div class="col-md-3"><a href=#>Полукопченые колбасы
-                            </a></div>
-                        <div class="col-md-3"><a href=#>Сырокопченые колбасы
-                            </a></div>
-
-                        <div class="col-md-3"><a href=#>Мясные консервы
-                            </a></div>
-                        <div class="col-md-3"><a href=#>Яйцо и яйцепродукты
-                            </a></div>
-                        <div class="col-md-3"><a href=#>Рыба мороженая и свежая
-                            </a></div>
-                        <div class="col-md-3"><a href=#>Морепродукты
-                            </a></div>
-                        <div class="col-md-3"><a href=#>Икра
-                            </a></div>
-                        <div class="col-md-3"><a href=#>Рыба горячего копчения
-                            </a></div>
-                        <div class="col-md-3"><a href=#>Рыбные консервы в масле
-                            </a></div>
-                        <div class="col-md-3"><a href=#>Рыбные консервы в томате
-                            </a></div>
-                        <div class="col-md-3"><a href=#>Рыбные консервы натуральные
-                            </a></div>
-                        <div class="col-md-3"><a href=#>Жиры
-                            </a></div>
-                        <div class="col-md-3"><a href=#>Сладости
-                            </a></div>
-                        <div class="col-md-3"><a href=#>Мучные кондитерские изделия
-                            </a></div>
-                        <div class="col-md-3"><a href=#>Соки
-                            </a></div>
-                        <div class="col-md-3"><a href=#>Напитки </a></div>
-
+                        @foreach($ingredientsCategories as $category)
+                            <div class="col-md-3"><a href=#{{ $category->id }}>{{ $category->name }}
+                                </a></div>
+                        @endforeach
                     </div>
                 </div>
                 <div class="tab-pane  gray-border" id="naming" role="tabpanel" aria-labelledby="contact-tab">789
@@ -390,78 +321,44 @@
 
             <div class="results mt-60">
                 <div class="row">
+                    @foreach($recipeList as $recipe)
                     <div class="col-lg-4 col-md-6">
                         <div class="product-card__two">
                             <div class="product-card__two-image">
-                                <img src="{{ asset('/images/products/product-2-1.jpg') }}" alt="">
+                                <img src="{{ $recipe->img }}" alt="фото рецепта">
                                 <div class="product-card__two-image-content">
                                     <a href="#"><i class="organik-icon-visibility"></i></a>
                                     <a href="#"><i class="organik-icon-heart"></i></a>
                                 </div><!-- /.product-card__two-image-content -->
                             </div><!-- /.product-card__two-image -->
                             <div class="product-card__two-content">
-                                <h3><a href="product-details.html">Салат с кукурузой</a></h3>
+                                <h3><a href="#{{ $recipe->id }}">{{ $recipe->name }}</a></h3>
 
                                 <div class="row">
                                     <div class="col-md-12 properties"><img
-                                            src="{{ asset('/images/calculator/time.svg') }}" /><span>20 минут</span></div>
+                                            src="{{ asset('/images/calculator/time.svg') }}" /><span>{{ $recipe->cooking_time }} минут</span></div>
                                     <div class="col-md-12 properties"><img
                                             src="{{ asset('/images/calculator/chart.svg') }}" /><span>395 Ккал</span></div>
                                     <div class="col-md-12 properties"><img
-                                            src="{{ asset('/images/calculator/smile.svg') }}" /><span>Для новичков</span>
+                                            src="{{ asset('/images/calculator/smile.svg') }}" />
+                                        <span>
+                                            @switch($recipe->cooking_level)
+                                                @case('easy')
+                                                Для новичков
+                                                @break
+                                                @case('medium')
+                                                Для опытных
+                                                @break
+                                                @default
+                                                Для профи
+                                            @endswitch
+                                        </span>
                                     </div>
                                 </div>
                             </div><!-- /.product-card__two-content -->
                         </div><!-- /.product-card__two -->
                     </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="product-card__two">
-                            <div class="product-card__two-image">
-                                <img src="{{ asset('/images/products/product-2-1.jpg') }}" alt="">
-                                <div class="product-card__two-image-content">
-                                    <a href="#"><i class="organik-icon-visibility"></i></a>
-                                    <a href="#"><i class="organik-icon-heart"></i></a>
-                                </div><!-- /.product-card__two-image-content -->
-                            </div><!-- /.product-card__two-image -->
-                            <div class="product-card__two-content">
-                                <h3><a href="product-details.html">Салат с кукурузой</a></h3>
-
-                                <div class="row">
-                                    <div class="col-md-12 properties"><img
-                                            src="{{ asset('/images/calculator/time.svg') }}" /><span>20 минут</span></div>
-                                    <div class="col-md-12 properties"><img
-                                            src="{{ asset('/images/calculator/chart.svg') }}" /><span>395 Ккал</span></div>
-                                    <div class="col-md-12 properties"><img
-                                            src="{{ asset('/images/calculator/smile.svg') }}" /><span>Для новичков</span>
-                                    </div>
-                                </div>
-                            </div><!-- /.product-card__two-content -->
-                        </div><!-- /.product-card__two -->
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="product-card__two">
-                            <div class="product-card__two-image">
-                                <img src="{{ asset('/images/products/product-2-1.jpg') }}" alt="">
-                                <div class="product-card__two-image-content">
-                                    <a href="#"><i class="organik-icon-visibility"></i></a>
-                                    <a href="#"><i class="organik-icon-heart"></i></a>
-                                </div><!-- /.product-card__two-image-content -->
-                            </div><!-- /.product-card__two-image -->
-                            <div class="product-card__two-content">
-                                <h3><a href="product-details.html">Салат с кукурузой</a></h3>
-
-                                <div class="row">
-                                    <div class="col-md-12 properties"><img
-                                            src="{{ asset('/images/calculator/time.svg') }}" /><span>20 минут</span></div>
-                                    <div class="col-md-12 properties"><img
-                                            src="{{ asset('/images/calculator/chart.svg') }}" /><span>395 Ккал</span></div>
-                                    <div class="col-md-12 properties"><img
-                                            src="{{ asset('/images/calculator/smile.svg') }}" /><span>Для новичков</span>
-                                    </div>
-                                </div>
-                            </div><!-- /.product-card__two-content -->
-                        </div><!-- /.product-card__two -->
-                    </div>
+                    @endforeach
                 </div>
             </div>
 
@@ -476,78 +373,44 @@
             </div>
             <div class="popular-recipes mt-60">
                 <div class="row">
-                    <div class="col-lg-4 col-md-6">
-                        <div class="product-card__two">
-                            <div class="product-card__two-image">
-                                <img src="{{ asset('/images/products/product-2-1.jpg') }}" alt="">
-                                <div class="product-card__two-image-content">
-                                    <a href="#"><i class="organik-icon-visibility"></i></a>
-                                    <a href="#"><i class="organik-icon-heart"></i></a>
-                                </div><!-- /.product-card__two-image-content -->
-                            </div><!-- /.product-card__two-image -->
-                            <div class="product-card__two-content">
-                                <h3><a href="product-details.html">Салат с кукурузой</a></h3>
+                    @foreach($favorList as $recipe)
+                        <div class="col-lg-4 col-md-6">
+                            <div class="product-card__two">
+                                <div class="product-card__two-image">
+                                    <img src="{{ $recipe->img }}" alt="фото рецепта">
+                                    <div class="product-card__two-image-content">
+                                        <a href="#"><i class="organik-icon-visibility"></i></a>
+                                        <a href="#"><i class="organik-icon-heart"></i></a>
+                                    </div><!-- /.product-card__two-image-content -->
+                                </div><!-- /.product-card__two-image -->
+                                <div class="product-card__two-content">
+                                    <h3><a href="#{{ $recipe->id }}">{{ $recipe->name }}</a></h3>
 
-                                <div class="row">
-                                    <div class="col-md-12 properties"><img
-                                            src="{{ asset('/images/calculator/time.svg') }}" /><span>20 минут</span></div>
-                                    <div class="col-md-12 properties"><img
-                                            src="{{ asset('/images/calculator/chart.svg') }}" /><span>395 Ккал</span></div>
-                                    <div class="col-md-12 properties"><img
-                                            src="{{ asset('/images/calculator/smile.svg') }}" /><span>Для новичков</span>
+                                    <div class="row">
+                                        <div class="col-md-12 properties"><img
+                                                src="{{ asset('/images/calculator/time.svg') }}" /><span>{{ $recipe->cooking_time }} минут</span></div>
+                                        <div class="col-md-12 properties"><img
+                                                src="{{ asset('/images/calculator/chart.svg') }}" /><span>395 Ккал</span></div>
+                                        <div class="col-md-12 properties"><img
+                                                src="{{ asset('/images/calculator/smile.svg') }}" />
+                                            <span>
+                                            @switch($recipe->cooking_level)
+                                                    @case('easy')
+                                                    Для новичков
+                                                    @break
+                                                    @case('medium')
+                                                    Для опытных
+                                                    @break
+                                                    @default
+                                                    Для профи
+                                                @endswitch
+                                        </span>
+                                        </div>
                                     </div>
-                                </div>
-                            </div><!-- /.product-card__two-content -->
-                        </div><!-- /.product-card__two -->
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="product-card__two">
-                            <div class="product-card__two-image">
-                                <img src="{{ asset('/images/products/product-2-1.jpg') }}" alt="">
-                                <div class="product-card__two-image-content">
-                                    <a href="#"><i class="organik-icon-visibility"></i></a>
-                                    <a href="#"><i class="organik-icon-heart"></i></a>
-                                </div><!-- /.product-card__two-image-content -->
-                            </div><!-- /.product-card__two-image -->
-                            <div class="product-card__two-content">
-                                <h3><a href="product-details.html">Салат с кукурузой</a></h3>
-
-                                <div class="row">
-                                    <div class="col-md-12 properties"><img
-                                            src="{{ asset('/images/calculator/time.svg') }}" /><span>20 минут</span></div>
-                                    <div class="col-md-12 properties"><img
-                                            src="{{ asset('/images/calculator/chart.svg') }}" /><span>395 Ккал</span></div>
-                                    <div class="col-md-12 properties"><img
-                                            src="{{ asset('/images/calculator/smile.svg') }}" /><span>Для новичков</span>
-                                    </div>
-                                </div>
-                            </div><!-- /.product-card__two-content -->
-                        </div><!-- /.product-card__two -->
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="product-card__two">
-                            <div class="product-card__two-image">
-                                <img src="{{ asset('/images/products/product-2-1.jpg') }}" alt="">
-                                <div class="product-card__two-image-content">
-                                    <a href="#"><i class="organik-icon-visibility"></i></a>
-                                    <a href="#"><i class="organik-icon-heart"></i></a>
-                                </div><!-- /.product-card__two-image-content -->
-                            </div><!-- /.product-card__two-image -->
-                            <div class="product-card__two-content">
-                                <h3><a href="product-details.html">Салат с кукурузой</a></h3>
-
-                                <div class="row">
-                                    <div class="col-md-12 properties"><img
-                                            src="{{ asset('/images/calculator/time.svg') }}" /><span>20 минут</span></div>
-                                    <div class="col-md-12 properties"><img
-                                            src="{{ asset('/images/calculator/chart.svg') }}" /><span>395 Ккал</span></div>
-                                    <div class="col-md-12 properties"><img
-                                            src="{{ asset('/images/calculator/smile.svg') }}" /><span>Для новичков</span>
-                                    </div>
-                                </div>
-                            </div><!-- /.product-card__two-content -->
-                        </div><!-- /.product-card__two -->
-                    </div>
+                                </div><!-- /.product-card__two-content -->
+                            </div><!-- /.product-card__two -->
+                        </div>
+                    @endforeach
                 </div><!-- /.row -->
             </div>
         </div>
