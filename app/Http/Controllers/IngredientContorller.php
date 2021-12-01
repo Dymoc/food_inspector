@@ -15,7 +15,7 @@ class IngredientContorller extends Controller
      */
     public function index() {
         return view('ingredient.index', [
-                'ingredients' => Ingredient::query()->get()
+                'ingredients' => Ingredient::all()
             ]);
     }
 
@@ -25,7 +25,7 @@ class IngredientContorller extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Ingredients $ingredient)
+    public function show(Ingredient $ingredient)
     {
         return view('ingredient.show', [
             'recentIngredient' => Ingredient::query()->limit(3)->get(),
