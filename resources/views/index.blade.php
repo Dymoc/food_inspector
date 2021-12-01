@@ -298,16 +298,20 @@
                         </form>
                     </div>
                 </div>
+
+
+
                 <div class="tab-pane  gray-border" id="ingridients" role="tabpanel" aria-labelledby="profile-tab">
                     <div class="search-tab-pane">
-                        <form action="#">
+                        <form action="{{route('searchSimple')}}" method="GET" class="search-simple">
                             <label for="search" class="sr-only">search here</label><!-- /.sr-only -->
-                            <input type="text" id="search" placeholder="Ищу..." />
+                            <input type="text" class="form-control" name="q" placeholder="Ищу..." value="{{ old('q') }}" required>
                             <button type="submit" aria-label="search submit" class="thm-btn">
                                 <i class="organik-icon-magnifying-glass"></i>
                             </button>
                         </form>
                     </div>
+
                     <div class="row ml-10 mr-10">
                         @foreach($ingredientsCategories as $category)
                             <div class="col-md-3"><a href=#{{ $category->id }}>{{ $category->name }}

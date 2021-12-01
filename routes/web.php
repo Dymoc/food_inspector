@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\IngredientContorller as IngredientContorller;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\RecipeController;
+use App\Http\Controllers\SearchController as SearchController;
 
 /*
 |--------------------------------------------------------------------------
@@ -44,9 +45,10 @@ Route::group(['prefix' => 'ingredient'], function () {
     Route::get('/show/{id}', [IngredientContorller::class, 'show'])
         ->where('ingredient', '\d+')
         ->name('ingredient.show');
-
 });
 
+Route::get('searchSimple', [SearchController::class, 'index'])
+    ->name('searchSimple');
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
