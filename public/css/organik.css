@@ -3210,7 +3210,9 @@ label[for="myList"]+span {
   position: relative;
   background-color: #fff;
   border-radius: 0px;
-  overflow: hidden;
+  /* overflow: hidden; */
+  height: max-content;
+  width: 100%;
 }
 
 .search-tab-pane form input[type="search"],
@@ -3223,7 +3225,15 @@ label[for="myList"]+span {
   height: 66px;
   padding-left: 30px;
 }
-
+.twitter-typeahead{
+  width: 100%;
+}
+.tt-input:focus{
+  box-shadow: none;
+}
+.tt-menu{
+  width:100%
+}
 .search-tab-pane .thm-btn {
   padding: 0;
   width: 68px;
@@ -3237,7 +3247,29 @@ label[for="myList"]+span {
   right: -1px;
   border-radius: 0;
 }
+.bootstrap-tagsinput .tag {
+  margin-right: 2px;
+  color: #fff;
+}
+.bootstrap-tagsinput .label {
+  display: inline;
+  padding: 0.2em 0.6em 0.3em;
+  font-size: 75%;
+  font-weight: 700;
+  line-height: 1;
+  color: #fff;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: 0.25em;
+}
+.bootstrap-tagsinput .label-info {
+  background-color: var(--thm-base);
+}
+.bootstrap-tagsinput {
 
+  padding: 0;
+}
 .search-tab-pane .thm-btn:hover {
   background-color: var(--thm-black);
   color: #fff;
@@ -3258,7 +3290,29 @@ margin-right: 15px;
   width: 25px;
   height: 25px;
 }
-
+.bootstrap-tagsinput .twitter-typeahead .tt-input {
+  border: none;
+  box-shadow: none;
+  outline: none;
+  background-color: transparent;
+  padding: 0 6px;
+  margin: 0;
+  width: max-content;
+  max-width: inherit;
+}
+.bootstrap-tagsinput {
+  background-color: #fff;
+  border: none;
+  box-shadow:none;
+  display: inline-block;
+  padding: 20px 20px;
+  color: #555;
+  vertical-align: middle;
+  border-radius: 4px;
+  max-width: 100%;
+  line-height: 22px;
+  cursor: text;
+}
 /*--------------------------------------------------------------
 # Page Header
 --------------------------------------------------------------*/
@@ -7983,5 +8037,7 @@ margin-right: 15px;
 .mr-10 {
   margin-right: 10px;
 }
-
+.mt-10 {
+  margin-top: 10px;
+}
 /*# sourceMappingURL=organik.css.map */

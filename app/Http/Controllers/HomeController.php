@@ -11,19 +11,20 @@ use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-    public function index() {
+    public function index()
+    {
         $recipes = Recipe::all();
         $favorRecipes = $recipes->only([1, 3, 5]);
         $recipes = $recipes->only([1, 2, 3]);
 
-
-        return view('index', [
-            'recipeList' => $recipes,
-            'favorList' => $favorRecipes,
-            'recipeTypes' => RecipesType::all(),
-            'recipeCategories' => RecipesCategory::all(),
-            'ingredientList' => Ingredient::all(),
-            'ingredientsCategories' => IngredientsCategory::all()
-        ]);
+            return view('index', [
+                'recipeList' => $recipes,
+                'favorList' => $favorRecipes,
+                'recipeTypes' => RecipesType::all(),
+                'recipeCategories' => RecipesCategory::all(),
+                'ingredientList' => Ingredient::all(),
+                'ingredientsCategories' => IngredientsCategory::all()
+            ]);
+        
     }
 }
