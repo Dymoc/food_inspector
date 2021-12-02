@@ -303,16 +303,21 @@
                         </form>
                     </div>
                 </div>
+
+
+
                 <div class="tab-pane  gray-border" id="ingridients" role="tabpanel" aria-labelledby="profile-tab">
                     <div class="search-tab-pane">
-                        <form action="#">
-                            <label for="search" class="sr-only">search here</label><!-- /.sr-only -->
-                            <input type="text" id="search" placeholder="Ищу..." />
-                            <button type="submit" aria-label="search submit" class="thm-btn">
-                                <i class="organik-icon-magnifying-glass"></i>
-                            </button>
-                        </form>
+
+                        <!--<label for="search" class="sr-only">search here</label> /.sr-only -->
+                        <input type="text" class="form-control search-input typeahead" name="q" autocomplete="off"
+                            placeholder="Ищу...">
+                        <button aria-label="search submit" class="thm-btn">
+                            <i class="organik-icon-magnifying-glass"></i>
+                        </button>
+
                     </div>
+
                     <div class="row ml-10 mr-10">
                         @foreach ($ingredientsCategories as $category)
                             <div class="col-md-3">
@@ -676,6 +681,9 @@
     </section><!-- /.gallery-one -->
 @endsection
 @section('scripts')
+    <script src="https://rawgithub.com/TimSchlechter/bootstrap-tagsinput/master/src/bootstrap-tagsinput.js"></script>
+    <script src="{{ asset('/js/typeahead.js') }}"></script>
+    <script src="{{ asset('/js/search.js') }}"></script>
     <script type="text/javascript">
         $('.ingredientsListFiltered').hide();
         $('.ingredientsCategory').on("click", function() {
