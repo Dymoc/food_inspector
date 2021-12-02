@@ -44,6 +44,10 @@ jQuery(document).ready(function($) {
         $("#ingredient" + event.item.id).prop('checked', true);
 
     });
+    inputSearch.on('itemRemoved', function(event) {
+        $("#ingredient" + event.item.id).prop('checked', false);
+
+    });
     $('input[name^="ingredient"]').change(function() {
         if (this.checked) {
             let nameI=$(this).parent().children('label').text();
