@@ -8,17 +8,17 @@
 @section('content')
     <section class="main-slider">
         <div class="swiper-container thm-swiper__slider" data-swiper-options='{
-    "slidesPerView": 1,
-    "loop": true,
-    "effect": "fade",
-    "autoplay": {
-    "delay": 5000
-    },
-    "navigation": {
-    "nextEl": "#main-slider__swiper-button-next",
-    "prevEl": "#main-slider__swiper-button-prev"
-    }
-    }'>
+                                    "slidesPerView": 1,
+                                    "loop": true,
+                                    "effect": "fade",
+                                    "autoplay": {
+                                    "delay": 5000
+                                    },
+                                    "navigation": {
+                                    "nextEl": "#main-slider__swiper-button-next",
+                                    "prevEl": "#main-slider__swiper-button-prev"
+                                    }
+                                    }'>
             <div class="swiper-wrapper">
                 <div class="swiper-slide">
                     <div class="image-layer"
@@ -102,8 +102,9 @@
                                                         <div class="product-sorter__select">
                                                             <select class="selectpicker">
                                                                 <option value="0">Все</option>
-                                                                @foreach($recipeTypes as $type)
-                                                                    <option value="{{ $type->id }}">{{ $type->name }}</option>
+                                                                @foreach ($recipeTypes as $type)
+                                                                    <option value="{{ $type->id }}">{{ $type->name }}
+                                                                    </option>
                                                                 @endforeach
                                                             </select>
                                                         </div><!-- /.product-sorter__select -->
@@ -131,14 +132,15 @@
                                                         </style>
                                                         <g>
                                                             <g>
-                                                                <path class="st0" d="M3.2,7.5L2.1,6.2L6.8,2l0.9,1.1c0.6-0.4,1.2-0.7,1.8-1L8.4,0.8c-0.7-0.9-2-1-2.9-0.3L0.8,4.6
-                                        c-0.9,0.7-1.1,1.9-0.4,2.8l1.7,2.1C2.4,8.8,2.8,8.1,3.2,7.5z M29.2,4.6l-4.7-4.2c-0.9-0.7-2.2-0.5-2.9,0.3l-1.1,1.4
-                                        c0.6,0.3,1.2,0.6,1.8,1L23.2,2l4.7,4.2l-1.1,1.3c0.4,0.6,0.7,1.3,1,1.9l1.7-2.1C30.2,6.5,30.1,5.3,29.2,4.6z M27.8,28.4l-4.2-5
-                                        c2.1-2.2,3.4-5.1,3.4-8.4c0-6.6-5.4-12-12-12S3,8.4,3,15c0,3.3,1.3,6.2,3.4,8.4l-4.2,5l0,0C2.1,28.5,2,28.8,2,29c0,0.6,0.4,1,1,1
-                                        c0.3,0,0.6-0.1,0.8-0.4l0,0l4.1-5c2,1.5,4.4,2.3,7.1,2.3c2.7,0,5.1-0.9,7.1-2.3l4.1,5l0,0c0.2,0.2,0.4,0.4,0.8,0.4
-                                        c0.6,0,1-0.4,1-1C28,28.8,27.9,28.5,27.8,28.4L27.8,28.4z M15,25C9.5,25,5,20.5,5,15C5,9.5,9.3,5,15,5c5.6,0,10,4.5,10,10
-                                        C25,20.5,20.5,25,15,25z M19.3,9.3l-4.9,5.2l-2.8-3c-0.4-0.4-1-0.4-1.4,0c-0.4,0.4-0.4,1.1,0,1.5l3.5,3.7c0.4,0.4,1,0.4,1.4,0
-                                        l5.6-5.9c0.4-0.4,0.4-1.1,0-1.5C20.3,8.9,19.7,8.9,19.3,9.3z" />
+                                                                <path class="st0"
+                                                                    d="M3.2,7.5L2.1,6.2L6.8,2l0.9,1.1c0.6-0.4,1.2-0.7,1.8-1L8.4,0.8c-0.7-0.9-2-1-2.9-0.3L0.8,4.6
+                                                                        c-0.9,0.7-1.1,1.9-0.4,2.8l1.7,2.1C2.4,8.8,2.8,8.1,3.2,7.5z M29.2,4.6l-4.7-4.2c-0.9-0.7-2.2-0.5-2.9,0.3l-1.1,1.4
+                                                                        c0.6,0.3,1.2,0.6,1.8,1L23.2,2l4.7,4.2l-1.1,1.3c0.4,0.6,0.7,1.3,1,1.9l1.7-2.1C30.2,6.5,30.1,5.3,29.2,4.6z M27.8,28.4l-4.2-5
+                                                                        c2.1-2.2,3.4-5.1,3.4-8.4c0-6.6-5.4-12-12-12S3,8.4,3,15c0,3.3,1.3,6.2,3.4,8.4l-4.2,5l0,0C2.1,28.5,2,28.8,2,29c0,0.6,0.4,1,1,1
+                                                                        c0.3,0,0.6-0.1,0.8-0.4l0,0l4.1-5c2,1.5,4.4,2.3,7.1,2.3c2.7,0,5.1-0.9,7.1-2.3l4.1,5l0,0c0.2,0.2,0.4,0.4,0.8,0.4
+                                                                        c0.6,0,1-0.4,1-1C28,28.8,27.9,28.5,27.8,28.4L27.8,28.4z M15,25C9.5,25,5,20.5,5,15C5,9.5,9.3,5,15,5c5.6,0,10,4.5,10,10
+                                                                        C25,20.5,20.5,25,15,25z M19.3,9.3l-4.9,5.2l-2.8-3c-0.4-0.4-1-0.4-1.4,0c-0.4,0.4-0.4,1.1,0,1.5l3.5,3.7c0.4,0.4,1,0.4,1.4,0
+                                                                        l5.6-5.9c0.4-0.4,0.4-1.1,0-1.5C20.3,8.9,19.7,8.9,19.3,9.3z" />
                                                             </g>
                                                         </g>
                                                     </svg>15 мин</div>
@@ -153,14 +155,15 @@
                                                         </style>
                                                         <g>
                                                             <g>
-                                                                <path class="st0" d="M3.2,7.5L2.1,6.2L6.8,2l0.9,1.1c0.6-0.4,1.2-0.7,1.8-1L8.4,0.8c-0.7-0.9-2-1-2.9-0.3L0.8,4.6
-                                        c-0.9,0.7-1.1,1.9-0.4,2.8l1.7,2.1C2.4,8.8,2.8,8.1,3.2,7.5z M29.2,4.6l-4.7-4.2c-0.9-0.7-2.2-0.5-2.9,0.3l-1.1,1.4
-                                        c0.6,0.3,1.2,0.6,1.8,1L23.2,2l4.7,4.2l-1.1,1.3c0.4,0.6,0.7,1.3,1,1.9l1.7-2.1C30.2,6.5,30.1,5.3,29.2,4.6z M27.8,28.4l-4.2-5
-                                        c2.1-2.2,3.4-5.1,3.4-8.4c0-6.6-5.4-12-12-12S3,8.4,3,15c0,3.3,1.3,6.2,3.4,8.4l-4.2,5l0,0C2.1,28.5,2,28.8,2,29c0,0.6,0.4,1,1,1
-                                        c0.3,0,0.6-0.1,0.8-0.4l0,0l4.1-5c2,1.5,4.4,2.3,7.1,2.3c2.7,0,5.1-0.9,7.1-2.3l4.1,5l0,0c0.2,0.2,0.4,0.4,0.8,0.4
-                                        c0.6,0,1-0.4,1-1C28,28.8,27.9,28.5,27.8,28.4L27.8,28.4z M15,25C9.5,25,5,20.5,5,15C5,9.5,9.3,5,15,5c5.6,0,10,4.5,10,10
-                                        C25,20.5,20.5,25,15,25z M19.3,9.3l-4.9,5.2l-2.8-3c-0.4-0.4-1-0.4-1.4,0c-0.4,0.4-0.4,1.1,0,1.5l3.5,3.7c0.4,0.4,1,0.4,1.4,0
-                                        l5.6-5.9c0.4-0.4,0.4-1.1,0-1.5C20.3,8.9,19.7,8.9,19.3,9.3z" />
+                                                                <path class="st0"
+                                                                    d="M3.2,7.5L2.1,6.2L6.8,2l0.9,1.1c0.6-0.4,1.2-0.7,1.8-1L8.4,0.8c-0.7-0.9-2-1-2.9-0.3L0.8,4.6
+                                                                        c-0.9,0.7-1.1,1.9-0.4,2.8l1.7,2.1C2.4,8.8,2.8,8.1,3.2,7.5z M29.2,4.6l-4.7-4.2c-0.9-0.7-2.2-0.5-2.9,0.3l-1.1,1.4
+                                                                        c0.6,0.3,1.2,0.6,1.8,1L23.2,2l4.7,4.2l-1.1,1.3c0.4,0.6,0.7,1.3,1,1.9l1.7-2.1C30.2,6.5,30.1,5.3,29.2,4.6z M27.8,28.4l-4.2-5
+                                                                        c2.1-2.2,3.4-5.1,3.4-8.4c0-6.6-5.4-12-12-12S3,8.4,3,15c0,3.3,1.3,6.2,3.4,8.4l-4.2,5l0,0C2.1,28.5,2,28.8,2,29c0,0.6,0.4,1,1,1
+                                                                        c0.3,0,0.6-0.1,0.8-0.4l0,0l4.1-5c2,1.5,4.4,2.3,7.1,2.3c2.7,0,5.1-0.9,7.1-2.3l4.1,5l0,0c0.2,0.2,0.4,0.4,0.8,0.4
+                                                                        c0.6,0,1-0.4,1-1C28,28.8,27.9,28.5,27.8,28.4L27.8,28.4z M15,25C9.5,25,5,20.5,5,15C5,9.5,9.3,5,15,5c5.6,0,10,4.5,10,10
+                                                                        C25,20.5,20.5,25,15,25z M19.3,9.3l-4.9,5.2l-2.8-3c-0.4-0.4-1-0.4-1.4,0c-0.4,0.4-0.4,1.1,0,1.5l3.5,3.7c0.4,0.4,1,0.4,1.4,0
+                                                                        l5.6-5.9c0.4-0.4,0.4-1.1,0-1.5C20.3,8.9,19.7,8.9,19.3,9.3z" />
                                                             </g>
                                                         </g>
                                                     </svg>30 мин</div>
@@ -175,14 +178,15 @@
                                                         </style>
                                                         <g>
                                                             <g>
-                                                                <path class="st0" d="M3.2,7.5L2.1,6.2L6.8,2l0.9,1.1c0.6-0.4,1.2-0.7,1.8-1L8.4,0.8c-0.7-0.9-2-1-2.9-0.3L0.8,4.6
-                                        c-0.9,0.7-1.1,1.9-0.4,2.8l1.7,2.1C2.4,8.8,2.8,8.1,3.2,7.5z M29.2,4.6l-4.7-4.2c-0.9-0.7-2.2-0.5-2.9,0.3l-1.1,1.4
-                                        c0.6,0.3,1.2,0.6,1.8,1L23.2,2l4.7,4.2l-1.1,1.3c0.4,0.6,0.7,1.3,1,1.9l1.7-2.1C30.2,6.5,30.1,5.3,29.2,4.6z M27.8,28.4l-4.2-5
-                                        c2.1-2.2,3.4-5.1,3.4-8.4c0-6.6-5.4-12-12-12S3,8.4,3,15c0,3.3,1.3,6.2,3.4,8.4l-4.2,5l0,0C2.1,28.5,2,28.8,2,29c0,0.6,0.4,1,1,1
-                                        c0.3,0,0.6-0.1,0.8-0.4l0,0l4.1-5c2,1.5,4.4,2.3,7.1,2.3c2.7,0,5.1-0.9,7.1-2.3l4.1,5l0,0c0.2,0.2,0.4,0.4,0.8,0.4
-                                        c0.6,0,1-0.4,1-1C28,28.8,27.9,28.5,27.8,28.4L27.8,28.4z M15,25C9.5,25,5,20.5,5,15C5,9.5,9.3,5,15,5c5.6,0,10,4.5,10,10
-                                        C25,20.5,20.5,25,15,25z M19.3,9.3l-4.9,5.2l-2.8-3c-0.4-0.4-1-0.4-1.4,0c-0.4,0.4-0.4,1.1,0,1.5l3.5,3.7c0.4,0.4,1,0.4,1.4,0
-                                        l5.6-5.9c0.4-0.4,0.4-1.1,0-1.5C20.3,8.9,19.7,8.9,19.3,9.3z" />
+                                                                <path class="st0"
+                                                                    d="M3.2,7.5L2.1,6.2L6.8,2l0.9,1.1c0.6-0.4,1.2-0.7,1.8-1L8.4,0.8c-0.7-0.9-2-1-2.9-0.3L0.8,4.6
+                                                                        c-0.9,0.7-1.1,1.9-0.4,2.8l1.7,2.1C2.4,8.8,2.8,8.1,3.2,7.5z M29.2,4.6l-4.7-4.2c-0.9-0.7-2.2-0.5-2.9,0.3l-1.1,1.4
+                                                                        c0.6,0.3,1.2,0.6,1.8,1L23.2,2l4.7,4.2l-1.1,1.3c0.4,0.6,0.7,1.3,1,1.9l1.7-2.1C30.2,6.5,30.1,5.3,29.2,4.6z M27.8,28.4l-4.2-5
+                                                                        c2.1-2.2,3.4-5.1,3.4-8.4c0-6.6-5.4-12-12-12S3,8.4,3,15c0,3.3,1.3,6.2,3.4,8.4l-4.2,5l0,0C2.1,28.5,2,28.8,2,29c0,0.6,0.4,1,1,1
+                                                                        c0.3,0,0.6-0.1,0.8-0.4l0,0l4.1-5c2,1.5,4.4,2.3,7.1,2.3c2.7,0,5.1-0.9,7.1-2.3l4.1,5l0,0c0.2,0.2,0.4,0.4,0.8,0.4
+                                                                        c0.6,0,1-0.4,1-1C28,28.8,27.9,28.5,27.8,28.4L27.8,28.4z M15,25C9.5,25,5,20.5,5,15C5,9.5,9.3,5,15,5c5.6,0,10,4.5,10,10
+                                                                        C25,20.5,20.5,25,15,25z M19.3,9.3l-4.9,5.2l-2.8-3c-0.4-0.4-1-0.4-1.4,0c-0.4,0.4-0.4,1.1,0,1.5l3.5,3.7c0.4,0.4,1,0.4,1.4,0
+                                                                        l5.6-5.9c0.4-0.4,0.4-1.1,0-1.5C20.3,8.9,19.7,8.9,19.3,9.3z" />
                                                             </g>
                                                         </g>
                                                     </svg>40 мин</div>
@@ -197,14 +201,15 @@
                                                         </style>
                                                         <g>
                                                             <g>
-                                                                <path class="st0" d="M3.2,7.5L2.1,6.2L6.8,2l0.9,1.1c0.6-0.4,1.2-0.7,1.8-1L8.4,0.8c-0.7-0.9-2-1-2.9-0.3L0.8,4.6
-                                        c-0.9,0.7-1.1,1.9-0.4,2.8l1.7,2.1C2.4,8.8,2.8,8.1,3.2,7.5z M29.2,4.6l-4.7-4.2c-0.9-0.7-2.2-0.5-2.9,0.3l-1.1,1.4
-                                        c0.6,0.3,1.2,0.6,1.8,1L23.2,2l4.7,4.2l-1.1,1.3c0.4,0.6,0.7,1.3,1,1.9l1.7-2.1C30.2,6.5,30.1,5.3,29.2,4.6z M27.8,28.4l-4.2-5
-                                        c2.1-2.2,3.4-5.1,3.4-8.4c0-6.6-5.4-12-12-12S3,8.4,3,15c0,3.3,1.3,6.2,3.4,8.4l-4.2,5l0,0C2.1,28.5,2,28.8,2,29c0,0.6,0.4,1,1,1
-                                        c0.3,0,0.6-0.1,0.8-0.4l0,0l4.1-5c2,1.5,4.4,2.3,7.1,2.3c2.7,0,5.1-0.9,7.1-2.3l4.1,5l0,0c0.2,0.2,0.4,0.4,0.8,0.4
-                                        c0.6,0,1-0.4,1-1C28,28.8,27.9,28.5,27.8,28.4L27.8,28.4z M15,25C9.5,25,5,20.5,5,15C5,9.5,9.3,5,15,5c5.6,0,10,4.5,10,10
-                                        C25,20.5,20.5,25,15,25z M19.3,9.3l-4.9,5.2l-2.8-3c-0.4-0.4-1-0.4-1.4,0c-0.4,0.4-0.4,1.1,0,1.5l3.5,3.7c0.4,0.4,1,0.4,1.4,0
-                                        l5.6-5.9c0.4-0.4,0.4-1.1,0-1.5C20.3,8.9,19.7,8.9,19.3,9.3z" />
+                                                                <path class="st0"
+                                                                    d="M3.2,7.5L2.1,6.2L6.8,2l0.9,1.1c0.6-0.4,1.2-0.7,1.8-1L8.4,0.8c-0.7-0.9-2-1-2.9-0.3L0.8,4.6
+                                                                        c-0.9,0.7-1.1,1.9-0.4,2.8l1.7,2.1C2.4,8.8,2.8,8.1,3.2,7.5z M29.2,4.6l-4.7-4.2c-0.9-0.7-2.2-0.5-2.9,0.3l-1.1,1.4
+                                                                        c0.6,0.3,1.2,0.6,1.8,1L23.2,2l4.7,4.2l-1.1,1.3c0.4,0.6,0.7,1.3,1,1.9l1.7-2.1C30.2,6.5,30.1,5.3,29.2,4.6z M27.8,28.4l-4.2-5
+                                                                        c2.1-2.2,3.4-5.1,3.4-8.4c0-6.6-5.4-12-12-12S3,8.4,3,15c0,3.3,1.3,6.2,3.4,8.4l-4.2,5l0,0C2.1,28.5,2,28.8,2,29c0,0.6,0.4,1,1,1
+                                                                        c0.3,0,0.6-0.1,0.8-0.4l0,0l4.1-5c2,1.5,4.4,2.3,7.1,2.3c2.7,0,5.1-0.9,7.1-2.3l4.1,5l0,0c0.2,0.2,0.4,0.4,0.8,0.4
+                                                                        c0.6,0,1-0.4,1-1C28,28.8,27.9,28.5,27.8,28.4L27.8,28.4z M15,25C9.5,25,5,20.5,5,15C5,9.5,9.3,5,15,5c5.6,0,10,4.5,10,10
+                                                                        C25,20.5,20.5,25,15,25z M19.3,9.3l-4.9,5.2l-2.8-3c-0.4-0.4-1-0.4-1.4,0c-0.4,0.4-0.4,1.1,0,1.5l3.5,3.7c0.4,0.4,1,0.4,1.4,0
+                                                                        l5.6-5.9c0.4-0.4,0.4-1.1,0-1.5C20.3,8.9,19.7,8.9,19.3,9.3z" />
                                                             </g>
                                                         </g>
                                                     </svg>1 час</div>
@@ -303,20 +308,37 @@
 
                 <div class="tab-pane  gray-border" id="ingridients" role="tabpanel" aria-labelledby="profile-tab">
                     <div class="search-tab-pane">
-                        <form action="{{route('searchSimple')}}" method="GET" class="search-simple">
-                            <label for="search" class="sr-only">search here</label><!-- /.sr-only -->
-                            <input type="text" class="form-control" name="q" placeholder="Ищу..." value="{{ old('q') }}" required>
-                            <button type="submit" aria-label="search submit" class="thm-btn">
-                                <i class="organik-icon-magnifying-glass"></i>
-                            </button>
-                        </form>
+
+                        <!--<label for="search" class="sr-only">search here</label> /.sr-only -->
+                        <input type="text" class="form-control search-input typeahead" name="q" autocomplete="off"
+                            placeholder="Ищу...">
+                        <button aria-label="search submit" class="thm-btn">
+                            <i class="organik-icon-magnifying-glass"></i>
+                        </button>
+
                     </div>
 
                     <div class="row ml-10 mr-10">
-                        @foreach($ingredientsCategories as $category)
-                            <div class="col-md-3"><a href=#{{ $category->id }}>{{ $category->name }}
-                                </a></div>
+                        @foreach ($ingredientsCategories as $category)
+                            <div class="col-md-3">
+                                <a class="ingredientsCategory" rel="{{ $category->id }}">{{ $category->name }}</a>
+                            </div>
                         @endforeach
+                        <div class="row mt-10">
+
+                            @foreach ($ingredientList as $ingredient)
+                                <div class="col-md-3 ingredientsListFiltered"
+                                    data-category-id="{{ $ingredient->category->id }}">
+                                    <div class="form-group"> <input type="checkbox"
+                                            id="ingredient{{ $ingredient->id }}"
+                                            name="ingredient{{ $ingredient->id }}"><label
+                                            for="ingredient{{ $ingredient->id }}">{{ $ingredient->name }}</label>
+                                    </div>
+                                </div>
+                            @endforeach
+
+                        </div>
+
                     </div>
                 </div>
                 <div class="tab-pane gray-border" id="naming" role="tabpanel" aria-labelledby="contact-tab">
@@ -330,7 +352,7 @@
                         </form>
                     </div>
                     <div class="row ml-10 mr-10">
-                        @foreach($recipeCategories as $category)
+                        @foreach ($recipeCategories as $category)
                             <div class="col-md-3"><a href=#{{ $category->id }}>{{ $category->name }}
                                 </a></div>
                         @endforeach
@@ -340,43 +362,45 @@
 
             <div class="results mt-60">
                 <div class="row">
-                    @foreach($recipeList as $recipe)
-                    <div class="col-lg-4 col-md-6">
-                        <div class="product-card__two">
-                            <div class="product-card__two-image">
-                                <img src="{{ $recipe->img }}" alt="фото рецепта">
-                                <div class="product-card__two-image-content">
-                                    <a href="#"><i class="organik-icon-visibility"></i></a>
-                                    <a href="#"><i class="organik-icon-heart"></i></a>
-                                </div><!-- /.product-card__two-image-content -->
-                            </div><!-- /.product-card__two-image -->
-                            <div class="product-card__two-content">
-                                <h3><a href="#{{ $recipe->id }}">{{ $recipe->name }}</a></h3>
+                    @foreach ($recipeList as $recipe)
+                        <div class="col-lg-4 col-md-6">
+                            <div class="product-card__two">
+                                <div class="product-card__two-image">
+                                    <img src="{{ $recipe->img }}" alt="фото рецепта">
+                                    <div class="product-card__two-image-content">
+                                        <a href="#"><i class="organik-icon-visibility"></i></a>
+                                        <a href="#"><i class="organik-icon-heart"></i></a>
+                                    </div><!-- /.product-card__two-image-content -->
+                                </div><!-- /.product-card__two-image -->
+                                <div class="product-card__two-content">
+                                    <h3><a href="#{{ $recipe->id }}">{{ $recipe->name }}</a></h3>
 
-                                <div class="row">
-                                    <div class="col-md-12 properties"><img
-                                            src="{{ asset('/images/calculator/time.svg') }}" /><span>{{ $recipe->cooking_time }} минут</span></div>
-                                    <div class="col-md-12 properties"><img
-                                            src="{{ asset('/images/calculator/chart.svg') }}" /><span>395 Ккал</span></div>
-                                    <div class="col-md-12 properties"><img
-                                            src="{{ asset('/images/calculator/smile.svg') }}" />
-                                        <span>
-                                            @switch($recipe->cooking_level)
-                                                @case('easy')
-                                                Для новичков
-                                                @break
-                                                @case('medium')
-                                                Для опытных
-                                                @break
-                                                @default
-                                                Для профи
-                                            @endswitch
-                                        </span>
+                                    <div class="row">
+                                        <div class="col-md-12 properties"><img
+                                                src="{{ asset('/images/calculator/time.svg') }}" /><span>{{ $recipe->cooking_time }}
+                                                минут</span></div>
+                                        <div class="col-md-12 properties"><img
+                                                src="{{ asset('/images/calculator/chart.svg') }}" /><span>395 Ккал</span>
+                                        </div>
+                                        <div class="col-md-12 properties"><img
+                                                src="{{ asset('/images/calculator/smile.svg') }}" />
+                                            <span>
+                                                @switch($recipe->cooking_level)
+                                                    @case('easy')
+                                                        Для новичков
+                                                    @break
+                                                    @case('medium')
+                                                        Для опытных
+                                                    @break
+                                                    @default
+                                                        Для профи
+                                                @endswitch
+                                            </span>
+                                        </div>
                                     </div>
-                                </div>
-                            </div><!-- /.product-card__two-content -->
-                        </div><!-- /.product-card__two -->
-                    </div>
+                                </div><!-- /.product-card__two-content -->
+                            </div><!-- /.product-card__two -->
+                        </div>
                     @endforeach
                 </div>
             </div>
@@ -392,7 +416,7 @@
             </div>
             <div class="popular-recipes mt-60">
                 <div class="row">
-                    @foreach($favorList as $recipe)
+                    @foreach ($favorList as $recipe)
                         <div class="col-lg-4 col-md-6">
                             <div class="product-card__two">
                                 <div class="product-card__two-image">
@@ -407,23 +431,25 @@
 
                                     <div class="row">
                                         <div class="col-md-12 properties"><img
-                                                src="{{ asset('/images/calculator/time.svg') }}" /><span>{{ $recipe->cooking_time }} минут</span></div>
+                                                src="{{ asset('/images/calculator/time.svg') }}" /><span>{{ $recipe->cooking_time }}
+                                                минут</span></div>
                                         <div class="col-md-12 properties"><img
-                                                src="{{ asset('/images/calculator/chart.svg') }}" /><span>395 Ккал</span></div>
+                                                src="{{ asset('/images/calculator/chart.svg') }}" /><span>395 Ккал</span>
+                                        </div>
                                         <div class="col-md-12 properties"><img
                                                 src="{{ asset('/images/calculator/smile.svg') }}" />
                                             <span>
-                                            @switch($recipe->cooking_level)
+                                                @switch($recipe->cooking_level)
                                                     @case('easy')
-                                                    Для новичков
+                                                        Для новичков
                                                     @break
                                                     @case('medium')
-                                                    Для опытных
+                                                        Для опытных
                                                     @break
                                                     @default
-                                                    Для профи
+                                                        Для профи
                                                 @endswitch
-                                        </span>
+                                            </span>
                                         </div>
                                     </div>
                                 </div><!-- /.product-card__two-content -->
@@ -445,34 +471,34 @@
                 <h3>Вы готовите по нашим рецептам</h3>
             </div><!-- /.block-title -->
             <div class="swiper-container thm-swiper__slider" data-swiper-options='{"slidesPerView": 1, "loop": true,
-    "autoplay": {
-        "delay": 5000
-    }, "breakpoints": {
-        "0": {
-            "spaceBetween": 0,
-            "slidesPerView": 1
-        },
-        "375": {
-            "spaceBetween": 0,
-            "slidesPerView": 1
-        },
-        "575": {
-            "spaceBetween": 10,
-            "slidesPerView": 2
-        },
-        "767": {
-            "spaceBetween": 10,
-            "slidesPerView": 3
-        },
-        "991": {
-            "spaceBetween": 10,
-            "slidesPerView": 5
-        },
-        "1199": {
-            "spaceBetween": 10,
-            "slidesPerView": 5
-        }
-    }}'>
+                                    "autoplay": {
+                                        "delay": 5000
+                                    }, "breakpoints": {
+                                        "0": {
+                                            "spaceBetween": 0,
+                                            "slidesPerView": 1
+                                        },
+                                        "375": {
+                                            "spaceBetween": 0,
+                                            "slidesPerView": 1
+                                        },
+                                        "575": {
+                                            "spaceBetween": 10,
+                                            "slidesPerView": 2
+                                        },
+                                        "767": {
+                                            "spaceBetween": 10,
+                                            "slidesPerView": 3
+                                        },
+                                        "991": {
+                                            "spaceBetween": 10,
+                                            "slidesPerView": 5
+                                        },
+                                        "1199": {
+                                            "spaceBetween": 10,
+                                            "slidesPerView": 5
+                                        }
+                                    }}'>
                 <div class="swiper-wrapper">
                     <div class="swiper-slide">
                         <div class="gallery-one__item">
@@ -655,5 +681,15 @@
     </section><!-- /.gallery-one -->
 @endsection
 @section('scripts')
-
+    <script src="https://rawgithub.com/TimSchlechter/bootstrap-tagsinput/master/src/bootstrap-tagsinput.js"></script>
+    <script src="{{ asset('/js/typeahead.js') }}"></script>
+    <script src="{{ asset('/js/search.js') }}"></script>
+    <script type="text/javascript">
+        $('.ingredientsListFiltered').hide();
+        $('.ingredientsCategory').on("click", function() {
+            let id = $(this).attr('rel');
+            $('.ingredientsListFiltered').hide();
+            $('div[data-category-id="' + id + '"]').fadeIn();
+        });
+    </script>
 @endsection

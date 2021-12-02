@@ -47,8 +47,8 @@ Route::group(['prefix' => 'ingredient'], function () {
         ->name('ingredient.show');
 });
 
-Route::get('searchSimple', [SearchController::class, 'index'])
-    ->name('searchSimple');
+
+Route::get('find', [SearchController::class, 'find'])->name('find');
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
