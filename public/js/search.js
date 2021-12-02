@@ -26,7 +26,7 @@ jQuery(document).ready(function($) {
             // the key from the array we want to display (name,id,email,etc...)
             templates: {
                 empty: [
-                    '<div class="list-group search-results-dropdown"><div class="list-group-item">Nothing found.</div></div>'
+                    '<div class="list-group search-results-dropdown"><div class="list-group-item">Ничего не нашлось =(</div></div>'
                 ],
                 header: [
                     '<div class="list-group search-results-dropdown">'
