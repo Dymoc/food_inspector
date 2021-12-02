@@ -3313,6 +3313,7 @@ margin-right: 15px;
   line-height: 22px;
   cursor: text;
 }
+
 /*--------------------------------------------------------------
 # Page Header
 --------------------------------------------------------------*/
@@ -8039,5 +8040,11 @@ margin-right: 15px;
 }
 .mt-10 {
   margin-top: 10px;
+}
+.talign-center{
+  text-align: center;
+}
+.mlr-auto{
+  margin: 0 auto;
 }
 /*# sourceMappingURL=organik.css.map */
