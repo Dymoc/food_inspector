@@ -1,6 +1,6 @@
 @extends('layouts.master')
 @section('title')
-    Рецепт
+    Популярные рецепты
 @endsection
 @section('styles')
 
