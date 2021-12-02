@@ -25,7 +25,7 @@ class HomeController extends Controller
                 'ingredientList' => Ingredient::all(),
                 'ingredientsCategories' => IngredientsCategory::all()
             ]);
-        
+
     }
 
 }
