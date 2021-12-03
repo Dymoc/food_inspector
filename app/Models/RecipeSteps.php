@@ -4,11 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasOne;
 
-class RecipeIngredients extends Model
+class RecipeSteps extends Model
 {
     use HasFactory;
-    protected $table = 'recipe_ingredients';
-
+    protected $table = 'recipe_steps';
 }

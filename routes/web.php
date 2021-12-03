@@ -51,7 +51,10 @@ Route::group(['prefix' => 'ingredient'], function () {
 Route::get('find', [SearchController::class, 'find'])->name('find');
 Route::get('findByIngredients', [SearchController::class, 'findByIngredients'])->name('findByIngredients');
 
+Route::group(['prefix' => 'recipe'], function () {
+    Route::get('/show/{id}', [RecipeController::class, 'show'])->where('id', '\d+')->name('recipe.show');
+});
+
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });
-

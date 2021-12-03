@@ -1,81 +1,110 @@
 @extends('layouts.master')
 @section('title')
-    {{ $recipe->title }}
+    {{ $recipe->name }}
 @endsection
 @section('styles')
 
 @endsection
 @section('content')
-{{--    <section class="page-header">--}}
-{{--        <div class="page-header__bg"--}}
-{{--            style="background-image: url({{ asset('/images/backgrounds/page-header-bg-1-1.jpg') }});"></div>--}}
-{{--        <!-- /.page-header__bg -->--}}
-{{--        <div class="container">--}}
-{{--            <h2>{{ $news->title }}</h2>--}}
-{{--            <ul class="thm-breadcrumb list-unstyled">--}}
-{{--                <li><a href="{{ route('index') }}">Главная</a></li>--}}
-{{--                <li>/</li>--}}
-{{--                <li><span>{{ $news->title }}</span></li>--}}
-{{--            </ul><!-- /.thm-breadcrumb list-unstyled -->--}}
-{{--        </div><!-- /.container -->--}}
-{{--    </section><!-- /.page-header -->--}}
-
-{{--    <section class="blog-details">--}}
-{{--        <div class="container">--}}
-{{--            <div class="row">--}}
-{{--                <div class="col-md-12 col-lg-8">--}}
-{{--                    <div class="blog-card__image blog-details__image">--}}
-{{--                        <div class="blog-card__date">{{ $news->created_at->format('d-m-Y') }}</div>--}}
-{{--                        <!-- /.blog-card__date -->--}}
-{{--                        <img src="{{ asset($news->img) }}" class="img-fluid" alt="{{ $news->title }}">--}}
-{{--                    </div><!-- /.blog-card__image -->--}}
-{{--                    <div class="blog-card__meta">--}}
-{{--                        <a href="{{ route('news.show', $news) }}"><i class="far fa-user-circle"></i> Администратор</a>--}}
-{{--                    </div><!-- /.blog-card__meta -->--}}
-{{--                    <div class="blog-details__content blog-card__content">--}}
-{{--                        <h3>{{ $news->title }}</h3>--}}
-{{--                        <p>{{ $news->description }}</p>--}}
-{{--                    </div><!-- /.blog-details__content -->--}}
 
 
-{{--                </div><!-- /.col-md-12 col-lg-9 -->--}}
-{{--                <div class="col-md-12 col-lg-4">--}}
-{{--                    <div class="blog-sidebar">--}}
-{{--                        <div class="blog-sidebar__search">--}}
-{{--                            <form action="#">--}}
-{{--                                <input type="text" placeholder="Search">--}}
-{{--                                <button type="submit"><i class="organik-icon-magnifying-glass"></i></button>--}}
-{{--                            </form>--}}
-{{--                        </div><!-- /.blog-sidebar__search -->--}}
-{{--                        <div class="blog-sidebar__posts">--}}
-{{--                            <h3>Свежие новости</h3>--}}
-{{--                            <ul>--}}
-{{--                            @foreach($recentNews as $rn)--}}
-{{--                                <li>--}}
-{{--                                    <img src="assets/images/blog/lp-1-1.jpg" alt="">--}}
-{{--                                    <span>{{ $rn->created_at->format('j F, Y') }}</span>--}}
-{{--                                    <h4><a href="{{ route('news.show', $rn) }}">{{$rn->title}}</a></h4>--}}
-{{--                                </li>--}}
-{{--                                @endforeach--}}
-{{--                            </ul>--}}
-{{--                        </div><!-- /.blog-sidebar__posts -->--}}
-{{--                        <div class="blog-sidebar__categories">--}}
-{{--                            <h3>Категории</h3>--}}
-{{--                            <ul>--}}
-{{--                                @foreach ($categories as $c)--}}
-{{--                                    <li>--}}
-{{--                                        <a href="{{ route('news.category', $c->id) }}">{{$c->name}} <i class="fa fa-angle-right"></i>--}}
-{{--                                        </a>--}}
-{{--                                    </li>--}}
-{{--                                @endforeach--}}
-{{--                            </ul>--}}
-{{--                        </div><!-- /.blog-sidebar__categories -->--}}
-{{--                        --}}
-{{--                    </div><!-- /.blog-sidebar -->--}}
-{{--                </div><!-- /.col-md-12 col-lg-9 -->--}}
-{{--            </div><!-- /.row -->--}}
-{{--        </div><!-- /.container -->--}}
-{{--    </section><!-- /.blog-details -->--}}
+
+
+    <section class="page-header">
+        <div class="page-header__bg"
+            style="background-image: url({{ asset('/images/backgrounds/page-header-bg-1-1.jpg') }});"></div>
+        <!-- /.page-header__bg -->
+        <div class="container">
+            <h2> {{ $recipe->name }}</h2>
+            <ul class="thm-breadcrumb list-unstyled">
+                <li><a href="{{ route('index') }}">Главная</a></li>
+                <li>/</li>
+                <li><span> {{ $recipe->name }}</span></li>
+            </ul><!-- /.thm-breadcrumb list-unstyled -->
+        </div><!-- /.container -->
+    </section><!-- /.page-header -->
+
+
+    <section class="product_detail">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-5 col-lg-5">
+                    <div class="product_detail_image">
+                        <img src="{{ asset('/images/products/product-d-1.jpg') }}" alt="">
+                    </div>
+                </div>
+                <div class="col-xl-7 col-lg-7">
+                    <div class="product_detail_content">
+                        <div class="naming_recipe">
+                            <h2> {{ $recipe->name }}</h2><a href="#"><i class="fa fa-heart"></i></a>
+                        </div>
+
+                        <div class="product_detail_review_box">
+                            <div>{{ $recipe->cooking_time }} минут</div>
+                            <div>395 Ккал</div>
+                            <div>@switch( $recipe->cooking_level )
+                                    @case(" easy")
+                                        Для новичков
+                                    @break
+                                    @case(" medium")
+                                        Для опытных
+                                    @break
+                                    @default
+                                        Для профи
+                                @endswitch
+                            </div>
+                        </div>
+                        <div class="product_detail_text">
+                            <h2>Ингредиенты</h2>
+                            <ul>
+                                @foreach ($ingredientsList as $ingredient)
+                                    <li>{{ $ingredient->name }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+
+                        <ul class="list-unstyled category_tag_list">
+                            <li><span>Тип блюда:</span>
+                                @foreach ($recipe_type as $type)
+                                    {{ $type->name }}
+                                @endforeach
+                            </li>
+
+                        </ul>
+
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xl-12">
+                    
+                    <div class="product-tab-box tabs-box">
+                        <h2 class="mb-30 talign-center">Пошаговый рецепт</h2>
+                        <div class="tabs-content">
+                            <div class="tab active-tab" id="desc">
+                                <div class="product-details-content">
+                                    <div class="desc-content-box">
+                                        @foreach ($recipe_steps as $step)
+                                            <div class="row mb-20">
+                                                <div class="col-md-4"><img src="{{ $step->img }}" alt=""></div>
+                                                <div class="col-md-8">
+                                                    <h2>Шаг {{ $step->step_number }}</h2>
+                                                    <p>
+                                                        {{ $step->description }}<br />
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        @endforeach
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 @endsection
 @section('scripts')
 

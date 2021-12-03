@@ -6597,12 +6597,20 @@ margin-right: 15px;
     margin-top: 50px;
   }
 }
-
+.product_detail_content .naming_recipe{
+  display: flex;
+  justify-content: space-between;
+}
+.product_detail_content .naming_recipe a{
+  font-size:40px;
+  line-height: 2;
+}
 .product_detail_content h2 {
   font-size: 20px;
   color: var(--thm-black);
   font-family: var(--special-font);
   margin: 0;
+  line-height: normal;
 }
 
 @media (min-width: 768px) {
@@ -6829,7 +6837,7 @@ margin-right: 15px;
   position: relative;
   display: block;
   overflow: hidden;
-  margin-top: 115px;
+  margin-top: 30px;
 }
 
 .product-tab-box .tab-btns {
@@ -6923,6 +6931,9 @@ margin-right: 15px;
   display: block;
 }
 
+.product-details-content .desc-content-box img {
+width: 100%;
+}
 .product-details-content .desc-content-box p {
   font-size: 18px;
   color: var(--thm-color);

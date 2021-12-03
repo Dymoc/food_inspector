@@ -19,7 +19,7 @@ class SearchController extends Controller
             $data[] = $recipe->recipe_id;
         }
         $recipeList = Recipe::query()->whereIn('id', $data)->get();
-        $htmlArr = [];
+        /*$htmlArr = [];
         foreach ($recipeList as $recipe) {
             $difficulty = "";
             switch ($recipe->cooking_level) {
@@ -40,8 +40,8 @@ class SearchController extends Controller
                 'name'=>$recipe->name, 
                 'cooking_time'=>$recipe->cooking_time,
                 'difficulty'=>$difficulty];
-        }
-        return $htmlArr;
+        }*/
+        return json_encode($recipeList);
     }
     public function find(Request $request)
     {
