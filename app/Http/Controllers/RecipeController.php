@@ -14,7 +14,7 @@ class RecipeController extends Controller
     public function popular()
     {
         $recipes = Recipe::all();
-        $recipes = $recipes->only([1, 3, 5]);
+        $recipes = $recipes->only([mt_rand(1, 20), mt_rand(1, 20), mt_rand(1, 20)]);
 
 
         return view('recipe/index', [
