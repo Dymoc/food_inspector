@@ -37,6 +37,10 @@ class CreateEatValuesTable extends Migration
      */
     public function down()
     {
+        Schema::table('eat_values', function (Blueprint $table) {
+            $table->dropForeign('ingredient_id');
+
+        });
         Schema::dropIfExists('eat_values');
     }
 }

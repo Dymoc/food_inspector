@@ -35,6 +35,9 @@ class CreateRecipeStepsTable extends Migration
      */
     public function down()
     {
+        Schema::table('recipe_steps', function (Blueprint $table) {
+            $table->dropForeign('recipe_id');
+        });
         Schema::dropIfExists('recipe_steps');
     }
 }
