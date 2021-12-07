@@ -1895,14 +1895,17 @@ h6 {
 .main-menu__login {
     display: flex;
 }
-.main-menu__login form button{
+
+.main-menu__login form button {
     background-color: transparent;
     border: none;
 }
-.main-menu__login form button:focus{
+
+.main-menu__login form button:focus {
 
     outline: none;
 }
+
 .main-menu__login a,
 .main-menu__login form button {
     font-size: 14px;
@@ -3896,7 +3899,8 @@ label[for="myList"]+span {
 .contact-one__form textarea,
 .contact-one__form input[type=text],
 .contact-one__form input[type=email],
-.contact-one__form input[type=number] {
+.contact-one__form input[type=number],
+.contact-one__form input[type=date] {
     width: 100%;
     height: 61px;
     background-color: #f4f4f4;
@@ -8096,6 +8100,130 @@ label[for="myList"]+span {
     right: -14px;
 }
 
+.profile_info {
+    position: relative;
+    display: block;
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
+
+@media (min-width: 1200px) {
+    .profile_info {
+        padding-top: 80px;
+        padding-bottom: 80px;
+    }
+}
+
+.profile_info .user-img {
+    border-radius: 50%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+}
+
+.changeble_img {
+    cursor: pointer;
+    transition-duration: 0.7s;
+}
+
+.changeble_img+i {
+    position: absolute;
+    top: 40%;
+    left: 42%;
+    font-size: 35px;
+    display:none;
+    transition-duration: 0.7s;
+    cursor: pointer;
+}
+
+.changeble_img:hover {
+    opacity: 0.4;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    background-color: #000;
+}
+.changeble_img:hover+i {
+    display:block
+}
+.bottom-user-icons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.bottom-user-icons .stars {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bottom-user-icons .stars>i,
+.bottom-user-icons i {
+    font-size: 14px;
+    color: var(--thm-base);
+}
+
+.bottom-user-icons .stars>i+i {
+    margin-left: 5px;
+}
+
+.profile_info-sidebar__categories ul {
+    list-style-type: none;
+}
+
+.profile_info-sidebar__categories {
+    background-color: #f4f4f4;
+    margin-bottom: 30px;
+    padding: 30px;
+
+}
+
+@media (min-width: 1200px) {
+    .profile_info-sidebar__categories {
+        padding: 50px;
+    }
+}
+
+.profile_info-sidebar__categories ul li+li {
+    margin-top: 10px;
+}
+
+@media (min-width: 1200px) {
+    .profile_info-sidebar__categories ul li+li {
+        margin-top: 25px;
+    }
+}
+
+.profile_info-sidebar__categories ul li a {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: var(--thm-color);
+    font-weight: 500;
+    line-height: 1;
+    transition: all 500ms ease;
+}
+
+.profile_info-sidebar__categories ul li a:hover {
+    color: var(--thm-black);
+}
+
+.profile_info-sidebar__categories ul li a i {
+    font-size: 16px;
+}
+
+.profile_info .change-pwd {
+    padding: 10px 30px;
+    border: 2px solid #808080;
+
+    border-radius: 20px;
+}
+
+.profile_info .contact-info *:not(.thm-btn) {
+    color: #808080;
+}
+
 .no-border {
     border: none;
 }
@@ -8108,6 +8236,10 @@ label[for="myList"]+span {
 
 .gray-border-all {
     border: 2px solid #f4f4f4;
+}
+
+.gray-border-bottom {
+    border-bottom: 2px solid #f4f4f4;
 }
 
 .mb-10 {
@@ -8166,8 +8298,20 @@ label[for="myList"]+span {
     padding-left: 30px;
 }
 
+.pb-30 {
+    padding-bottom: 30px;
+}
+
 .pr-30 {
     padding-right: 30px;
+}
+
+.pa-30 {
+    padding: 30px;
+}
+
+.pa-40 {
+    padding: 40px;
 }
 
 /*# sourceMappingURL=organik.css.map */
