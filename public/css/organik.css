@@ -8119,6 +8119,7 @@ label[for="myList"]+span {
     display: block;
     margin-left: auto;
     margin-right: auto;
+    width: 100%;
 }
 
 .bottom-user-icons {

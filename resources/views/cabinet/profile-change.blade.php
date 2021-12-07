@@ -58,7 +58,7 @@
                     <h5>Изменение профиля</h5>
                     <div class="row gray-border-bottom pa-40">
                         <div class="col-md-4"><img class="user-img"
-                                src="{{ Storage::disk('public')->url($userProfile->avatar) }}" alt="">
+                                src="@if($userProfile->avatar==""){{ Storage::disk('public')->url('users/default.png') }}@else{{ Storage::disk('public')->url($userProfile->avatar) }}@endif" alt="">
                         </div>
                         <div class="col-md-6">
                             <div class="row">
