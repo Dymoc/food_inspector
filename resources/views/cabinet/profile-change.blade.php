@@ -57,8 +57,9 @@
                 <div class="col-xl-7 col-lg-7">
                     <h5>Изменение профиля</h5>
                     <div class="row gray-border-bottom pa-40">
-                        <div class="col-md-4"><img class="user-img"
-                                src="@if($userProfile->avatar==""){{ Storage::disk('public')->url('users/default.png') }}@else{{ Storage::disk('public')->url($userProfile->avatar) }}@endif" alt="">
+                        <div class="col-md-4">
+                            <img class="user-img changeble_img" src="@if ($userProfile->avatar == ''){{ Storage::disk('public')->url('users/default.png') }}@else{{ Storage::disk('public')->url($userProfile->avatar) }}@endif" alt="">
+                            <i class="fa fa-upload"></i>
                         </div>
                         <div class="col-md-6">
                             <div class="row">
@@ -76,15 +77,16 @@
 
 
 
-                                <form method="post" action="{{ route('cabinet.profile.update', ['profile' => $userProfile, 'user'=>$user]) }}" class="change-profile-form contact-one__form"
-                                    enctype="multipart/form-data">
+                                <form method="post"
+                                    action="{{ route('cabinet.profile.update', ['profile' => $userProfile, 'user' => $user]) }}"
+                                    class="change-profile-form contact-one__form" enctype="multipart/form-data">
                                     @csrf
                                     @method('put')
                                     <div class="row">
-                                        <div class="col-md-12">
-                                            <input type="file" name="avatar" placeholder="Аватар"
-                                                value="{{ $userProfile->avatar }}">
-                                        </div><!-- /.col-md-6 -->
+
+                                        <input type="file" name="avatar" placeholder="Аватар"
+                                            value="{{ $userProfile->avatar }}" style="display:none">
+
                                         <div class="col-md-6">
                                             <input type="text" name="name" placeholder="Логин" value="{{ $user->name }}">
                                         </div><!-- /.col-md-6 -->
@@ -145,5 +147,11 @@
 
 @endsection
 @section('scripts')
-
+    <script>
+        $(function() {
+            $(".changeble_img").on('click', function(e) {
+                $('input[name="avatar"]').click();
+            });
+        });
+    </script>
 @endsection
