@@ -21,9 +21,10 @@ class SearchController extends Controller
         $recipeList = Recipe::query()->whereIn('id', $data)->get();
         return json_encode($recipeList);
     }
+
     public function find(Request $request)
     {
-
         return Ingredient::search($request->get('q'))->get();
     }
+
 }
