@@ -94,11 +94,11 @@
                                         </div><!-- /.col-md-6 -->
                                         <div class="col-md-6">
                                             <input type="text" name="firstname" placeholder="Имя"
-                                                value="@if ($userProfile->firstname !== '') {{ $userProfile->firstname }} @endif">
+                                                value="@if ($userProfile->firstname !== ''){{ $userProfile->firstname }}@endif">
                                         </div><!-- /.col-md-6 -->
                                         <div class="col-md-6">
                                             <input type="text" name="lastname" placeholder="Фамилия"
-                                                value="@if ($userProfile->lastname !== '') {{ $userProfile->lastname }} @endif">
+                                                value="@if ($userProfile->lastname !== ''){{ $userProfile->lastname }}@endif">
                                         </div><!-- /.col-md-6 -->
                                         <div class="col-md-6">
                                             <input type="date" name="birthday" placeholder="Дата рождения"
@@ -106,12 +106,12 @@
                                         </div><!-- /.col-md-6 -->
                                         <div class="col-md-6">
                                             <input type="text" placeholder="Телефон" name="phone"
-                                                value="@if ($userProfile->phone !== '') {{ $userProfile->phone }} @endif">
+                                                value="@if ($userProfile->phone !== ''){{ $userProfile->phone }}@endif">
                                         </div><!-- /.col-md-6 -->
 
                                         <div class="col-md-12">
                                             <input type="text" name="adress" placeholder="Адрес"
-                                                value="@if ($userProfile->adress !== '') {{ $userProfile->adress }} @endif">
+                                                value="@if ($userProfile->adress !== ''){{ $userProfile->adress }}@endif">
                                         </div><!-- /.col-md-12 -->
 
 

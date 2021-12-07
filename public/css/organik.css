@@ -8194,7 +8194,7 @@ label[for="myList"]+span {
 
     border-radius: 20px;
 }
-.profile_info .contact-info *{
+.profile_info .contact-info *:not(.thm-btn){
     color: #808080;
 }
 .no-border {
