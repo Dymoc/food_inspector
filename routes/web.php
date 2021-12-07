@@ -63,4 +63,6 @@ Route::group(['prefix' => 'admin'], function () {
 });
 Route::group(['prefix' => 'cabinet', 'middleware' => 'auth'], function () {
     Route::get('profile', [ProfileController::class, 'index'])->name('cabinet.index');
+    Route::get('profile-change', [ProfileController::class, 'changeProfile'])->name('cabinet.profile-change');
+    Route::put('/edit/{profile}', [ProfileController::class, 'changeProfileUpdate'])->where('profile', '\d+')->name('cabinet.profile.update');
 });
