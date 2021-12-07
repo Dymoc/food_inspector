@@ -8124,6 +8124,7 @@ label[for="myList"]+span {
 
 .changeble_img {
     cursor: pointer;
+    transition-duration: 0.7s;
 }
 
 .changeble_img+i {
@@ -8131,7 +8132,9 @@ label[for="myList"]+span {
     top: 40%;
     left: 42%;
     font-size: 35px;
-    display:none
+    display:none;
+    transition-duration: 0.7s;
+    cursor: pointer;
 }
 
 .changeble_img:hover {
