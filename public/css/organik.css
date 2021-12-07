@@ -3899,7 +3899,8 @@ label[for="myList"]+span {
 .contact-one__form textarea,
 .contact-one__form input[type=text],
 .contact-one__form input[type=email],
-.contact-one__form input[type=number] {
+.contact-one__form input[type=number],
+.contact-one__form input[type=date] {
     width: 100%;
     height: 61px;
     background-color: #f4f4f4;
@@ -8118,8 +8119,32 @@ label[for="myList"]+span {
     display: block;
     margin-left: auto;
     margin-right: auto;
+    width: 100%;
 }
 
+.changeble_img {
+    cursor: pointer;
+    transition-duration: 0.7s;
+}
+
+.changeble_img+i {
+    position: absolute;
+    top: 40%;
+    left: 42%;
+    font-size: 35px;
+    display:none;
+    transition-duration: 0.7s;
+    cursor: pointer;
+}
+
+.changeble_img:hover {
+    opacity: 0.4;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    background-color: #000;
+}
+.changeble_img:hover+i {
+    display:block
+}
 .bottom-user-icons {
     display: flex;
     justify-content: space-between;
@@ -8187,15 +8212,18 @@ label[for="myList"]+span {
 .profile_info-sidebar__categories ul li a i {
     font-size: 16px;
 }
-.profile_info .change-pwd{
+
+.profile_info .change-pwd {
     padding: 10px 30px;
     border: 2px solid #808080;
 
     border-radius: 20px;
 }
-.profile_info .contact-info *{
+
+.profile_info .contact-info *:not(.thm-btn) {
     color: #808080;
 }
+
 .no-border {
     border: none;
 }
@@ -8277,6 +8305,7 @@ label[for="myList"]+span {
 .pr-30 {
     padding-right: 30px;
 }
+
 .pa-30 {
     padding: 30px;
 }
@@ -8284,4 +8313,5 @@ label[for="myList"]+span {
 .pa-40 {
     padding: 40px;
 }
+
 /*# sourceMappingURL=organik.css.map */

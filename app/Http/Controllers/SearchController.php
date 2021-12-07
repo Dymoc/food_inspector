@@ -19,28 +19,6 @@ class SearchController extends Controller
             $data[] = $recipe->recipe_id;
         }
         $recipeList = Recipe::query()->whereIn('id', $data)->get();
-        /*$htmlArr = [];
-        foreach ($recipeList as $recipe) {
-            $difficulty = "";
-            switch ($recipe->cooking_level) {
-
-                case ('easy'):
-                    $difficulty = "Для новичков";
-                    break;
-                case ('medium'):
-                    $difficulty = "Для опытных";
-                    break;
-                default:
-                    $difficulty = "Для профи";
-                    break;
-            }
-            $htmlArr []= [
-                'img'=>$recipe->img, 
-                'id'=>$recipe->id, 
-                'name'=>$recipe->name, 
-                'cooking_time'=>$recipe->cooking_time,
-                'difficulty'=>$difficulty];
-        }*/
         return json_encode($recipeList);
     }
     public function find(Request $request)
