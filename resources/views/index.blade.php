@@ -22,7 +22,7 @@
             <div class="swiper-wrapper">
                 <div class="swiper-slide">
                     <div class="image-layer"
-                        style="background-image: url({{ asset('/images/main-slider/main-slider-1-1.jpg') }});">
+                        style="background-image: url({{ asset('/images/main-slider/slide1.png') }});">
                     </div>
                     <!-- /.image-layer -->
                     <div class="container">
@@ -38,7 +38,7 @@
                 </div><!-- /.swiper-slide -->
                 <div class="swiper-slide">
                     <div class="image-layer"
-                        style="background-image: url({{ asset('/images/main-slider/main-slider-1-2.jpg') }});">
+                        style="background-image: url({{ asset('/images/main-slider/slider2.png') }});">
                     </div>
                     <!-- /.image-layer -->
                     <div class="container">
@@ -470,176 +470,176 @@
                 <div class="swiper-wrapper">
                     <div class="swiper-slide">
                         <div class="gallery-one__item">
-                            <img src="{{ asset('/images/gallery/gallery-1-1.jpg') }}" alt="">
-                            <a href="{{ asset('/images/gallery/gallery-1-1.jpg') }}" class="img-popup"><i
+                            <img src="{{ asset('/images/gallery/gallery1.jpg') }}" alt="">
+                            <a href="{{ asset('/images/gallery/gallery1.jpg') }}" class="img-popup"><i
                                     class="fa fa-plus"></i></a>
                         </div><!-- /.gallery-one__item -->
                     </div><!-- /.swiper-slide -->
                     <div class="swiper-slide">
                         <div class="gallery-one__item">
-                            <img src="{{ asset('/images/gallery/gallery-1-2.jpg') }}" alt="">
-                            <a href="{{ asset('/images/gallery/gallery-1-2.jpg') }}" class="img-popup"><i
+                            <img src="{{ asset('/images/gallery/gallery2.jpg') }}" alt="">
+                            <a href="{{ asset('/images/gallery/gallery2.jpg') }}" class="img-popup"><i
                                     class="fa fa-plus"></i></a>
                         </div><!-- /.gallery-one__item -->
                     </div><!-- /.swiper-slide -->
                     <div class="swiper-slide">
                         <div class="gallery-one__item">
-                            <img src="{{ asset('/images/gallery/gallery-1-3.jpg') }}" alt="">
-                            <a href="{{ asset('/images/gallery/gallery-1-3.jpg') }}" class="img-popup"><i
+                            <img src="{{ asset('/images/gallery/gallery3.jpg') }}" alt="">
+                            <a href="{{ asset('/images/gallery/gallery3.jpg') }}" class="img-popup"><i
                                     class="fa fa-plus"></i></a>
                         </div><!-- /.gallery-one__item -->
                     </div><!-- /.swiper-slide -->
                     <div class="swiper-slide">
                         <div class="gallery-one__item">
-                            <img src="{{ asset('/images/gallery/gallery-1-4.jpg') }}" alt="">
-                            <a href="{{ asset('/images/gallery/gallery-1-4.jpg') }}" class="img-popup"><i
+                            <img src="{{ asset('/images/gallery/gallery4.jpg') }}" alt="">
+                            <a href="{{ asset('/images/gallery/gallery4.jpg') }}" class="img-popup"><i
                                     class="fa fa-plus"></i></a>
                         </div><!-- /.gallery-one__item -->
                     </div><!-- /.swiper-slide -->
                     <div class="swiper-slide">
                         <div class="gallery-one__item">
-                            <img src="{{ asset('/images/gallery/gallery-1-5.jpg') }}" alt="">
-                            <a href="{{ asset('/images/gallery/gallery-1-5.jpg') }}" class="img-popup"><i
+                            <img src="{{ asset('/images/gallery/gallery5.jpg') }}" alt="">
+                            <a href="{{ asset('/images/gallery/gallery5.jpg') }}" class="img-popup"><i
                                     class="fa fa-plus"></i></a>
                         </div><!-- /.gallery-one__item -->
                     </div><!-- /.swiper-slide -->
                     <div class="swiper-slide">
                         <div class="gallery-one__item">
-                            <img src="{{ asset('/images/gallery/gallery-1-1.jpg') }}" alt="">
-                            <a href="{{ asset('/images/gallery/gallery-1-1.jpg') }}" class="img-popup"><i
+                            <img src="{{ asset('/images/gallery/gallery1.jpg') }}" alt="">
+                            <a href="{{ asset('/images/gallery/gallery1.jpg') }}" class="img-popup"><i
                                     class="fa fa-plus"></i></a>
                         </div><!-- /.gallery-one__item -->
                     </div><!-- /.swiper-slide -->
                     <div class="swiper-slide">
                         <div class="gallery-one__item">
-                            <img src="{{ asset('/images/gallery/gallery-1-2.jpg') }}" alt="">
-                            <a href="{{ asset('/images/gallery/gallery-1-2.jpg') }}" class="img-popup"><i
+                            <img src="{{ asset('/images/gallery/gallery2.jpg') }}" alt="">
+                            <a href="{{ asset('/images/gallery/gallery2.jpg') }}" class="img-popup"><i
                                     class="fa fa-plus"></i></a>
                         </div><!-- /.gallery-one__item -->
                     </div><!-- /.swiper-slide -->
                     <div class="swiper-slide">
                         <div class="gallery-one__item">
-                            <img src="{{ asset('/images/gallery/gallery-1-3.jpg') }}" alt="">
-                            <a href="{{ asset('/images/gallery/gallery-1-3.jpg') }}" class="img-popup"><i
+                            <img src="{{ asset('/images/gallery/gallery3.jpg') }}" alt="">
+                            <a href="{{ asset('/images/gallery/gallery3.jpg') }}" class="img-popup"><i
                                     class="fa fa-plus"></i></a>
                         </div><!-- /.gallery-one__item -->
                     </div><!-- /.swiper-slide -->
                     <div class="swiper-slide">
                         <div class="gallery-one__item">
-                            <img src="{{ asset('/images/gallery/gallery-1-4.jpg') }}" alt="">
-                            <a href="{{ asset('/images/gallery/gallery-1-4.jpg') }}" class="img-popup"><i
+                            <img src="{{ asset('/images/gallery/gallery4.jpg') }}" alt="">
+                            <a href="{{ asset('/images/gallery/gallery4.jpg') }}" class="img-popup"><i
                                     class="fa fa-plus"></i></a>
                         </div><!-- /.gallery-one__item -->
                     </div><!-- /.swiper-slide -->
                     <div class="swiper-slide">
                         <div class="gallery-one__item">
-                            <img src="{{ asset('/images/gallery/gallery-1-5.jpg') }}" alt="">
-                            <a href="{{ asset('/images/gallery/gallery-1-5.jpg') }}" class="img-popup"><i
+                            <img src="{{ asset('/images/gallery/gallery5.jpg') }}" alt="">
+                            <a href="{{ asset('/images/gallery/gallery5.jpg') }}" class="img-popup"><i
                                     class="fa fa-plus"></i></a>
                         </div><!-- /.gallery-one__item -->
                     </div><!-- /.swiper-slide -->
                     <div class="swiper-slide">
                         <div class="gallery-one__item">
-                            <img src="{{ asset('/images/gallery/gallery-1-1.jpg') }}" alt="">
-                            <a href="{{ asset('/images/gallery/gallery-1-1.jpg') }}" class="img-popup"><i
+                            <img src="{{ asset('/images/gallery/gallery1.jpg') }}" alt="">
+                            <a href="{{ asset('/images/gallery/gallery1.jpg') }}" class="img-popup"><i
                                     class="fa fa-plus"></i></a>
                         </div><!-- /.gallery-one__item -->
                     </div><!-- /.swiper-slide -->
                     <div class="swiper-slide">
                         <div class="gallery-one__item">
-                            <img src="{{ asset('/images/gallery/gallery-1-2.jpg') }}" alt="">
-                            <a href="{{ asset('/images/gallery/gallery-1-2.jpg') }}" class="img-popup"><i
+                            <img src="{{ asset('/images/gallery/gallery2.jpg') }}" alt="">
+                            <a href="{{ asset('/images/gallery/gallery2.jpg') }}" class="img-popup"><i
                                     class="fa fa-plus"></i></a>
                         </div><!-- /.gallery-one__item -->
                     </div><!-- /.swiper-slide -->
                     <div class="swiper-slide">
                         <div class="gallery-one__item">
-                            <img src="{{ asset('/images/gallery/gallery-1-3.jpg') }}" alt="">
-                            <a href="{{ asset('/images/gallery/gallery-1-3.jpg') }}" class="img-popup"><i
+                            <img src="{{ asset('/images/gallery/gallery3.jpg') }}" alt="">
+                            <a href="{{ asset('/images/gallery/gallery3.jpg') }}" class="img-popup"><i
                                     class="fa fa-plus"></i></a>
                         </div><!-- /.gallery-one__item -->
                     </div><!-- /.swiper-slide -->
                     <div class="swiper-slide">
                         <div class="gallery-one__item">
-                            <img src="{{ asset('/images/gallery/gallery-1-4.jpg') }}" alt="">
-                            <a href="{{ asset('/images/gallery/gallery-1-4.jpg') }}" class="img-popup"><i
+                            <img src="{{ asset('/images/gallery/gallery4.jpg') }}" alt="">
+                            <a href="{{ asset('/images/gallery/gallery4.jpg') }}" class="img-popup"><i
                                     class="fa fa-plus"></i></a>
                         </div><!-- /.gallery-one__item -->
                     </div><!-- /.swiper-slide -->
                     <div class="swiper-slide">
                         <div class="gallery-one__item">
-                            <img src="{{ asset('/images/gallery/gallery-1-5.jpg') }}" alt="">
-                            <a href="{{ asset('/images/gallery/gallery-1-5.jpg') }}" class="img-popup"><i
+                            <img src="{{ asset('/images/gallery/gallery5.jpg') }}" alt="">
+                            <a href="{{ asset('/images/gallery/gallery5.jpg') }}" class="img-popup"><i
                                     class="fa fa-plus"></i></a>
                         </div><!-- /.gallery-one__item -->
                     </div><!-- /.swiper-slide -->
                     <div class="swiper-slide">
                         <div class="gallery-one__item">
-                            <img src="{{ asset('/images/gallery/gallery-1-1.jpg') }}" alt="">
-                            <a href="{{ asset('/images/gallery/gallery-1-1.jpg') }}" class="img-popup"><i
+                            <img src="{{ asset('/images/gallery/gallery1.jpg') }}" alt="">
+                            <a href="{{ asset('/images/gallery/gallery1.jpg') }}" class="img-popup"><i
                                     class="fa fa-plus"></i></a>
                         </div><!-- /.gallery-one__item -->
                     </div><!-- /.swiper-slide -->
                     <div class="swiper-slide">
                         <div class="gallery-one__item">
-                            <img src="{{ asset('/images/gallery/gallery-1-2.jpg') }}" alt="">
-                            <a href="{{ asset('/images/gallery/gallery-1-2.jpg') }}" class="img-popup"><i
+                            <img src="{{ asset('/images/gallery/gallery2.jpg') }}" alt="">
+                            <a href="{{ asset('/images/gallery/gallery2.jpg') }}" class="img-popup"><i
                                     class="fa fa-plus"></i></a>
                         </div><!-- /.gallery-one__item -->
                     </div><!-- /.swiper-slide -->
                     <div class="swiper-slide">
                         <div class="gallery-one__item">
-                            <img src="{{ asset('/images/gallery/gallery-1-3.jpg') }}" alt="">
-                            <a href="{{ asset('/images/gallery/gallery-1-3.jpg') }}" class="img-popup"><i
+                            <img src="{{ asset('/images/gallery/gallery3.jpg') }}" alt="">
+                            <a href="{{ asset('/images/gallery/gallery3.jpg') }}" class="img-popup"><i
                                     class="fa fa-plus"></i></a>
                         </div><!-- /.gallery-one__item -->
                     </div><!-- /.swiper-slide -->
                     <div class="swiper-slide">
                         <div class="gallery-one__item">
-                            <img src="{{ asset('/images/gallery/gallery-1-4.jpg') }}" alt="">
-                            <a href="{{ asset('/images/gallery/gallery-1-4.jpg') }}" class="img-popup"><i
+                            <img src="{{ asset('/images/gallery/gallery4.jpg') }}" alt="">
+                            <a href="{{ asset('/images/gallery/gallery4.jpg') }}" class="img-popup"><i
                                     class="fa fa-plus"></i></a>
                         </div><!-- /.gallery-one__item -->
                     </div><!-- /.swiper-slide -->
                     <div class="swiper-slide">
                         <div class="gallery-one__item">
-                            <img src="{{ asset('/images/gallery/gallery-1-5.jpg') }}" alt="">
-                            <a href="{{ asset('/images/gallery/gallery-1-5.jpg') }}" class="img-popup"><i
+                            <img src="{{ asset('/images/gallery/gallery5.jpg') }}" alt="">
+                            <a href="{{ asset('/images/gallery/gallery5.jpg') }}" class="img-popup"><i
                                     class="fa fa-plus"></i></a>
                         </div><!-- /.gallery-one__item -->
                     </div><!-- /.swiper-slide -->
                     <div class="swiper-slide">
                         <div class="gallery-one__item">
-                            <img src="{{ asset('/images/gallery/gallery-1-1.jpg') }}" alt="">
-                            <a href="{{ asset('/images/gallery/gallery-1-1.jpg') }}" class="img-popup"><i
+                            <img src="{{ asset('/images/gallery/gallery1.jpg') }}" alt="">
+                            <a href="{{ asset('/images/gallery/gallery1.jpg') }}" class="img-popup"><i
                                     class="fa fa-plus"></i></a>
                         </div><!-- /.gallery-one__item -->
                     </div><!-- /.swiper-slide -->
                     <div class="swiper-slide">
                         <div class="gallery-one__item">
-                            <img src="{{ asset('/images/gallery/gallery-1-2.jpg') }}" alt="">
-                            <a href="{{ asset('/images/gallery/gallery-1-2.jpg') }}" class="img-popup"><i
+                            <img src="{{ asset('/images/gallery/gallery2.jpg') }}" alt="">
+                            <a href="{{ asset('/images/gallery/gallery2.jpg') }}" class="img-popup"><i
                                     class="fa fa-plus"></i></a>
                         </div><!-- /.gallery-one__item -->
                     </div><!-- /.swiper-slide -->
                     <div class="swiper-slide">
                         <div class="gallery-one__item">
-                            <img src="{{ asset('/images/gallery/gallery-1-3.jpg') }}" alt="">
-                            <a href="{{ asset('/images/gallery/gallery-1-3.jpg') }}" class="img-popup"><i
+                            <img src="{{ asset('/images/gallery/gallery3.jpg') }}" alt="">
+                            <a href="{{ asset('/images/gallery/gallery3.jpg') }}" class="img-popup"><i
                                     class="fa fa-plus"></i></a>
                         </div><!-- /.gallery-one__item -->
                     </div><!-- /.swiper-slide -->
                     <div class="swiper-slide">
                         <div class="gallery-one__item">
-                            <img src="{{ asset('/images/gallery/gallery-1-4.jpg') }}" alt="">
-                            <a href="{{ asset('/images/gallery/gallery-1-4.jpg') }}" class="img-popup"><i
+                            <img src="{{ asset('/images/gallery/gallery4.jpg') }}" alt="">
+                            <a href="{{ asset('/images/gallery/gallery4.jpg') }}" class="img-popup"><i
                                     class="fa fa-plus"></i></a>
                         </div><!-- /.gallery-one__item -->
                     </div><!-- /.swiper-slide -->
                     <div class="swiper-slide">
                         <div class="gallery-one__item">
-                            <img src="{{ asset('/images/gallery/gallery-1-5.jpg') }}" alt="">
-                            <a href="{{ asset('/images/gallery/gallery-1-5.jpg') }}" class="img-popup"><i
+                            <img src="{{ asset('/images/gallery/gallery5.jpg') }}" alt="">
+                            <a href="{{ asset('/images/gallery/gallery5.jpg') }}" class="img-popup"><i
                                     class="fa fa-plus"></i></a>
                         </div><!-- /.gallery-one__item -->
                     </div><!-- /.swiper-slide -->

@@ -8,7 +8,7 @@
 @section('content')
     <section class="page-header">
         <div class="page-header__bg"
-            style="background-image: url({{ asset('/images/backgrounds/page-header-bg-1-1.jpg') }});"></div>
+            style="background-image: url({{ asset('/images/backgrounds/bg1.jpg') }});"></div>
         <!-- /.page-header__bg -->
         <div class="container">
             <h2>{{ $news->title }}</h2>
@@ -70,7 +70,7 @@
                                 @endforeach
                             </ul>
                         </div><!-- /.blog-sidebar__categories -->
-                        
+
                     </div><!-- /.blog-sidebar -->
                 </div><!-- /.col-md-12 col-lg-9 -->
             </div><!-- /.row -->

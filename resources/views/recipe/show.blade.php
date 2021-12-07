@@ -12,7 +12,7 @@
 
     <section class="page-header">
         <div class="page-header__bg"
-            style="background-image: url({{ asset('/images/backgrounds/page-header-bg-1-1.jpg') }});"></div>
+            style="background-image: url({{ asset('/images/backgrounds/bg1.jpg') }});"></div>
         <!-- /.page-header__bg -->
         <div class="container">
             <h2> {{ $recipe->name }}</h2>
@@ -77,7 +77,7 @@
             </div>
             <div class="row">
                 <div class="col-xl-12">
-                    
+
                     <div class="product-tab-box tabs-box">
                         <h2 class="mb-30 talign-center">Пошаговый рецепт</h2>
                         <div class="tabs-content">
