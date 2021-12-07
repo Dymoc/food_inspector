@@ -36,21 +36,31 @@
     <nav class="main-menu">
         <div class="container">
             <div class="main-menu__login">
-                <a href="#"><i class="organik-icon-user"></i>Личный кабинет</a>
+                <a href="{{ route('cabinet.index') }}"><i class="organik-icon-user"></i>Личный кабинет</a>
+                @auth
+                    <form method="POST" action="{{ route('logout') }}" class="logout float-r">
+                        @csrf
+
+                        
+                            <button type="submit"><i class="fa fa-sign-out-alt"></i>Выйти</button>
+                        
+                    </form>
+
+                @endauth
             </div><!-- /.main-menu__login -->
             <ul class="main-menu__list">
                 <li class="dropdown">
-                    <a href="{{route('index')}}">Главная</a>
+                    <a href="{{ route('index') }}">Главная</a>
 
                 </li>
                 <li>
-                    <a href="{{route('popular')}}">Популярные рецепты</a>
+                    <a href="{{ route('popular') }}">Популярные рецепты</a>
                 </li>
                 <li>
-                    <a href="{{route('about')}}">О проекте</a>
+                    <a href="{{ route('about') }}">О проекте</a>
 
                 </li>
-                <li class="dropdown"><a href="{{route('news')}}">Новости</a>
+                <li class="dropdown"><a href="{{ route('news') }}">Новости</a>
 
                 </li>
             </ul>

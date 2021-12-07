@@ -32,6 +32,9 @@ class CreateIngredientsTable extends Migration
      */
     public function down()
     {
+        Schema::table('ingredients', function (Blueprint $table) {
+            $table->dropForeign('category_id');
+        });
         Schema::dropIfExists('ingredients');
     }
 }

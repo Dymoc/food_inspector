@@ -33,6 +33,10 @@ class CreateRecipeIngridientsTable extends Migration
      */
     public function down()
     {
+        Schema::table('recipe_ingridients', function (Blueprint $table) {
+            $table->dropForeign('recipe_id');
+            $table->dropForeign('ingredient_id');
+        });
         Schema::dropIfExists('recipe_ingridients');
     }
 }

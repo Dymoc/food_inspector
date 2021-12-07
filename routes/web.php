@@ -1,11 +1,12 @@
 <?php
 
+use App\Http\Controllers\Cabinet\ProfileController;
 use App\Http\Controllers\NewsController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\IngredientContorller as IngredientContorller;
+use App\Http\Controllers\IngredientContorller;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\RecipeController;
-use App\Http\Controllers\SearchController as SearchController;
+use App\Http\Controllers\SearchController;
 
 /*
 |--------------------------------------------------------------------------
@@ -55,6 +56,11 @@ Route::group(['prefix' => 'recipe'], function () {
     Route::get('/show/{id}', [RecipeController::class, 'show'])->where('id', '\d+')->name('recipe.show');
 });
 
+require __DIR__ . '/auth.php';
+
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
+});
+Route::group(['prefix' => 'cabinet', 'middleware' => 'auth'], function () {
+    Route::get('profile', [ProfileController::class, 'index'])->name('cabinet.index');
 });
