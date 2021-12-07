@@ -53,7 +53,7 @@
                     <h5>Профиль</h5>
                     <div class="row gray-border-bottom pa-40">
                         <div class="col-md-4"><img class="user-img"
-                                src="{{$userProfile->avatar}}" alt=""></div>
+                                src="{{ Storage::disk('public')->url($userProfile->avatar) }}" alt=""></div>
                         <div class="col-md-6">
                             <div class="row">
                                 <div>
