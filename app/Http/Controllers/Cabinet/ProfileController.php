@@ -26,12 +26,16 @@ class ProfileController extends Controller
             'userProfile' => Profile::query()->where('user_id', Auth::user()->id)->first(),
         ]);
     }
-    public function changeProfileUpdate(Request $request, Profile $profile)
+    public function changeProfileUpdate(Request $request, Profile $profile, User $user)
     {
+        if ($request->has('avatar')) {
+            $imageName = uniqid('file-') . '.' . $request->file('avatar')->getClientOriginalExtension();
+            $path = $request->file('avatar')->storeAs('user',  $imageName, 'public');
+            $profile->avatar = $path;
+        }
 
-        $imageName = uniqid('file-') . '.' . $request->file('avatar')->getClientOriginalExtension();
-        $path = $request->file('avatar')->storeAs('user',  $imageName, 'public');
-        $profile->avatar = $path;
+        $user->name = $request->input('name');
+        $user->email = $request->input('email');
         $profile->firstname = $request->input('firstname');
         $profile->lastname = $request->input('lastname');
         $profile->birthday = $request->input('birthday');
@@ -39,8 +43,9 @@ class ProfileController extends Controller
         $profile->phone = $request->input('phone');
         $profile->adress = $request->input('adress');
 
+        $user = $user->save();
         $profile = $profile->save();
         return back();
-       // return json_encode(['success'=>1]);
+        // return json_encode(['success'=>1]);
     }
 }

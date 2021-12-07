@@ -76,7 +76,7 @@
 
 
 
-                                <form method="post" action="{{ route('cabinet.profile.update', ['profile' => $userProfile]) }}" class="change-profile-form contact-one__form"
+                                <form method="post" action="{{ route('cabinet.profile.update', ['profile' => $userProfile, 'user'=>$user]) }}" class="change-profile-form contact-one__form"
                                     enctype="multipart/form-data">
                                     @csrf
                                     @method('put')
@@ -86,7 +86,7 @@
                                                 value="{{ $userProfile->avatar }}">
                                         </div><!-- /.col-md-6 -->
                                         <div class="col-md-6">
-                                            <input type="text" name="login" placeholder="Логин" value="{{ $user->name }}">
+                                            <input type="text" name="name" placeholder="Логин" value="{{ $user->name }}">
                                         </div><!-- /.col-md-6 -->
                                         <div class="col-md-6">
                                             <input type="email" placeholder="Email адрес" name="email"
