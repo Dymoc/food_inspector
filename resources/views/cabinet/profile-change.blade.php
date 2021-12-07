@@ -101,7 +101,7 @@
                                                 value="@if ($userProfile->lastname !== '') {{ $userProfile->lastname }} @endif">
                                         </div><!-- /.col-md-6 -->
                                         <div class="col-md-6">
-                                            <input type="text" name="birthday" placeholder="Дата рождения"
+                                            <input type="date" name="birthday" placeholder="Дата рождения"
                                                 value="{{ $userProfile->birthday }}">
                                         </div><!-- /.col-md-6 -->
                                         <div class="col-md-6">

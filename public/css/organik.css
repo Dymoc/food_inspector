@@ -3899,7 +3899,8 @@ label[for="myList"]+span {
 .contact-one__form textarea,
 .contact-one__form input[type=text],
 .contact-one__form input[type=email],
-.contact-one__form input[type=number] {
+.contact-one__form input[type=number],
+.contact-one__form input[type=date] {
     width: 100%;
     height: 61px;
     background-color: #f4f4f4;

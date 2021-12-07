@@ -28,6 +28,7 @@ class ProfileController extends Controller
     }
     public function changeProfileUpdate(Request $request, Profile $profile, User $user)
     {
+
         if ($request->has('avatar')) {
             $imageName = uniqid('file-') . '.' . $request->file('avatar')->getClientOriginalExtension();
             $path = $request->file('avatar')->storeAs('user',  $imageName, 'public');
