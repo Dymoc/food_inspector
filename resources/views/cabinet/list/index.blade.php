@@ -30,38 +30,44 @@
                 <div class="col-xl-7 col-lg-7">
                     <h5>Ваши списки</h5>
                     <div class="row gray-border-bottom pt-40">
-                        @forelse($lists as $list)
-                            <p>{{ $list->name }} <a href="">Просмотр</a> <a href="{{ route('cabinet.lists.edit', ['list' => $list]) }}">Редактировать</a> <a class="delete" href="javascript:" rel="{{ $list->id }}">Удалить</a></p>
-                            <ul>
-                                @forelse($list->ingredientslists as $ingredientlist)
+                        <div class="col-md-12">
+                            @forelse($lists as $list)
+                                <p>{{ $list->name }} <a
+                                        href="{{ route('cabinet.lists.edit', ['list' => $list]) }}">Редактировать</a> <a
+                                        class="delete" href="javascript:" rel="{{ $list->id }}">Удалить</a></p>
+                                <ul>
+                                    @forelse($list->ingredientslists as $ingredientlist)
 
-                                    <li>{{ $ingredientlist->ingredient->name }}</li>
-                                @empty
-                                    В этом списке пока нет продуктов
-                                @endforelse
-                            </ul>
-                        @empty
-                            У вас пока нет ни одного списка
-                        @endforelse
+                                        <li>{{ $ingredientlist->ingredient->name }}</li>
+                                    @empty
+                                        <p>В этом списке пока нет продуктов</p>
+                                    @endforelse
+                                </ul>
+                            @empty
+                                <p>У вас пока нет ни одного списка</p>
+                            @endforelse
+                        </div>
                     </div>
-                    <div class="row">
-                        <h5>Добавить новый</h5>
-                        <form method="post" class="contact-one__form col-md-12"
-                            action="{{ route('cabinet.lists.store') }}">
-                            @csrf
-                            
-                            <div class="col-md-12">
-                                <input type="text" name="name" placeholder="Название списка" value="{{ old('name') }}">
-                            </div>
+                    <div class="row pt-40">
+                        <div class="col-md-12">
+                            <h5>Добавить новый</h5>
+                        </div>
+                        <div class="col-md-12 text-right mt-20">
+                            <form method="post" class="contact-one__form" action="{{ route('cabinet.lists.store') }}">
+                                @csrf
 
-                            <div class="col-md-12 text-right">
+
+                                <input type="text" name="name" placeholder="Название списка" value="{{ old('name') }}">
+
+
+
                                 <button type="submit" class="thm-btn">Добавить</button>
-                            </div>
-                        </form>
+
+                            </form>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div><!-- /.container -->
+            </div><!-- /.container -->
     </section><!-- /.contact-one -->
 
 
@@ -72,29 +78,29 @@
 
 @endsection
 @section('scripts')
-<script type="text/javascript">
-    $(function() {
-        $(".delete").on('click', function() {
-            var id = $(this).attr('rel');
-            if (confirm("Вы уверены, что хотите удалить список?")) {
-                $.ajax({
-                    url: '/cabinet/lists/' + id,
-                    type: 'DELETE',
-                    dataType: 'JSON',
-                    data: {
-                        'id': id,
-                        '_token': '{{ csrf_token() }}',
-                    },
-                    success: function() {
-                        alert("Список удален");
-                        location.reload();
-                    },
-                    error: function(xhr) {
-                        console.log(xhr.responseText);
-                    }
-                });
-            }
+    <script type="text/javascript">
+        $(function() {
+            $(".delete").on('click', function() {
+                var id = $(this).attr('rel');
+                if (confirm("Вы уверены, что хотите удалить список?")) {
+                    $.ajax({
+                        url: '/cabinet/lists/' + id,
+                        type: 'DELETE',
+                        dataType: 'JSON',
+                        data: {
+                            'id': id,
+                            '_token': '{{ csrf_token() }}',
+                        },
+                        success: function() {
+                            alert("Список удален");
+                            location.reload();
+                        },
+                        error: function(xhr) {
+                            console.log(xhr.responseText);
+                        }
+                    });
+                }
+            });
         });
-    });
-</script>
+    </script>
 @endsection
