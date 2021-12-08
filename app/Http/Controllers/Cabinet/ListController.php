@@ -8,6 +8,7 @@ use App\Models\IngredientList;
 use App\Models\IngredientsCategory;
 use Illuminate\Http\Request;
 use App\Models\UserList;
+use Illuminate\Support\Facades\Auth;
 
 class ListController extends Controller
 {
@@ -43,7 +44,11 @@ class ListController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        UserList::create([
+            'name'=>$request->input('name'),
+            'user_id'=>Auth::user()->id
+        ]);
+        return back();
     }
 
     /**
@@ -120,8 +125,15 @@ class ListController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request,  UserList $list)
     {
-        //
+        if ($request->ajax()) {
+            try {
+                $list->delete();
+                return response()->json('ok');
+            } catch (\Exception $e) {
+                return response()->json('error', 400);
+            }
+        }
     }
 }
