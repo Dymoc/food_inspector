@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Cabinet\ProfileController;
+use App\Http\Controllers\Cabinet\ListController;
 use App\Http\Controllers\NewsController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\IngredientContorller;
@@ -61,8 +62,10 @@ require __DIR__ . '/auth.php';
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });
-Route::group(['prefix' => 'cabinet', 'middleware' => 'auth'], function () {
-    Route::get('profile', [ProfileController::class, 'index'])->name('cabinet.index');
-    Route::get('profile-change', [ProfileController::class, 'changeProfile'])->name('cabinet.profile-change');
-    Route::put('/edit/{profile}&{user}', [ProfileController::class, 'changeProfileUpdate'])->where('profile', '\d+')->where('user', '\d+')->name('cabinet.profile.update');
+Route::group(['prefix' => 'cabinet',  'as' => 'cabinet.', 'middleware' => 'auth'], function () {
+    Route::get('profile', [ProfileController::class, 'index'])->name('index');
+    Route::get('profile-change', [ProfileController::class, 'changeProfile'])->name('profile-change');
+    Route::put('edit/{profile}&{user}', [ProfileController::class, 'changeProfileUpdate'])->where('profile', '\d+')->where('user', '\d+')->name('profile.update');
+    Route::resource('lists', ListController::class)->name('index', 'lists.index');
+    Route::put('lists/{list}', [ListController::class, 'updateingredientList'])->where('list', '\d+')->name('lists.updateingredients');
 });

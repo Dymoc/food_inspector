@@ -8,8 +8,7 @@
 @section('content')
 
     <section class="page-header">
-        <div class="page-header__bg"
-            style="background-image: url({{ asset('/images/backgrounds/bg1.jpg') }});"></div>
+        <div class="page-header__bg" style="background-image: url({{ asset('/images/backgrounds/bg1.jpg') }});"></div>
         <!-- /.page-header__bg -->
         <div class="container">
             <h2>Личный кабинет</h2>
@@ -25,35 +24,9 @@
     <section class="profile_info">
         <div class="container">
             <div class="row">
-                <div class="col-xl-5 col-lg-5">
-                    <div class="profile_info-sidebar__categories">
-                        <ul>
-                            <li>
-                                <a href="#"><i class="fa fa-user"></i>Изменить профиль <i
-                                        class="fa fa-angle-right"></i></a>
-                            </li>
-                            <li>
-                                <a href="#"><i class="fa fa-list-alt"></i>Списки продуктов <i
-                                        class="fa fa-angle-right"></i></a>
-                            </li>
+                
+                <x-left-cabinet-sidebar></x-left-cabinet-sidebar>
 
-                            <li>
-                                <a href="#"><i class="fa fa-heart"></i>Любимые рецепты <i
-                                        class="fa fa-angle-right"></i></a>
-                            </li>
-
-                            <li>
-                                <a href="#"><i class="fa fa-map-marker-alt"></i>Заказать продукты <i
-                                        class="fa fa-angle-right"></i></a>
-                            </li>
-
-                            <li>
-                                <a href="#"><i class="fa fa-credit-card"></i>Подписка на сервис <i
-                                        class="fa fa-angle-right"></i></a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
                 <div class="col-xl-7 col-lg-7">
                     <h5>Изменение профиля</h5>
                     <div class="row gray-border-bottom pa-40">
@@ -74,9 +47,6 @@
                         <div class="col-md-12 contact-info">
                             <h4>Контактные данные</h4>
                             <div class="row">
-
-
-
                                 <form method="post"
                                     action="{{ route('cabinet.profile.update', ['profile' => $userProfile, 'user' => $user]) }}"
                                     class="change-profile-form contact-one__form" enctype="multipart/form-data">

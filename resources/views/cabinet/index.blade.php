@@ -8,8 +8,7 @@
 @section('content')
 
     <section class="page-header">
-        <div class="page-header__bg"
-            style="background-image: url({{ asset('/images/backgrounds/bg1.jpg') }});"></div>
+        <div class="page-header__bg" style="background-image: url({{ asset('/images/backgrounds/bg1.jpg') }});"></div>
         <!-- /.page-header__bg -->
         <div class="container">
             <h2>Личный кабинет</h2>
@@ -25,30 +24,9 @@
     <section class="profile_info">
         <div class="container">
             <div class="row">
-                <div class="col-xl-5 col-lg-5">
-                    <div class="profile_info-sidebar__categories">
-                        <ul>
-                            <li>
-                                <a href="{{route('cabinet.profile-change')}}"><i class="fa fa-user"></i>Изменить профиль <i class="fa fa-angle-right"></i></a>
-                            </li>
-                            <li>
-                                <a href="#"><i class="fa fa-list-alt"></i>Списки продуктов <i class="fa fa-angle-right"></i></a>
-                            </li>
 
-                            <li>
-                                <a href="#"><i class="fa fa-heart"></i>Любимые рецепты <i class="fa fa-angle-right"></i></a>
-                            </li>
+                <x-left-cabinet-sidebar></x-left-cabinet-sidebar>
 
-                            <li>
-                                <a href="#"><i class="fa fa-map-marker-alt"></i>Заказать продукты <i class="fa fa-angle-right"></i></a>
-                            </li>
-
-                            <li>
-                                <a href="#"><i class="fa fa-credit-card"></i>Подписка на сервис <i class="fa fa-angle-right"></i></a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
                 <div class="col-xl-7 col-lg-7">
                     <h5>Профиль</h5>
                     <div class="row gray-border-bottom pa-40">
@@ -57,8 +35,8 @@
                         <div class="col-md-6">
                             <div class="row">
                                 <div>
-                                    <h4>{{$user->name}}</h4>
-                                    <p>На сайте c {{$user->created_at->format('d.m.Y')}}</p>
+                                    <h4>{{ $user->name }}</h4>
+                                    <p>На сайте c {{ $user->created_at->format('d.m.Y') }}</p>
                                 </div>
                             </div>
                             <div class="row">
@@ -80,8 +58,8 @@
                     <div class="row mt-40">
                         <div class="col-md-12 contact-info">
                             <h4>Контактные данные</h4>
-                            <p>{{$userProfile->phone}}</p>
-                            <p>{{$user->email}}</p>
+                            <p>{{ $userProfile->phone }}</p>
+                            <p>{{ $user->email }}</p>
                             <a href="" class="change-pwd">Сменить пароль</a>
                         </div>
                     </div>

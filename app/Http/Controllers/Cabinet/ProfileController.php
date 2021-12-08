@@ -5,10 +5,10 @@ namespace App\Http\Controllers\Cabinet;
 use App\Http\Controllers\Controller;
 use App\Models\Profile;
 use App\Models\User;
-use Illuminate\Support\Facades\Session;
+
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
+
 
 class ProfileController extends Controller
 {
@@ -47,6 +47,7 @@ class ProfileController extends Controller
         $user = $user->save();
         $profile = $profile->save();
         return back();
-        // return json_encode(['success'=>1]);
+        
     }
+
 }
