@@ -394,7 +394,7 @@
                                     </div><!-- /.product-card__two-image-content -->
                                 </div><!-- /.product-card__two-image -->
                                 <div class="product-card__two-content">
-                                    <h3><a href="#{{ $recipe->id }}">{{ $recipe->name }}</a></h3>
+                                    <h3><a href="{{ route('recipe.show', $recipe->id) }}">{{ $recipe->name }}</a></h3>
 
                                     <div class="row">
                                         <div class="col-md-12 properties"><img

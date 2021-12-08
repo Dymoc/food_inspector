@@ -2908,7 +2908,7 @@ h6 {
     transform: translateY(100px);
     transition-delay: 2500ms;
     transition: transform 2000ms ease, opacity 2000ms ease, color 500ms ease,
-        background 500ms ease;
+    background 500ms ease;
 }
 
 .main-slider .swiper-slide .thm-btn:hover {
