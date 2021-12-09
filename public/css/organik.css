@@ -8393,7 +8393,9 @@ i {
 .modal {
     top: 30%;
 }
-
+.quantityOfRecipes{
+    display:none;
+}
 .no-border {
     border: none;
 }
