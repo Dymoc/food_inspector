@@ -27,7 +27,7 @@
 
                 <x-left-cabinet-sidebar></x-left-cabinet-sidebar>
 
-                <div class="col-xl-7 col-lg-7">
+                <div class="col-xl-8 col-lg-8">
                     <div class="row gray-border-bottom pb-40">
                         <form method="post" class="contact-one__form col-md-12"
                             action="{{ route('cabinet.lists.update', ['list' => $list]) }}">
@@ -42,46 +42,49 @@
                             </div>
                         </form>
                     </div>
-                    <div class="row mt-40">
+                    <div class="row mt-40 calculator shapes">
+                        <img src="{{ asset('/images/shapes/contact-bg-1-1.png') }}" alt="" class="contact-one__shape-1">
+                        <img src="{{ asset('/images/shapes/contact-bg-1-2.png') }}" alt="" class="contact-one__shape-2">
                         <div class="col-md-12">
                             <h5>Игредиенты</h5>
-                            <input type="text" class="form-control search-input typeahead" name="q" autocomplete="off"
-                                placeholder="Ищу...">
-                            <div class="row">
+                            <input type="text" class="form-control search-input typeahead inputInLists" name="q"
+                                autocomplete="off" placeholder="Ищу...">
+                            <div class="row small-font">
                                 @foreach ($ingredientsCategories as $category)
-                                    <div class="col-md-3">
+                                    <div class="col-md-4 flexCategoriesButton">
                                         <a class="ingredientsCategory"
                                             rel="{{ $category->id }}">{{ $category->name }}</a>
                                     </div>
                                 @endforeach
-                                <form method="POST" id="findByIngredients"
-                                    action="{{ route('cabinet.lists.updateingredients', ['list' => $list]) }}">
-                                    <div class="row mt-10">
+                                <form method="POST" id="findByIngredients">
+                                    <div class="row mt-10 small-font" style="width: 100%;margin: 10px 0;">
                                         @csrf
-                                        @method('put')
+
                                         @foreach ($ingredientList as $ingredient)
-                                            <div class="col-md-3 ingredientsListFiltered"
+                                            <div class="col-md-4 ingredientsListFiltered"
                                                 data-category-id="{{ $ingredient->category->id }}">
-                                                <div class="form-group"> <input type="checkbox"
+                                                <div class="form-group "> <input type="checkbox"
                                                         id="ingredient{{ $ingredient->id }}" name="ingredients[]"
-                                                        value="{{ $ingredient->id }}"><label
+                                                        value="{{ $ingredient->id }}"><label class='small-font'
                                                         for="ingredient{{ $ingredient->id }}">{{ $ingredient->name }}</label>
                                                 </div>
                                             </div>
                                         @endforeach
 
                                     </div>
-                                    
-                                        <div class="col-md-12 text-right">
-                                            <button type="submit" class="thm-btn">Сохранить</button>
-                                        </div>
-                                   
 
 
                                 </form>
                             </div>
+                            <div class="row">
+                        <div class="col-md-12 text-right">
+                            <button class="thm-btn apply-changes">Сохранить</button>
                         </div>
                     </div>
+                        </div>
+
+                    </div>
+                    
                 </div>
             </div>
         </div><!-- /.container -->
@@ -91,6 +94,28 @@
     <script src="https://rawgithub.com/TimSchlechter/bootstrap-tagsinput/master/src/bootstrap-tagsinput.js"></script>
     <script src="{{ asset('/js/typeahead.js') }}"></script>
     <script src="{{ asset('/js/search.js') }}"></script>
+    <script type="text/javascript">
+        $(function() {
+            $(".apply-changes").on('click', function() {
+                
+                $.ajax({
+                    url: "{{ route('cabinet.lists.updateingredients', ['list' => $list]) }}",
+                    type: 'PUT',
+                    dataType: 'JSON',
+                    data: $("#findByIngredients").serialize(),
+                    success: function(data) {
+
+                        console.log(data);
+                        location.reload();
+
+                    },
+                    error: function(xhr) {
+                        console.log(xhr.responseText);
+                    }
+                });
+            });
+        });
+    </script>
     <script type="text/javascript">
         $('.ingredientsListFiltered').hide();
         $('.ingredientsCategory').on("click", function() {
@@ -105,6 +130,7 @@
                 $('.search-input').tagsinput('add', { id: "{{ $ingredientlist->ingredient->id }}", name:
                 "{{ $ingredientlist->ingredient->name }}" });
             @endforeach
+            $('.bootstrap-tagsinput').addClass('inputInLists');
         });
     </script>
 @endsection

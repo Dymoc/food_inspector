@@ -2908,7 +2908,7 @@ h6 {
     transform: translateY(100px);
     transition-delay: 2500ms;
     transition: transform 2000ms ease, opacity 2000ms ease, color 500ms ease,
-    background 500ms ease;
+        background 500ms ease;
 }
 
 .main-slider .swiper-slide .thm-btn:hover {
@@ -8132,7 +8132,7 @@ label[for="myList"]+span {
     top: 40%;
     left: 42%;
     font-size: 35px;
-    display:none;
+    display: none;
     transition-duration: 0.7s;
     cursor: pointer;
 }
@@ -8142,9 +8142,11 @@ label[for="myList"]+span {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     background-color: #000;
 }
+
 .changeble_img:hover+i {
-    display:block
+    display: block
 }
+
 .bottom-user-icons {
     display: flex;
     justify-content: space-between;
@@ -8224,6 +8226,174 @@ label[for="myList"]+span {
     color: #808080;
 }
 
+.accordion-item:first-of-type {
+    border-top-left-radius: 0.25rem;
+    border-top-right-radius: 0.25rem;
+}
+
+.accordion-item {
+    background-color: #fff;
+    border: 1px solid rgba(0, 0, 0, .125);
+}
+
+.accordion-header {
+    margin-bottom: 0;
+    display: flex;
+
+    background-color: var(--thm-base);
+}
+
+.accordion-header span {
+    width: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 30px;
+    font-size: 22px;
+}
+
+.accordion-header span i {
+    color: #fff;
+}
+
+.accordion-button:focus {
+    outline: none;
+}
+
+.accordion-button:not(.collapsed) {
+    color: #fff;
+    background-color: var(--thm-base);
+    box-shadow: inset 0 -1px 0 rgb(0 0 0 / 13%);
+}
+
+.accordion-button:not(.collapsed) i {
+    color: #fff;
+}
+
+[type=button]:not(:disabled),
+[type=reset]:not(:disabled),
+[type=submit]:not(:disabled),
+button:not(:disabled),
+i {
+    cursor: pointer;
+}
+
+.accordion-button {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 1rem 30px;
+    font-size: 1rem;
+    color: #212529;
+    text-align: left;
+    background-color: #fff;
+    border: 0;
+    border-radius: 0;
+    overflow-anchor: none;
+    justify-content: space-between;
+}
+
+.accordion-body {
+    padding: 1rem 1.25rem;
+}
+
+.accordion-item:not(:first-of-type) {
+    border-top: 0;
+}
+
+.collapse:not(.show) {
+    display: none;
+}
+
+.inputInLists {
+    width: 100%;
+    height: max-content;
+    background-color: #f4f4f4;
+    border: none;
+    outline: none !important;
+    display: flex;
+    font-size: 16px;
+    padding: 16px 30px;
+    color: var(--thm-color);
+    margin-bottom: 10px;
+    border-radius: 0;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.inputInLists .label {
+    margin: 0.25em;
+}
+
+.ingredientsListFiltered .form-group {
+    padding: 0;
+}
+
+.shapes {
+    position: relative;
+}
+
+.shapes .contact-one__shape-1 {
+    top: -180px;
+    width: 304px;
+    left: -15px;
+}
+
+.shapes .contact-one__shape-2 {
+    bottom: -124px;
+    width: 304px;
+    right: -35px;
+}
+
+.flexCategoriesButton {
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    background-color: #60BE74;
+    padding: 10px 0;
+    margin: 10px 15px;
+    flex: 0 0 calc((100% / 3) - 30px);
+    max-width: calc((100% / 3) - 30px);
+    font-weight: 500;
+}
+
+.flexCategoriesButton a {
+    color: #fff;
+}
+
+.small-font {
+    font-size: 14px !important;
+}
+
+.profile_info-sidebar__categories ul {
+    padding: 0
+}
+
+.btn-close {
+    box-sizing: content-box;
+    border: 0;
+    border-radius: 0.25rem;
+    opacity: .5;
+    background: transparent;
+    font-size: 15px;
+}
+
+.lean_overlay {
+    position: fixed;
+    z-index: 100;
+    top: 0px;
+    left: 0px;
+    height: 100%;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.377);
+    display: none;
+}
+
+.modal {
+    top: 30%;
+}
+
 .no-border {
     border: none;
 }
@@ -8260,6 +8430,10 @@ label[for="myList"]+span {
 
 .mr-10 {
     margin-right: 10px;
+}
+
+.mr-30 {
+    margin-right: 30px;
 }
 
 .mt-10 {
@@ -8309,18 +8483,23 @@ label[for="myList"]+span {
 .pa-30 {
     padding: 30px;
 }
+
 .pt-40 {
     padding-top: 40px;
 }
+
 .pl-40 {
     padding-left: 40px;
 }
+
 .pr-40 {
     padding-right: 40px;
 }
+
 .pb-40 {
     padding-bottom: 40px;
 }
+
 .pa-40 {
     padding: 40px;
 }

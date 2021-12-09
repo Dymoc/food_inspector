@@ -117,7 +117,7 @@ class ListController extends Controller
                 IngredientList::query()->where('ingredient_id', $id)->delete();
             }
         }
-        return back();
+        return json_encode(['success'=>1]);
     }
     /**
      * Remove the specified resource from storage.

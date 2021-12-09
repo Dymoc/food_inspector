@@ -27,7 +27,7 @@
 
                 <x-left-cabinet-sidebar></x-left-cabinet-sidebar>
 
-                <div class="col-xl-7 col-lg-7">
+                <div class="col-xl-8 col-lg-8">
                     <h5>Профиль</h5>
                     <div class="row gray-border-bottom pa-40">
                         <div class="col-md-4"><img class="user-img"

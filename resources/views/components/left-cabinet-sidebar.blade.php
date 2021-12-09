@@ -1,4 +1,4 @@
-<div class="col-xl-5 col-lg-5">
+<div class="col-xl-4 col-lg-4">
     <div class="profile_info-sidebar__categories">
         <ul>
             <li>
