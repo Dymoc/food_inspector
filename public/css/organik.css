@@ -8309,7 +8309,18 @@ label[for="myList"]+span {
 .pa-30 {
     padding: 30px;
 }
-
+.pt-40 {
+    padding-top: 40px;
+}
+.pl-40 {
+    padding-left: 40px;
+}
+.pr-40 {
+    padding-right: 40px;
+}
+.pb-40 {
+    padding-bottom: 40px;
+}
 .pa-40 {
     padding: 40px;
 }
