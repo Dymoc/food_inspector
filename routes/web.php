@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Cabinet\FavouriteRecipesController;
 use App\Http\Controllers\Cabinet\ProfileController;
 use App\Http\Controllers\Cabinet\ListController;
 use App\Http\Controllers\NewsController;
@@ -70,4 +71,5 @@ Route::group(['prefix' => 'cabinet',  'as' => 'cabinet.', 'middleware' => 'auth'
     Route::put('edit/{profile}&{user}', [ProfileController::class, 'changeProfileUpdate'])->where('profile', '\d+')->where('user', '\d+')->name('profile.update');
     Route::resource('lists', ListController::class)->name('index', 'lists.index');
     Route::put('lists/{list}', [ListController::class, 'updateingredientList'])->where('list', '\d+')->name('lists.updateingredients');
+    Route::resource('favourite', FavouriteRecipesController::class)->name('index', 'favourite.index');
 });
