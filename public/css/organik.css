@@ -8223,7 +8223,55 @@ label[for="myList"]+span {
 .profile_info .contact-info *:not(.thm-btn) {
     color: #808080;
 }
+.accordion-item:first-of-type {
+    border-top-left-radius: 0.25rem;
+    border-top-right-radius: 0.25rem;
+}
+.accordion-item {
+    background-color: #fff;
+    border: 1px solid rgba(0,0,0,.125);
+}
+.accordion-header {
+    margin-bottom: 0;
+    
+}
 
+.accordion-button:not(.collapsed) {
+    color: #fff;
+    background-color: var(--thm-base);;
+    box-shadow: inset 0 -1px 0 rgb(0 0 0 / 13%);
+}
+.accordion-button:not(.collapsed) i{
+    color: #fff;
+}
+[type=button]:not(:disabled), [type=reset]:not(:disabled), [type=submit]:not(:disabled), button:not(:disabled) {
+    cursor: pointer;
+}
+.accordion-button {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 1rem 30px;
+    font-size: 1rem;
+    color: #212529;
+    text-align: left;
+    background-color: #fff;
+    border: 0;
+    border-radius: 0;
+    overflow-anchor: none;
+    justify-content: space-between;
+    }
+.accordion-body {
+    padding: 1rem 1.25rem;
+}
+
+.accordion-item:not(:first-of-type) {
+    border-top: 0;
+}
+.collapse:not(.show) {
+    display: none;
+}
 .no-border {
     border: none;
 }
@@ -8261,7 +8309,9 @@ label[for="myList"]+span {
 .mr-10 {
     margin-right: 10px;
 }
-
+.mr-30 {
+    margin-right: 30px;
+}
 .mt-10 {
     margin-top: 10px;
 }

@@ -29,9 +29,42 @@
 
                 <div class="col-xl-7 col-lg-7">
                     <h5>Ваши списки</h5>
-                    <div class="row gray-border-bottom pt-40">
+                    <div class="row gray-border-bottom pt-40 pb-40">
                         <div class="col-md-12">
-                            @forelse($lists as $list)
+
+                            <div class="accordion" id="accordionPanelsStayOpenExample">
+                                @forelse($lists as $list)
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+                                            <button class="accordion-button" type="button">
+                                                {{ $list->name }}
+                                                <span><a
+                                                    href="{{ route('cabinet.lists.edit', ['list' => $list]) }}"><i class="fa fa-pen mr-30"></i></a>
+                                                <a class="delete" href="javascript:"
+                                                    rel="{{ $list->id }}"><i class="fa fa-trash mr-30"></i></a><i class="fa fa-chevron-right"></i></span>
+                                            </button>
+                                        </h2>
+
+
+                                        <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse "
+                                            aria-labelledby="panelsStayOpen-headingOne">
+                                            <div class="accordion-body">
+                                                <ul>
+                                                    @forelse($list->ingredientslists as $ingredientlist)
+
+                                                        <li>{{ $ingredientlist->ingredient->name }}</li>
+                                                    @empty
+                                                        <p>В этом списке пока нет продуктов</p>
+                                                    @endforelse
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    @empty
+                                        <p>У вас пока нет ни одного списка</p>
+                                @endforelse
+                            </div>
+                            {{-- @forelse($lists as $list)
                                 <p>{{ $list->name }} <a
                                         href="{{ route('cabinet.lists.edit', ['list' => $list]) }}">Редактировать</a> <a
                                         class="delete" href="javascript:" rel="{{ $list->id }}">Удалить</a></p>
@@ -45,7 +78,7 @@
                                 </ul>
                             @empty
                                 <p>У вас пока нет ни одного списка</p>
-                            @endforelse
+                            @endforelse --}}
                         </div>
                     </div>
                     <div class="row pt-40">
@@ -101,6 +134,15 @@
                     });
                 }
             });
+            $(".accordion-button").on('click', function(e){
+                $(this).parent().parent().children('.accordion-collapse').slideToggle();
+                if($(this).children('span').children('.fa').hasClass('fa-chevron-right')){
+                    $(this).children('span').children('.fa.fa-chevron-right').removeClass('fa-chevron-right').addClass('fa-chevron-down');
+                }else{
+                    $(this).children('span').children('.fa.fa-chevron-down').removeClass('fa-chevron-down').addClass('fa-chevron-right');
+                }
+                
+            })
         });
     </script>
 @endsection
