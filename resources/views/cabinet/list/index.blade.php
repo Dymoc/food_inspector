@@ -27,7 +27,7 @@
 
                 <x-left-cabinet-sidebar></x-left-cabinet-sidebar>
 
-                <div class="col-xl-7 col-lg-7">
+                <div class="col-xl-8 col-lg-8">
                     <h5>Ваши списки</h5>
                     <div class="row gray-border-bottom pt-40 pb-40">
                         <div class="col-md-12">
@@ -38,11 +38,14 @@
                                         <h2 class="accordion-header" id="panelsStayOpen-headingOne">
                                             <button class="accordion-button" type="button">
                                                 {{ $list->name }}
-                                                <span><a
-                                                    href="{{ route('cabinet.lists.edit', ['list' => $list]) }}"><i class="fa fa-pen mr-30"></i></a>
-                                                <a class="delete" href="javascript:"
-                                                    rel="{{ $list->id }}"><i class="fa fa-trash mr-30"></i></a><i class="fa fa-chevron-right"></i></span>
                                             </button>
+                                            <span>
+                                                <a href="{{ route('cabinet.lists.edit', ['list' => $list]) }}"><i
+                                                        class="fa fa-pen"></i></a>
+                                                <a class="delete" href="javascript:" rel="{{ $list->id }}"><i
+                                                        class="fa fa-trash"></i></a>
+                                                <a class="slideToggle"><i class="fa fa-chevron-right"></i></a>
+                                            </span>
                                         </h2>
 
 
@@ -60,25 +63,10 @@
                                             </div>
                                         </div>
                                     </div>
-                                    @empty
-                                        <p>У вас пока нет ни одного списка</p>
+                                @empty
+                                    <p>У вас пока нет ни одного списка</p>
                                 @endforelse
                             </div>
-                            {{-- @forelse($lists as $list)
-                                <p>{{ $list->name }} <a
-                                        href="{{ route('cabinet.lists.edit', ['list' => $list]) }}">Редактировать</a> <a
-                                        class="delete" href="javascript:" rel="{{ $list->id }}">Удалить</a></p>
-                                <ul>
-                                    @forelse($list->ingredientslists as $ingredientlist)
-
-                                        <li>{{ $ingredientlist->ingredient->name }}</li>
-                                    @empty
-                                        <p>В этом списке пока нет продуктов</p>
-                                    @endforelse
-                                </ul>
-                            @empty
-                                <p>У вас пока нет ни одного списка</p>
-                            @endforelse --}}
                         </div>
                     </div>
                     <div class="row pt-40">
@@ -88,34 +76,41 @@
                         <div class="col-md-12 text-right mt-20">
                             <form method="post" class="contact-one__form" action="{{ route('cabinet.lists.store') }}">
                                 @csrf
-
-
-                                <input type="text" name="name" placeholder="Название списка" value="{{ old('name') }}">
-
-
-
+                                <input type="text" name="name" required placeholder="Название списка"
+                                    value="{{ old('name') }}">
                                 <button type="submit" class="thm-btn">Добавить</button>
-
                             </form>
                         </div>
                     </div>
                 </div>
             </div><!-- /.container -->
     </section><!-- /.contact-one -->
-
-
-
-
-
-
-
+    <div class="lean_overlay"></div>
+    <div class="modal show">
+        <div class="modal-dialog modal-fullscreen-md-down">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title h4">Удаление списка</h5>
+                    <button type="button" class="btn-close"><i class="fa fa-times"></i></button>
+                </div>
+                <div class="modal-body">
+                    Вы уверены, что хотите удалить список?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="thm-btn itsokay">Уверен</button>
+                </div>
+            </div>
+        </div>
+    </div>
 @endsection
 @section('scripts')
     <script type="text/javascript">
         $(function() {
             $(".delete").on('click', function() {
                 var id = $(this).attr('rel');
-                if (confirm("Вы уверены, что хотите удалить список?")) {
+                $('.lean_overlay').fadeIn();
+                $('.modal').fadeIn();
+                $(".itsokay").on('click', function() {
                     $.ajax({
                         url: '/cabinet/lists/' + id,
                         type: 'DELETE',
@@ -132,17 +127,34 @@
                             console.log(xhr.responseText);
                         }
                     });
-                }
+                });
+                $(".btn-close").on('click', function() {
+                    $('.modal').fadeOut();
+                    $('.lean_overlay').fadeOut();
+                });
+
             });
-            $(".accordion-button").on('click', function(e){
+            $(".accordion-button").on('click', function() {
                 $(this).parent().parent().children('.accordion-collapse').slideToggle();
-                if($(this).children('span').children('.fa').hasClass('fa-chevron-right')){
-                    $(this).children('span').children('.fa.fa-chevron-right').removeClass('fa-chevron-right').addClass('fa-chevron-down');
-                }else{
-                    $(this).children('span').children('.fa.fa-chevron-down').removeClass('fa-chevron-down').addClass('fa-chevron-right');
+                if ($(this).children('span').children('.fa').hasClass('fa-chevron-right')) {
+                    $(this).children('span').children('.fa.fa-chevron-right').removeClass(
+                        'fa-chevron-right').addClass('fa-chevron-down');
+                } else {
+                    $(this).children('span').children('.fa.fa-chevron-down').removeClass('fa-chevron-down')
+                        .addClass('fa-chevron-right');
                 }
-                
-            })
+
+            });
+            $(".slideToggle").on('click', function() {
+                $(this).parent().parent().parent().children('.accordion-collapse').slideToggle();
+                if ($(this).children('.fa').hasClass('fa-chevron-right')) {
+                    $(this).children('.fa').removeClass('fa-chevron-right').addClass('fa-chevron-down');
+                } else {
+                    $(this).children('.fa').removeClass('fa-chevron-down').addClass('fa-chevron-right');
+                }
+
+            });
+
         });
     </script>
 @endsection
