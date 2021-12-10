@@ -9,7 +9,7 @@
             </li>
 
             <li>
-                <a href="#"><i class="fa fa-heart"></i>Любимые рецепты <i class="fa fa-angle-right"></i></a>
+                <a href="{{route('cabinet.favourite.index')}}"><i class="fa fa-heart"></i>Любимые рецепты <i class="fa fa-angle-right"></i></a>
             </li>
 
             <li>

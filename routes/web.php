@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Cabinet\FavouriteRecipesController;
 use App\Http\Controllers\Cabinet\ProfileController;
 use App\Http\Controllers\Cabinet\ListController;
 use App\Http\Controllers\NewsController;
@@ -53,14 +54,16 @@ Route::group(['prefix' => 'ingredient'], function () {
 Route::get('find', [SearchController::class, 'find'])->name('find');
 Route::get('findByIngredients', [SearchController::class, 'findByIngredients'])->name('findByIngredients');
 
-Route::group(['prefix' => 'recipe'], function () {
-    Route::get('/show/{id}', [RecipeController::class, 'show'])->where('id', '\d+')->name('recipe.show');
-});
+
 
 require __DIR__ . '/auth.php';
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
+});
+Route::group(['prefix' => 'recipe'], function () {
+    Route::get('/show/{id}', [RecipeController::class, 'show'])->where('id', '\d+')->name('recipe.show');
+    Route::post('/like/{id}', [RecipeController::class, 'like'])->where('id', '\d+')->name('recipe.like')->middleware('auth');
 });
 Route::group(['prefix' => 'cabinet',  'as' => 'cabinet.', 'middleware' => 'auth'], function () {
     Route::get('profile', [ProfileController::class, 'index'])->name('index');
@@ -68,4 +71,5 @@ Route::group(['prefix' => 'cabinet',  'as' => 'cabinet.', 'middleware' => 'auth'
     Route::put('edit/{profile}&{user}', [ProfileController::class, 'changeProfileUpdate'])->where('profile', '\d+')->where('user', '\d+')->name('profile.update');
     Route::resource('lists', ListController::class)->name('index', 'lists.index');
     Route::put('lists/{list}', [ListController::class, 'updateingredientList'])->where('list', '\d+')->name('lists.updateingredients');
+    Route::resource('favourite', FavouriteRecipesController::class)->name('index', 'favourite.index');
 });
