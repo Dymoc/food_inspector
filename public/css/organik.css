@@ -3914,6 +3914,7 @@ label[for="myList"]+span {
     color: var(--thm-color);
     margin-bottom: 10px;
     border-radius: 0;
+    z-index: 5;
 }
 
 .contact-one__form .bootstrap-select .dropdown-toggle .filter-option {
@@ -8335,6 +8336,7 @@ i {
 }
 
 .shapes .contact-one__shape-1 {
+    z-index: -1;
     top: -108px;
     width: 304px;
     left: -15px;

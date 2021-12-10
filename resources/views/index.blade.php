@@ -309,8 +309,8 @@
 
                 <div class="tab-pane  gray-border" id="ingridients" role="tabpanel" aria-labelledby="profile-tab">
                     <div class="search-tab-pane">
-                        
-                        
+
+
                         <input type="text" class="form-control search-input typeahead" name="q" autocomplete="off"
                             placeholder="Ищу...">
                         <button aria-label="search submit" class="thm-btn">
@@ -353,9 +353,11 @@
                         </form>
                     </div>
                 </div>
+
                 <div class="tab-pane gray-border" id="naming" role="tabpanel" aria-labelledby="contact-tab">
                     <div class="search-tab-pane">
-                        <form action="#">
+                        <form method="GET" id="findRecipeByName">
+                            @csrf
                             <label for="search" class="sr-only">search here</label><!-- /.sr-only -->
                             <input type="text" id="search" placeholder="Ищу..." />
                             <button type="submit" aria-label="search submit" class="thm-btn">
@@ -365,11 +367,13 @@
                     </div>
                     <div class="row ml-10 mr-10">
                         @foreach ($recipeCategories as $category)
-                            <div class="col-md-3"><a href=#{{ $category->id }}>{{ $category->name }}
-                                </a></div>
+                            <div class="col-md-3">
+                                <a href=#{{ $category->id }}>{{ $category->name }}</a>
+                            </div>
                         @endforeach
                     </div>
                 </div>
+
             </div>
 
             <div class="results mt-60">
@@ -806,4 +810,80 @@
             animationLikes();
         });
     </script>
+{{--    <script type="text/javascript">--}}
+{{--        $(function() {--}}
+
+{{--            $("#findRecipeByName").on('submit', function(e) {--}}
+{{--                e.preventDefault();--}}
+{{--                $.ajax({--}}
+{{--                    url: '{{ route('findRecipeByName') }}',--}}
+{{--                    type: 'GET',--}}
+{{--                    dataType: 'JSON',--}}
+{{--                    data: $("#findRecipeByName").serialize(),--}}
+{{--                    success: function(data) {--}}
+{{--                        let htmlArr = "";--}}
+{{--                        data.forEach(recipe => {--}}
+{{--                            let cooking_level = "";--}}
+{{--                            switch (recipe.cooking_level) {--}}
+{{--                                case 'easy':--}}
+{{--                                    cooking_level = "Для новичков";--}}
+{{--                                    break;--}}
+{{--                                case 'medium':--}}
+{{--                                    cooking_level = "Для опытных";--}}
+{{--                                    break;--}}
+{{--                                default:--}}
+{{--                                    cooking_level = "Для профи";--}}
+{{--                                    break;--}}
+{{--                            }--}}
+
+{{--                            htmlArr += `<div class="col-lg-4 col-md-6">--}}
+{{--                                            <div class="product-card__two">--}}
+{{--                                                <div class="product-card__two-image">--}}
+{{--                                                    <img src="${recipe.img}" alt="фото рецепта">--}}
+{{--                                                    <div class="product-card__two-image-content">--}}
+{{--                                                        <a href="/recipe/show/${recipe.id}"><i class="organik-icon-visibility"></i></a>--}}
+{{--                                                        <a href="javascript:" rel="${recipe.id}" class="like"><i class="fa fa-heart"></i></a>--}}
+{{--                                                    </div><!-- /.product-card__two-image-content -->--}}
+{{--                                                </div><!-- /.product-card__two-image -->--}}
+{{--                                                <div class="product-card__two-content">--}}
+{{--                                                    <h3><a href="/recipe/show/${recipe.id}">${ recipe.name }</a></h3>--}}
+
+{{--                                                    <div class="row">--}}
+{{--                                                        <div class="col-md-12 properties"><img--}}
+{{--                                                                src="{{ asset('/images/calculator/time.svg') }}" /><span>${ recipe.cooking_time }--}}
+{{--                                                                                        минут</span></div>--}}
+{{--                                                        <div class="col-md-12 properties"><img--}}
+{{--                                                                src="{{ asset('/images/calculator/chart.svg') }}" /><span>395 Ккал</span>--}}
+{{--                                                        </div>--}}
+{{--                                                        <div class="col-md-12 properties"><img--}}
+{{--                                                                src="{{ asset('/images/calculator/smile.svg') }}" />--}}
+{{--                                                            <span>--}}
+{{--                                                                                        ${cooking_level}--}}
+{{--                                                                                    </span>--}}
+{{--                                                        </div>--}}
+{{--                                                    </div>--}}
+{{--                                                </div><!-- /.product-card__two-content -->--}}
+{{--                                            </div><!-- /.product-card__two -->--}}
+{{--                                        </div>`;--}}
+{{--                                    });--}}
+{{--                        $('.results .row').empty();--}}
+{{--                        $('.results .row').prepend(htmlArr);--}}
+{{--                        $('.quantityOfRecipes .quantity').text(data.length);--}}
+{{--                        $('.alert-dismissible').fadeIn();--}}
+{{--                        window.setTimeout(function() {--}}
+{{--                            $('.alert-dismissible').fadeOut();--}}
+{{--                        }, 2000);--}}
+{{--                        like();--}}
+{{--                        animationLikes();--}}
+{{--                    },--}}
+{{--                    error: function(xhr) {--}}
+{{--                        console.log(xhr.responseText);--}}
+{{--                    }--}}
+{{--                });--}}
+
+{{--            });--}}
+{{--            like();--}}
+{{--            animationLikes();--}}
+{{--        });--}}
+{{--    </script>--}}
 @endsection

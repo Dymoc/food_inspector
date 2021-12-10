@@ -27,4 +27,10 @@ class SearchController extends Controller
         return Ingredient::search($request->get('q'))->get();
     }
 
+    public function findRecipeByName(Request $request)
+    {
+        $recipes = Recipe::query()->where('name', 'like', '%'.$request.'%')->get();
+        return json_encode($recipes);
+    }
+
 }
