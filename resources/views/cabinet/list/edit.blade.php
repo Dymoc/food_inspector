@@ -29,7 +29,7 @@
 
                 <div class="col-xl-8 col-lg-8">
                     <div class="row gray-border-bottom pb-40">
-                        <form method="post" class="contact-one__form col-md-12"
+                        <form method="post" class="contact-one__form col-md-12" id="listName"
                             action="{{ route('cabinet.lists.update', ['list' => $list]) }}">
                             @csrf
                             @method('put')
@@ -37,9 +37,6 @@
                                 <input type="text" name="name" placeholder="Название списка" value="{{ $list->name }}">
                             </div>
 
-                            <div class="col-md-12 text-right">
-                                <button type="submit" class="thm-btn">Сохранить</button>
-                            </div>
                         </form>
                     </div>
                     <div class="row mt-40 calculator shapes">
@@ -99,10 +96,10 @@
             $(".apply-changes").on('click', function() {
                 
                 $.ajax({
-                    url: "{{ route('cabinet.lists.updateingredients', ['list' => $list]) }}",
+                    url: "{{ route('cabinet.lists.update', ['list' => $list]) }}",
                     type: 'PUT',
                     dataType: 'JSON',
-                    data: $("#findByIngredients").serialize(),
+                    data: $("#findByIngredients,#listName").serialize(),
                     success: function(data) {
 
                         console.log(data);

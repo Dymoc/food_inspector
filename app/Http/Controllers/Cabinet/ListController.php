@@ -87,18 +87,7 @@ class ListController extends Controller
     public function update(Request $request, UserList $list)
     {
         $list->name = $request->input('name');
-        $list = $list->save();
-        return back();
-    }
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function updateingredientList(Request $request, UserList $list)
-    {
+        
         foreach ($request->ingredients as $ingredientId) {
             if (count(IngredientList::query()->where('user_list_id', $list->id)->where('ingredient_id', $ingredientId)->get()) == 0) {
                 IngredientList::create([
@@ -117,6 +106,7 @@ class ListController extends Controller
                 IngredientList::query()->where('ingredient_id', $id)->delete();
             }
         }
+        $list = $list->save();
         return json_encode(['success'=>1]);
     }
     /**
