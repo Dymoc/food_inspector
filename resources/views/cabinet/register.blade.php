@@ -7,8 +7,7 @@
 @endsection
 @section('content')
     <section class="page-header">
-        <div class="page-header__bg"
-            style="background-image: url({{ asset('/images/backgrounds/bg1.jpg') }});"></div>
+        <div class="page-header__bg" style="background-image: url({{ asset('/images/backgrounds/bg1.jpg') }});"></div>
         <!-- /.page-header__bg -->
         <div class="container">
             <h2> Личный кабинет </h2>
@@ -32,14 +31,16 @@
 
                         <!-- Name -->
                         <div>
-                            <label for="email">
-                                Имя
+                            <label for="name">
+                                Логин
                             </label>
 
                             <input class="" id="name" type="text" name="name" required="required"
                                 autofocus="autofocus" value="{{ old('name') }}">
                         </div>
-
+                        @error('name')
+                            <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
                         <!-- Email Address -->
                         <div>
                             <label for="email">
@@ -49,7 +50,9 @@
                             <input class="" id="email" type="email" name="email" required="required"
                                 autofocus="autofocus" value="{{ old('email') }}">
                         </div>
-
+                        @error('email')
+                            <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
 
                         <!-- Password -->
                         <div class="mt-4">
@@ -59,7 +62,9 @@
                             <input class="" id="password" type="password" name="password" required="required"
                                 autocomplete="new-password">
                         </div>
-
+                        @error('password')
+                            <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
                         <!-- Confirm Password -->
                         <div class="mt-4">
                             <label for="password_confirmation">
@@ -68,6 +73,9 @@
                             <input class="" id="password_confirmation" type="password"
                                 name="password_confirmation" required="required">
                         </div>
+                        @error('password_confirmation')
+                            <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
                         <div class="button-box mt-50">
                             <button type="submit" class="thm-btn">Зарегистрироваться</button>
                         </div>
