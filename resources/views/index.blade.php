@@ -709,7 +709,7 @@
                     error: function(xhr) {
                         if (typeof JSON.parse(xhr.responseText).message !== "undefined" &&
                             JSON
-                            .parse(xhr.responseText).message == "Unauthorized.") {
+                            .parse(xhr.responseText).message == "Unauthenticated.") {
                             $('.lean_overlay').fadeIn();
                             $('.modal').fadeIn();
                             $(".btn-close").on('click', function() {
@@ -720,7 +720,7 @@
                                 $('.modal').fadeOut();
                                 $('.lean_overlay').fadeOut();
                             });
-                            console.log(xhr.responseText);
+                            
                         } else {
                             console.log(xhr.responseText);
                         }
