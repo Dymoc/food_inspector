@@ -20,6 +20,9 @@ class RecipeController extends Controller
     {
         $recipes =Recipe::query()->withCount('likes')
         ->orderBy('likes_count', 'desc')->whereIn('id',Like::query()->select('recipe_id')->get())->get();
+        if(count($recipes)==0){
+            $recipes =Recipe::all();
+        }
         return view('recipe.index', [
             'recipeList' => $recipes
         ]);
