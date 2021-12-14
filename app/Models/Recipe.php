@@ -23,4 +23,8 @@ class Recipe extends Model
     {
         return $this->hasMany(RecipesType::class, 'id','type_id');
     }
+    public function likes(): HasMany
+    {
+        return $this->hasMany(Like::class, 'recipe_id','id');
+    }
 }

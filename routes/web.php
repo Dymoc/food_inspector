@@ -34,8 +34,6 @@ Route::group(['prefix' => 'news'], function () {
     Route::get('/show/{news}', [NewsController::class, 'show'])->where('news', '\d+')->name('news.show');
 });
 
-//Route::resource('ingredient', IngredientContorller::class)
-//    ->name('ingredient');
 
 Route::group(['prefix' => 'ingredient'], function () {
     Route::get('/', [IngredientContorller::class, 'index'])
@@ -70,6 +68,5 @@ Route::group(['prefix' => 'cabinet',  'as' => 'cabinet.', 'middleware' => 'auth'
     Route::get('profile-change', [ProfileController::class, 'changeProfile'])->name('profile-change');
     Route::put('edit/{profile}&{user}', [ProfileController::class, 'changeProfileUpdate'])->where('profile', '\d+')->where('user', '\d+')->name('profile.update');
     Route::resource('lists', ListController::class)->name('index', 'lists.index');
-   // Route::put('lists/{list}', [ListController::class, 'updateingredientList'])->where('list', '\d+')->name('lists.updateingredients');
     Route::resource('favourite', FavouriteRecipesController::class)->name('index', 'favourite.index');
 });

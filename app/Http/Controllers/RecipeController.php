@@ -18,10 +18,11 @@ class RecipeController extends Controller
 {
     public function popular()
     {
-        $recipes = Recipe::all();
-        $recipes = $recipes->only([mt_rand(1, 20), mt_rand(1, 20), mt_rand(1, 20)]);
-
-
+        $recipes =Recipe::query()->withCount('likes')
+        ->orderBy('likes_count', 'desc')->whereIn('id',Like::query()->select('recipe_id')->get())->get();
+        if(count($recipes)==0){
+            $recipes =Recipe::all();
+        }
         return view('recipe.index', [
             'recipeList' => $recipes
         ]);
