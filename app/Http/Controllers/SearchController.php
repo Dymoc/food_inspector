@@ -32,4 +32,11 @@ class SearchController extends Controller
         ->get();
         return json_encode($recipes);
     }
+    public function findByRecipeCategory(Request $request)
+    {
+         $recipes = Recipe::query()->where('category_id', $request->category_id)
+        ->get();
+        return json_encode($recipes);
+    }
+    
 }

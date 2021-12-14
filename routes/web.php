@@ -54,7 +54,7 @@ Route::group(['prefix' => 'ingredient'], function () {
 Route::get('find', [SearchController::class, 'find'])->name('find');
 Route::get('findByIngredients', [SearchController::class, 'findByIngredients'])->name('findByIngredients');
 Route::get('findByRecipeName', [SearchController::class, 'findByRecipeName'])->name('findByRecipeName');
-
+Route::get('findByRecipeCategory', [SearchController::class, 'findByRecipeCategory'])->name('findByRecipeCategory');
 
 require __DIR__ . '/auth.php';
 
