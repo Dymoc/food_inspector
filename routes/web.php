@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Admin\ParcerController;
+use App\Http\Controllers\Admin\ResourceController;
 use App\Http\Controllers\Cabinet\FavouriteRecipesController;
 use App\Http\Controllers\Cabinet\ProfileController;
 use App\Http\Controllers\Cabinet\ListController;
@@ -69,4 +71,9 @@ Route::group(['prefix' => 'cabinet',  'as' => 'cabinet.', 'middleware' => 'auth'
     Route::put('edit/{profile}&{user}', [ProfileController::class, 'changeProfileUpdate'])->where('profile', '\d+')->where('user', '\d+')->name('profile.update');
     Route::resource('lists', ListController::class)->name('index', 'lists.index');
     Route::resource('favourite', FavouriteRecipesController::class)->name('index', 'favourite.index');
+});
+
+Route::group(['prefix' => 'admin', 'as' => 'voyager.', 'middleware' => 'admin.user'], function () {
+    Route::get('/parce/{resource}', ParcerController::class)->where('resource', '\d+')->name('resources.parce');
+    Route::get('resources/parcer/index', ResourceController::class)->name('resources.parcer.index');
 });
