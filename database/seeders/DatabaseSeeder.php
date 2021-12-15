@@ -24,7 +24,8 @@ class DatabaseSeeder extends Seeder
             RecipeIngredientsSeeder::class,
             RecipeStepsSeeder::class,
             UserProfileSeeder::class,
-            ProductsEatValueSeeder::class
+            ProductsEatValueSeeder::class,
+            ResoucesSeeder::class
         ]);
     }
 }

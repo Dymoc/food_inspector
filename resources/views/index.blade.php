@@ -90,7 +90,8 @@
             <div class="tab-content" id="myTabContent">
                 <div class="tab-pane  gray-border" id="recipe" role="tabpanel" aria-labelledby="home-tab">
                     <div class="product-sidebar__single no-border">
-                        <form action="" method="post">
+                        <form method="POST" id="findByRecipeOptions">
+                            @csrf
                             <div class="row">
 
                                 <div class="col-md-8">
@@ -101,7 +102,7 @@
                                                 <div class="col-xl-12 col-lg-12 mb-10">
                                                     <div class="product-sorter">
                                                         <div class="product-sorter__select">
-                                                            <select class="selectpicker">
+                                                            <select class="selectpicker" name="recipe_type">
                                                                 <option value="0">Все</option>
                                                                 @foreach ($recipeTypes as $type)
                                                                     <option value="{{ $type->id }}">{{ $type->name }}
@@ -113,7 +114,7 @@
                                                 </div>
                                                 <div class="col-xl-12 col-lg-12">
                                                     <div class="form-group">
-                                                        <input type="checkbox" id="eatMeat" checked>
+                                                        <input type="checkbox" id="eatMeat" checked name="EatMeat">
                                                         <label for="eatMeat">Я ем мясо</label>
                                                     </div><!-- /.form-group -->
                                                 </div>
@@ -121,100 +122,27 @@
                                         </div>
                                         <div class="col-md-6">
                                             <h3>Время приготовления</h3>
-                                            <div class="row gy-5">
-                                                <div class="col-xl-3 col-lg-3"><svg class="time-icon">
-                                                        <style type="text/css">
-                                                            .st0 {
-                                                                fill-rule: evenodd;
-                                                                clip-rule: evenodd;
-                                                                fill: #60BE74;
-                                                            }
-
-                                                        </style>
-                                                        <g>
-                                                            <g>
-                                                                <path class="st0"
-                                                                    d="M3.2,7.5L2.1,6.2L6.8,2l0.9,1.1c0.6-0.4,1.2-0.7,1.8-1L8.4,0.8c-0.7-0.9-2-1-2.9-0.3L0.8,4.6
-                                                                                                                                                                                                c-0.9,0.7-1.1,1.9-0.4,2.8l1.7,2.1C2.4,8.8,2.8,8.1,3.2,7.5z M29.2,4.6l-4.7-4.2c-0.9-0.7-2.2-0.5-2.9,0.3l-1.1,1.4
-                                                                                                                                                                                                c0.6,0.3,1.2,0.6,1.8,1L23.2,2l4.7,4.2l-1.1,1.3c0.4,0.6,0.7,1.3,1,1.9l1.7-2.1C30.2,6.5,30.1,5.3,29.2,4.6z M27.8,28.4l-4.2-5
-                                                                                                                                                                                                c2.1-2.2,3.4-5.1,3.4-8.4c0-6.6-5.4-12-12-12S3,8.4,3,15c0,3.3,1.3,6.2,3.4,8.4l-4.2,5l0,0C2.1,28.5,2,28.8,2,29c0,0.6,0.4,1,1,1
-                                                                                                                                                                                                c0.3,0,0.6-0.1,0.8-0.4l0,0l4.1-5c2,1.5,4.4,2.3,7.1,2.3c2.7,0,5.1-0.9,7.1-2.3l4.1,5l0,0c0.2,0.2,0.4,0.4,0.8,0.4
-                                                                                                                                                                                                c0.6,0,1-0.4,1-1C28,28.8,27.9,28.5,27.8,28.4L27.8,28.4z M15,25C9.5,25,5,20.5,5,15C5,9.5,9.3,5,15,5c5.6,0,10,4.5,10,10
-                                                                                                                                                                                                C25,20.5,20.5,25,15,25z M19.3,9.3l-4.9,5.2l-2.8-3c-0.4-0.4-1-0.4-1.4,0c-0.4,0.4-0.4,1.1,0,1.5l3.5,3.7c0.4,0.4,1,0.4,1.4,0
-                                                                                                                                                                                                l5.6-5.9c0.4-0.4,0.4-1.1,0-1.5C20.3,8.9,19.7,8.9,19.3,9.3z" />
-                                                            </g>
-                                                        </g>
-                                                    </svg>15 мин</div>
-                                                <div class="col-xl-3 col-lg-3"><svg class="time-icon">
-                                                        <style type="text/css">
-                                                            .st0 {
-                                                                fill-rule: evenodd;
-                                                                clip-rule: evenodd;
-                                                                fill: #60BE74;
-                                                            }
-
-                                                        </style>
-                                                        <g>
-                                                            <g>
-                                                                <path class="st0"
-                                                                    d="M3.2,7.5L2.1,6.2L6.8,2l0.9,1.1c0.6-0.4,1.2-0.7,1.8-1L8.4,0.8c-0.7-0.9-2-1-2.9-0.3L0.8,4.6
-                                                                                                                                                                                                c-0.9,0.7-1.1,1.9-0.4,2.8l1.7,2.1C2.4,8.8,2.8,8.1,3.2,7.5z M29.2,4.6l-4.7-4.2c-0.9-0.7-2.2-0.5-2.9,0.3l-1.1,1.4
-                                                                                                                                                                                                c0.6,0.3,1.2,0.6,1.8,1L23.2,2l4.7,4.2l-1.1,1.3c0.4,0.6,0.7,1.3,1,1.9l1.7-2.1C30.2,6.5,30.1,5.3,29.2,4.6z M27.8,28.4l-4.2-5
-                                                                                                                                                                                                c2.1-2.2,3.4-5.1,3.4-8.4c0-6.6-5.4-12-12-12S3,8.4,3,15c0,3.3,1.3,6.2,3.4,8.4l-4.2,5l0,0C2.1,28.5,2,28.8,2,29c0,0.6,0.4,1,1,1
-                                                                                                                                                                                                c0.3,0,0.6-0.1,0.8-0.4l0,0l4.1-5c2,1.5,4.4,2.3,7.1,2.3c2.7,0,5.1-0.9,7.1-2.3l4.1,5l0,0c0.2,0.2,0.4,0.4,0.8,0.4
-                                                                                                                                                                                                c0.6,0,1-0.4,1-1C28,28.8,27.9,28.5,27.8,28.4L27.8,28.4z M15,25C9.5,25,5,20.5,5,15C5,9.5,9.3,5,15,5c5.6,0,10,4.5,10,10
-                                                                                                                                                                                                C25,20.5,20.5,25,15,25z M19.3,9.3l-4.9,5.2l-2.8-3c-0.4-0.4-1-0.4-1.4,0c-0.4,0.4-0.4,1.1,0,1.5l3.5,3.7c0.4,0.4,1,0.4,1.4,0
-                                                                                                                                                                                                l5.6-5.9c0.4-0.4,0.4-1.1,0-1.5C20.3,8.9,19.7,8.9,19.3,9.3z" />
-                                                            </g>
-                                                        </g>
-                                                    </svg>30 мин</div>
-                                                <div class="col-xl-3 col-lg-3"><svg class="time-icon">
-                                                        <style type="text/css">
-                                                            .st0 {
-                                                                fill-rule: evenodd;
-                                                                clip-rule: evenodd;
-                                                                fill: #60BE74;
-                                                            }
-
-                                                        </style>
-                                                        <g>
-                                                            <g>
-                                                                <path class="st0"
-                                                                    d="M3.2,7.5L2.1,6.2L6.8,2l0.9,1.1c0.6-0.4,1.2-0.7,1.8-1L8.4,0.8c-0.7-0.9-2-1-2.9-0.3L0.8,4.6
-                                                                                                                                                                                                c-0.9,0.7-1.1,1.9-0.4,2.8l1.7,2.1C2.4,8.8,2.8,8.1,3.2,7.5z M29.2,4.6l-4.7-4.2c-0.9-0.7-2.2-0.5-2.9,0.3l-1.1,1.4
-                                                                                                                                                                                                c0.6,0.3,1.2,0.6,1.8,1L23.2,2l4.7,4.2l-1.1,1.3c0.4,0.6,0.7,1.3,1,1.9l1.7-2.1C30.2,6.5,30.1,5.3,29.2,4.6z M27.8,28.4l-4.2-5
-                                                                                                                                                                                                c2.1-2.2,3.4-5.1,3.4-8.4c0-6.6-5.4-12-12-12S3,8.4,3,15c0,3.3,1.3,6.2,3.4,8.4l-4.2,5l0,0C2.1,28.5,2,28.8,2,29c0,0.6,0.4,1,1,1
-                                                                                                                                                                                                c0.3,0,0.6-0.1,0.8-0.4l0,0l4.1-5c2,1.5,4.4,2.3,7.1,2.3c2.7,0,5.1-0.9,7.1-2.3l4.1,5l0,0c0.2,0.2,0.4,0.4,0.8,0.4
-                                                                                                                                                                                                c0.6,0,1-0.4,1-1C28,28.8,27.9,28.5,27.8,28.4L27.8,28.4z M15,25C9.5,25,5,20.5,5,15C5,9.5,9.3,5,15,5c5.6,0,10,4.5,10,10
-                                                                                                                                                                                                C25,20.5,20.5,25,15,25z M19.3,9.3l-4.9,5.2l-2.8-3c-0.4-0.4-1-0.4-1.4,0c-0.4,0.4-0.4,1.1,0,1.5l3.5,3.7c0.4,0.4,1,0.4,1.4,0
-                                                                                                                                                                                                l5.6-5.9c0.4-0.4,0.4-1.1,0-1.5C20.3,8.9,19.7,8.9,19.3,9.3z" />
-                                                            </g>
-                                                        </g>
-                                                    </svg>40 мин</div>
-                                                <div class="col-xl-3 col-lg-3"><svg class="time-icon">
-                                                        <style type="text/css">
-                                                            .st0 {
-                                                                fill-rule: evenodd;
-                                                                clip-rule: evenodd;
-                                                                fill: #60BE74;
-                                                            }
-
-                                                        </style>
-                                                        <g>
-                                                            <g>
-                                                                <path class="st0"
-                                                                    d="M3.2,7.5L2.1,6.2L6.8,2l0.9,1.1c0.6-0.4,1.2-0.7,1.8-1L8.4,0.8c-0.7-0.9-2-1-2.9-0.3L0.8,4.6
-                                                                                                                                                                                                c-0.9,0.7-1.1,1.9-0.4,2.8l1.7,2.1C2.4,8.8,2.8,8.1,3.2,7.5z M29.2,4.6l-4.7-4.2c-0.9-0.7-2.2-0.5-2.9,0.3l-1.1,1.4
-                                                                                                                                                                                                c0.6,0.3,1.2,0.6,1.8,1L23.2,2l4.7,4.2l-1.1,1.3c0.4,0.6,0.7,1.3,1,1.9l1.7-2.1C30.2,6.5,30.1,5.3,29.2,4.6z M27.8,28.4l-4.2-5
-                                                                                                                                                                                                c2.1-2.2,3.4-5.1,3.4-8.4c0-6.6-5.4-12-12-12S3,8.4,3,15c0,3.3,1.3,6.2,3.4,8.4l-4.2,5l0,0C2.1,28.5,2,28.8,2,29c0,0.6,0.4,1,1,1
-                                                                                                                                                                                                c0.3,0,0.6-0.1,0.8-0.4l0,0l4.1-5c2,1.5,4.4,2.3,7.1,2.3c2.7,0,5.1-0.9,7.1-2.3l4.1,5l0,0c0.2,0.2,0.4,0.4,0.8,0.4
-                                                                                                                                                                                                c0.6,0,1-0.4,1-1C28,28.8,27.9,28.5,27.8,28.4L27.8,28.4z M15,25C9.5,25,5,20.5,5,15C5,9.5,9.3,5,15,5c5.6,0,10,4.5,10,10
-                                                                                                                                                                                                C25,20.5,20.5,25,15,25z M19.3,9.3l-4.9,5.2l-2.8-3c-0.4-0.4-1-0.4-1.4,0c-0.4,0.4-0.4,1.1,0,1.5l3.5,3.7c0.4,0.4,1,0.4,1.4,0
-                                                                                                                                                                                                l5.6-5.9c0.4-0.4,0.4-1.1,0-1.5C20.3,8.9,19.7,8.9,19.3,9.3z" />
-                                                            </g>
-                                                        </g>
-                                                    </svg>1 час</div>
-
+                                            <div class="row products_time gy-5">
+                                                <div class="col-xl-3 col-lg-3 justify-content-center">
+                                                    <input type="radio" name="time" id="time15Checkbox" value="30"><label
+                                                        for="time15Checkbox">
+                                                        30 мин</label>
+                                                </div>
+                                                <div class="col-xl-3 col-lg-3 justify-content-center">
+                                                    <input type="radio" name="time" id="time30Checkbox" value="60"><label
+                                                        for="time30Checkbox">
+                                                        60 мин</label>
+                                                </div>
+                                                <div class="col-xl-3 col-lg-3 justify-content-center">
+                                                    <input type="radio" name="time" id="time45Checkbox" value="120"><label
+                                                        for="time45Checkbox">
+                                                        до 2ч</label>
+                                                </div>
+                                                <div class="col-xl-3 col-lg-3 justify-content-center">
+                                                    <input type="radio" name="time" id="time60Checkbox" value="360"><label
+                                                        for="time60Checkbox">
+                                                        > 2ч</label>
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
@@ -222,26 +150,26 @@
                                             <div class="row">
                                                 <div class="col-xl-12 col-lg-12">
                                                     <div class="form-group">
-                                                        <input type="checkbox" id="forNewbee">
+                                                        <input type="checkbox" id="forNewbee" name="cooking_level[]" value="easy">
                                                         <label for="forNewbee">Для новичков</label>
                                                     </div><!-- /.form-group -->
                                                 </div>
                                                 <div class="col-xl-12 col-lg-12">
                                                     <div class="form-group">
-                                                        <input type="checkbox" id="forExperienced" checked>
+                                                        <input type="checkbox" id="forExperienced" name="cooking_level[]" checked value="medium">
                                                         <label for="forExperienced">Для опытных</label>
                                                     </div><!-- /.form-group -->
                                                 </div>
                                                 <div class="col-xl-12 col-lg-12">
                                                     <div class="form-group">
-                                                        <input type="checkbox" id="profi">
+                                                        <input type="checkbox" id="profi" name="cooking_level[]" value="hard">
                                                         <label for="profi">Для профи</label>
                                                     </div><!-- /.form-group -->
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
-                                            <h3>Калорийность на 100 гр.</h3>
+                                            <h3>Калорийность блюда</h3>
                                             <div class="product-sidebar__price-range no-border mb-30">
                                                 <div class="range-slider-kcal" id="range-slider-kcal"></div>
                                                 <div class="form-group">
@@ -264,27 +192,27 @@
 
                                     <div class="row products_decline mb-30">
                                         <div class="col-md-6 mb-20">
-                                            <input type="checkbox" name="meatCheckbox" id="meatCheckbox"><label
-                                                for="meatCheckbox">Мясо</label>
+                                            <input type="checkbox" name="NotEat[]" id="meatCheckbox" value="3"><label
+                                                for="meatCheckbox">Грибы</label>
                                         </div>
                                         <div class="col-md-6 mb-20">
-                                            <input type="checkbox" name="fishCheckbox" id="fishCheckbox"><label
+                                            <input type="checkbox" name="NotEat[]" id="fishCheckbox" value="12"><label
                                                 for="fishCheckbox">Рыбу</label>
                                         </div>
                                         <div class="col-md-6 mb-20">
-                                            <input type="checkbox" name="alkoCheckbox" id="alkoCheckbox"><label
+                                            <input type="checkbox" name="NotEat[]" id="alkoCheckbox" value="1"><label
                                                 for="alkoCheckbox">Алкоголь</label>
                                         </div>
                                         <div class="col-md-6">
-                                            <input type="checkbox" name="eggCheckbox" id="eggCheckbox"><label
+                                            <input type="checkbox" name="NotEat[]" id="eggCheckbox" value="4"><label
                                                 for="eggCheckbox">Яйца</label>
                                         </div>
                                         <div class="col-md-6">
-                                            <input type="checkbox" name="onionCheckbox" id="onionCheckbox"><label
-                                                for="onionCheckbox">Лук</label>
+                                            <input type="checkbox" name="NotEat[]" id="onionCheckbox" value="20"><label
+                                                for="onionCheckbox">Хлеб</label>
                                         </div>
                                         <div class="col-md-6">
-                                            <input type="checkbox" name="milkCheckbox" id="milkCheckbox"><label
+                                            <input type="checkbox" name="NotEat[]" id="milkCheckbox" value="11"><label
                                                 for="milkCheckbox">Молоко</label>
                                         </div>
                                     </div>
@@ -740,7 +668,75 @@
     </script>
     <script type="text/javascript">
         $(function() {
+            $("#findByRecipeOptions").on('submit', function(e) {
+                e.preventDefault();
+                $.ajax({
+                    url: '{{ route('findByRecipeOptions') }}',
+                    type: 'GET',
+                    dataType: 'JSON',
+                    data: $("#findByRecipeOptions").serialize(),
+                    success: function(data) {
+                        let htmlArr = "";
+                        data.forEach(recipe => {
+                            let cooking_level = "";
+                            switch (recipe.cooking_level) {
+                                case 'easy':
+                                    cooking_level = "Для новичков";
+                                    break;
+                                case 'medium':
+                                    cooking_level = "Для опытных";
+                                    break;
+                                default:
+                                    cooking_level = "Для профи";
+                                    break;
+                            }
 
+                            htmlArr += `<div class="col-lg-4 col-md-6">
+                            <div class="product-card__two">
+                                <div class="product-card__two-image">
+                                    <img src="${recipe.img}" alt="фото рецепта">
+                                    <div class="product-card__two-image-content">
+                                        <a href="/recipe/show/${recipe.id}"><i class="organik-icon-visibility"></i></a>
+                                        <a href="javascript:" rel="${recipe.id}" class="like"><i class="fa fa-heart"></i></a>
+                                    </div><!-- /.product-card__two-image-content -->
+                                </div><!-- /.product-card__two-image -->
+                                <div class="product-card__two-content">
+                                    <h3><a href="/recipe/show/${recipe.id}">${ recipe.name }</a></h3>
+
+                                    <div class="row">
+                                        <div class="col-md-12 properties"><img
+                                                src="{{ asset('/images/calculator/time.svg') }}" /><span>${ recipe.cooking_time }
+                                                минут</span></div>
+                                        <div class="col-md-12 properties"><img
+                                                src="{{ asset('/images/calculator/chart.svg') }}" /><span>395 Ккал</span>
+                                        </div>
+                                        <div class="col-md-12 properties"><img
+                                                src="{{ asset('/images/calculator/smile.svg') }}" />
+                                            <span>
+                                                ${cooking_level}
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div><!-- /.product-card__two-content -->
+                            </div><!-- /.product-card__two -->
+                        </div>`;
+                        });
+                        $('.results .row').empty();
+                        $('.results .row').prepend(htmlArr);
+                        $('.quantityOfRecipes .quantity').text(data.length);
+                        $('.alert-dismissible').fadeIn();
+                        window.setTimeout(function() {
+                            $('.alert-dismissible').fadeOut();
+                        }, 2000);
+                        like();
+                        animationLikes();
+                    },
+                    error: function(xhr) {
+                        console.log(xhr.responseText);
+                    }
+                });
+
+            });
             $("#findByIngredients").on('submit', function(e) {
                 e.preventDefault();
                 $.ajax({
