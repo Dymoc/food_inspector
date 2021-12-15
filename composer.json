@@ -12,6 +12,7 @@
         "laravel/sanctum": "^2.11",
         "laravel/tinker": "^2.5",
         "nicolaslopezj/searchable": "1.*",
+        "orchestra/parser": "^6.1",
         "tcg/voyager": "^1.5"
     },
     "require-dev": {
