@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Auth\LoginRequest;
+use App\Http\Requests\Auth\RegisterRequest;
 use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Auth\Events\Registered;
@@ -34,28 +36,30 @@ class RegisteredUserController extends Controller
      *
      * @throws \Illuminate\Validation\ValidationException
      */
-    public function store(Request $request)
+    public function store(RegisterRequest $request)
     {
-        $request->validate([
+        /*$request->validate([
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
-        ]);
+        ]);*/
 
         $user = User::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => Hash::make($request->password),
+            'name' => $request->validated()->name,
+            'email' => $request->validated()->email,
+            'password' => Hash::make($request->validated()->password),
         ]);
+        if ($user) {
+            $profile = Profile::create([
+                'user_id' => $user->id,
+                'firstname' => "Имя",
+                'lastname' => "Фамилия",
+                'birthday' => now(),
+                'phone' => 79876543210,
+                'adress' => "Адрес"
+            ]);
+        }
 
-        $profile = Profile::create([
-            'user_id' => $user->id,
-            'firstname' => "Имя",
-            'lastname' => "Фамилия",
-            'birthday'=>now(),
-            'phone'=> 79876543210,
-            'adress'=>"Адрес"
-        ]);
 
         event(new Registered($user));
 

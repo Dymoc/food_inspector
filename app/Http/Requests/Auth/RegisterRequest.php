@@ -7,9 +7,10 @@ use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\Str;
+use Illuminate\Validation\Rules;
 use Illuminate\Validation\ValidationException;
 
-class LoginRequest extends FormRequest
+class RegisterRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -29,11 +30,26 @@ class LoginRequest extends FormRequest
     public function rules()
     {
         return [
-            'email' => ['required', 'string', 'email'],
-            'password' => ['required', 'string'],
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'password' => ['required', 'confirmed', 'min:8', Rules\Password::defaults()],
         ];
     }
-
+    public function messages()
+    {
+        return [
+            'required' => 'Пожалуйста, заполните поле :attribute'
+        ];
+    }
+    public function attributes()
+    {
+        return [
+            'name' => '"Имя"',
+            'email' => '"Email"',
+            'password' => '"Пароль"',
+            'password_confirmation' => '"Повторите пароль"',
+        ];
+    }
     /**
      * Attempt to authenticate the request's credentials.
      *

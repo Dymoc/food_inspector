@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Admin\ParcerController;
+use App\Http\Controllers\Admin\ResourceController;
 use App\Http\Controllers\Cabinet\FavouriteRecipesController;
 use App\Http\Controllers\Cabinet\ProfileController;
 use App\Http\Controllers\Cabinet\ListController;
@@ -34,8 +36,6 @@ Route::group(['prefix' => 'news'], function () {
     Route::get('/show/{news}', [NewsController::class, 'show'])->where('news', '\d+')->name('news.show');
 });
 
-//Route::resource('ingredient', IngredientContorller::class)
-//    ->name('ingredient');
 
 Route::group(['prefix' => 'ingredient'], function () {
     Route::get('/', [IngredientContorller::class, 'index'])
@@ -50,9 +50,11 @@ Route::group(['prefix' => 'ingredient'], function () {
         ->name('ingredient.show');
 });
 
+
 Route::get('find', [SearchController::class, 'find'])->name('find');
 Route::get('findByIngredients', [SearchController::class, 'findByIngredients'])->name('findByIngredients');
-Route::get('findRecipeByName', [SearchController::class, 'findRecipeByName'])->name('findRecipeByName');
+Route::get('findByRecipeName', [SearchController::class, 'findByRecipeName'])->name('findByRecipeName');
+Route::get('findByRecipeCategory', [SearchController::class, 'findByRecipeCategory'])->name('findByRecipeCategory');
 
 require __DIR__ . '/auth.php';
 
@@ -68,6 +70,10 @@ Route::group(['prefix' => 'cabinet',  'as' => 'cabinet.', 'middleware' => 'auth'
     Route::get('profile-change', [ProfileController::class, 'changeProfile'])->name('profile-change');
     Route::put('edit/{profile}&{user}', [ProfileController::class, 'changeProfileUpdate'])->where('profile', '\d+')->where('user', '\d+')->name('profile.update');
     Route::resource('lists', ListController::class)->name('index', 'lists.index');
-   // Route::put('lists/{list}', [ListController::class, 'updateingredientList'])->where('list', '\d+')->name('lists.updateingredients');
     Route::resource('favourite', FavouriteRecipesController::class)->name('index', 'favourite.index');
+});
+
+Route::group(['prefix' => 'admin', 'as' => 'voyager.', 'middleware' => 'admin.user'], function () {
+    Route::get('/parce/{resource}', ParcerController::class)->where('resource', '\d+')->name('resources.parce');
+    Route::get('resources/parcer/index', ResourceController::class)->name('resources.parcer.index');
 });

@@ -26,11 +26,17 @@ class SearchController extends Controller
     {
         return Ingredient::search($request->get('q'))->get();
     }
-
-    public function findRecipeByName(Request $request)
+    public function findByRecipeName(Request $request)
     {
-        $recipes = Recipe::query()->where('name', 'like', '%'.$request.'%')->get();
+         $recipes = Recipe::query()->where('name', 'like', '%'.$request->name.'%')
+        ->get();
         return json_encode($recipes);
     }
-
+    public function findByRecipeCategory(Request $request)
+    {
+         $recipes = Recipe::query()->where('category_id', $request->category_id)
+        ->get();
+        return json_encode($recipes);
+    }
+    
 }
