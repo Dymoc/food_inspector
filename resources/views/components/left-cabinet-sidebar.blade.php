@@ -11,11 +11,13 @@
             <li>
                 <a href="{{route('cabinet.favourite.index')}}"><i class="fa fa-heart"></i>Любимые рецепты <i class="fa fa-angle-right"></i></a>
             </li>
-
+            <li>
+                <a href="{{route('cabinet.recipe.index')}}"><i class="fa fa-plus"></i>Ваши рецепты <i class="fa fa-angle-right"></i></a>
+            </li>
             <li>
                 <a href="#"><i class="fa fa-map-marker-alt"></i>Заказать продукты <i class="fa fa-angle-right"></i></a>
             </li>
-
+            
             <li>
                 <a href="#"><i class="fa fa-credit-card"></i>Подписка на сервис <i class="fa fa-angle-right"></i></a>
             </li>

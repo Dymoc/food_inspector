@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\ResourceController;
 use App\Http\Controllers\Cabinet\FavouriteRecipesController;
 use App\Http\Controllers\Cabinet\ProfileController;
 use App\Http\Controllers\Cabinet\ListController;
+use App\Http\Controllers\Cabinet\UserRecipeController;
 use App\Http\Controllers\NewsController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\IngredientContorller;
@@ -72,6 +73,7 @@ Route::group(['prefix' => 'cabinet',  'as' => 'cabinet.', 'middleware' => 'auth'
     Route::put('edit/{profile}&{user}', [ProfileController::class, 'changeProfileUpdate'])->where('profile', '\d+')->where('user', '\d+')->name('profile.update');
     Route::resource('lists', ListController::class)->name('index', 'lists.index');
     Route::resource('favourite', FavouriteRecipesController::class)->name('index', 'favourite.index');
+    Route::resource('recipe', UserRecipeController::class)->name('index', 'recipe.index');
 });
 
 Route::group(['prefix' => 'admin', 'as' => 'voyager.', 'middleware' => 'admin.user'], function () {
