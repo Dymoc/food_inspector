@@ -55,6 +55,7 @@ Route::get('find', [SearchController::class, 'find'])->name('find');
 Route::get('findByIngredients', [SearchController::class, 'findByIngredients'])->name('findByIngredients');
 Route::get('findByRecipeName', [SearchController::class, 'findByRecipeName'])->name('findByRecipeName');
 Route::get('findByRecipeCategory', [SearchController::class, 'findByRecipeCategory'])->name('findByRecipeCategory');
+Route::get('findByRecipeOptions', [SearchController::class, 'findByRecipeOptions'])->name('findByRecipeOptions');
 
 require __DIR__ . '/auth.php';
 

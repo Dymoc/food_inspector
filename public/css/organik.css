@@ -3124,11 +3124,6 @@ h6 {
     margin-top: 55px;
 }
 
-.time-icon {
-    width: 60px;
-    height: 40px;
-}
-
 .conditions-mb-30 {
     margin-bottom: 30px;
 }
@@ -3180,17 +3175,42 @@ h6 {
     border: none
 }
 
+.products_time {
+    flex-wrap: nowrap;
+}
+
+.products_time input[type=radio],
 .products_decline input[type=checkbox] {
     position: absolute;
     left: -9999px;
 }
 
+.products_time label,
 .products_decline label {
     font-size: 16px;
     color: var(--thm-color);
     font-weight: 300;
     display: flex;
     align-items: center;
+}
+
+.products_time label {
+    flex-wrap: wrap;
+}
+
+.products_time label::before {
+    content: '';
+    width: 60px;
+    height: 40px;
+    background: url(../images/calculator/time-icon.svg) no-repeat;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.products_time input[type=radio]:checked+label::before {
+    background: url(../images/calculator/time-icon_active.svg) no-repeat;
 }
 
 .products_decline label::before {
@@ -3914,6 +3934,7 @@ label[for="myList"]+span {
     color: var(--thm-color);
     margin-bottom: 10px;
     border-radius: 0;
+    z-index: 5;
 }
 
 .contact-one__form .bootstrap-select .dropdown-toggle .filter-option {
@@ -8335,6 +8356,7 @@ i {
 }
 
 .shapes .contact-one__shape-1 {
+    z-index: -1;
     top: -108px;
     width: 304px;
     left: -15px;
