@@ -22,8 +22,8 @@ class UserRecipeController extends Controller
      */
     public function index()
     {
-        return view('cabinet.recipe.index',[
-            'recipes'=>Recipe::query()->where('author',Auth::user()->id)->get()
+        return view('cabinet.recipe.index', [
+            'recipes' => Recipe::query()->where('author', Auth::user()->id)->get()
         ]);
     }
 
@@ -34,9 +34,9 @@ class UserRecipeController extends Controller
      */
     public function create()
     {
-        return view('cabinet.recipe.create',[
-            "types"=>RecipesType::all(),
-            "categories"=>RecipesCategory::all()
+        return view('cabinet.recipe.create', [
+            "types" => RecipesType::all(),
+            "categories" => RecipesCategory::all()
         ]);
     }
 
@@ -49,37 +49,36 @@ class UserRecipeController extends Controller
     public function store(Request $request)
     {
 
-        
+
         if ($request->has('img')) {
             $imageName = uniqid('file-') . '.' . $request->file('img')->getClientOriginalExtension();
             $path = $request->file('img')->storeAs('products',  $imageName, 'images');
             $img =  $path;
-            File::move(public_path()."/storage/".$path, public_path()."/"."images/".$path);
+            File::move(public_path() . "/storage/" . $path, public_path() . "/" . "images/" . $path);
         }
-        $recipe=Recipe::create([
-            'name'=>$request->input('name'),
-            'cooking_time'=>$request->input('cooking_time'),
-            'weight'=>$request->input('weight'),
-            'cooking_level'=>$request->input('cooking_level'),
-            'category_id'=>$request->input('category_id'),
-            'type_id'=>$request->input('type_id'),
-            'img'=>isset($img) ? "/images/".$img : NULL
+        $recipe = Recipe::create([
+            'name' => $request->input('name'),
+            'cooking_time' => $request->input('cooking_time'),
+            'weight' => $request->input('weight'),
+            'cooking_level' => $request->input('cooking_level'),
+            'category_id' => $request->input('category_id'),
+            'type_id' => $request->input('type_id'),
+            'img' => isset($img) ? "/images/" . $img : NULL
         ]);
-        if($recipe){
-            $i=1;
-            foreach ( $request->description as $step) {
+        if ($recipe) {
+            $i = 1;
+            foreach ($request->description as $step) {
                 RecipeSteps::create([
-                    'recipe_id'=>$recipe->id,
-                    'step_number'=>$i++,
-                    'description'=>$step,
-                    'img'=>isset($img) ? "/images/".$img : NULL
+                    'recipe_id' => $recipe->id,
+                    'step_number' => $i++,
+                    'description' => $step,
+                    'img' => isset($img) ? "/images/" . $img : NULL
                 ]);
-                
             }
-            
         }
-        //dd($recipe->id, $request->all());
-
+        return redirect()->route("cabinet.recipe.index", [
+            'recipes' => Recipe::query()->where('author', Auth::user()->id)->get()
+        ]);
     }
 
     /**

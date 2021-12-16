@@ -44,8 +44,7 @@
                                         <div class="product-card__two-image-content">
                                             <a href="{{ route('recipe.show', ['id' => $recipe]) }}"><i
                                                     class="organik-icon-visibility"></i></a>
-                                            <a href="javascript:" rel="{{ $recipe->id }}" class="like"><i
-                                                    class="fa fa-heart" style="color: rgb(204, 57, 123);"></i></a>
+                                            
                                         </div><!-- /.product-card__two-image-content -->
                                     </div><!-- /.product-card__two-image -->
                                     <div class="product-card__two-content" style="height: 50%">
@@ -65,76 +64,8 @@
                 </div>
             </div><!-- /.container -->
     </section><!-- /.contact-one -->
-    <div class="lean_overlay"></div>
-    <div class="modal show">
-        <div class="modal-dialog modal-fullscreen-md-down">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title h4">Удаление списка</h5>
-                    <button type="button" class="btn-close"><i class="fa fa-times"></i></button>
-                </div>
-                <div class="modal-body">
-                    Вы уверены, что хотите удалить список?
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="thm-btn itsokay">Уверен</button>
-                </div>
-            </div>
-        </div>
-    </div>
+
 @endsection
 @section('scripts')
-    <script type="text/javascript">
-        $(function() {
-            $(".delete").on('click', function() {
-                var id = $(this).attr('rel');
-                $('.lean_overlay').fadeIn();
-                $('.modal').fadeIn();
-                $(".itsokay").on('click', function() {
-                    $.ajax({
-                        url: '/cabinet/lists/' + id,
-                        type: 'DELETE',
-                        dataType: 'JSON',
-                        data: {
-                            'id': id,
-                            '_token': '{{ csrf_token() }}',
-                        },
-                        success: function() {
-                            alert("Список удален");
-                            location.reload();
-                        },
-                        error: function(xhr) {
-                            console.log(xhr.responseText);
-                        }
-                    });
-                });
-                $(".btn-close").on('click', function() {
-                    $('.modal').fadeOut();
-                    $('.lean_overlay').fadeOut();
-                });
 
-            });
-            $(".accordion-button").on('click', function() {
-                $(this).parent().parent().children('.accordion-collapse').slideToggle();
-                if ($(this).children('span').children('.fa').hasClass('fa-chevron-right')) {
-                    $(this).children('span').children('.fa.fa-chevron-right').removeClass(
-                        'fa-chevron-right').addClass('fa-chevron-down');
-                } else {
-                    $(this).children('span').children('.fa.fa-chevron-down').removeClass('fa-chevron-down')
-                        .addClass('fa-chevron-right');
-                }
-
-            });
-            $(".slideToggle").on('click', function() {
-                $(this).parent().parent().parent().children('.accordion-collapse').slideToggle();
-                if ($(this).children('.fa').hasClass('fa-chevron-right')) {
-                    $(this).children('.fa').removeClass('fa-chevron-right').addClass('fa-chevron-down');
-                } else {
-                    $(this).children('.fa').removeClass('fa-chevron-down').addClass('fa-chevron-right');
-                }
-
-            });
-
-        });
-    </script>
 @endsection
