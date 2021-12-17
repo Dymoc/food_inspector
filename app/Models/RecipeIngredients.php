@@ -10,5 +10,5 @@ class RecipeIngredients extends Model
 {
     use HasFactory;
     protected $table = 'recipe_ingredients';
-
+    protected $fillable = ['ingredient_id','recipe_id'];
 }

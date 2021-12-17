@@ -74,14 +74,14 @@
                                 </form>
                             </div>
                             <div class="row">
-                                <div class="col-md-12 text-right">
-                                    <button class="thm-btn apply-changes">Сохранить</button>
-                                </div>
-                            </div>
+                        <div class="col-md-12 text-right">
+                            <button class="thm-btn apply-changes">Сохранить</button>
+                        </div>
+                    </div>
                         </div>
 
                     </div>
-
+                    
                 </div>
             </div>
         </div><!-- /.container -->
@@ -94,7 +94,7 @@
     <script type="text/javascript">
         $(function() {
             $(".apply-changes").on('click', function() {
-
+                
                 $.ajax({
                     url: "{{ route('cabinet.lists.update', ['list' => $list]) }}",
                     type: 'PUT',
