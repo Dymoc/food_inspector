@@ -3,7 +3,10 @@
 namespace App\Http\Controllers\Cabinet;
 
 use App\Http\Controllers\Controller;
+use App\Models\Ingredient;
+use App\Models\IngredientsCategory;
 use App\Models\Recipe;
+use App\Models\RecipeIngredients;
 use App\Models\RecipesCategory;
 use App\Models\RecipeSteps;
 use App\Models\RecipesType;
@@ -36,7 +39,9 @@ class UserRecipeController extends Controller
     {
         return view('cabinet.recipe.create', [
             "types" => RecipesType::all(),
-            "categories" => RecipesCategory::all()
+            "categories" => RecipesCategory::all(),
+            'ingredientsCategories' => IngredientsCategory::all(),
+            'ingredientList' => Ingredient::all(),
         ]);
     }
 
@@ -48,7 +53,6 @@ class UserRecipeController extends Controller
      */
     public function store(Request $request)
     {
-
 
         if ($request->has('img')) {
             $imageName = uniqid('file-') . '.' . $request->file('img')->getClientOriginalExtension();
@@ -66,6 +70,13 @@ class UserRecipeController extends Controller
             'img' => isset($img) ? "/images/" . $img : NULL
         ]);
         if ($recipe) {
+            $ingredientsIds = explode(",", $request->input('q'));
+            foreach ($ingredientsIds as $ingredientId) {
+                RecipeIngredients::create([
+                    'recipe_id' => $recipe->id,
+                    'ingredient_id' => $ingredientId,
+                ]);
+            }
             $i = 1;
             foreach ($request->description as $step) {
                 RecipeSteps::create([
@@ -76,9 +87,7 @@ class UserRecipeController extends Controller
                 ]);
             }
         }
-        return redirect()->route("cabinet.recipe.index", [
-            'recipes' => Recipe::query()->where('author', Auth::user()->id)->get()
-        ]);
+        return json_encode(['success'=>1]);
     }
 
     /**
