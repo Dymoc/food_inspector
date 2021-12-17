@@ -219,6 +219,36 @@ class RecipesSeeder extends Seeder
                 'weight' => 400,
                 'type_id' => 2
             ],
+            21 => [
+                'category_id' => 5,
+                'name' => 'Яичница по-армянски',
+                'img' => '/images/products/recipe0000021.jpg',
+                'author' => 1,
+                'cooking_time' => 10,
+                'cooking_level' => 'easy',
+                'weight' => 400,
+                'type_id' => 1
+            ],
+            22 => [
+                'category_id' => 5,
+                'name' => 'Яичница в корзинке с беконом',
+                'img' => '/images/products/recipe0000022.jpg',
+                'author' => 1,
+                'cooking_time' => 10,
+                'cooking_level' => 'medium',
+                'weight' => 400,
+                'type_id' => 1
+            ],
+            23 => [
+                'category_id' => 5,
+                'name' => 'Яичница в хлебе',
+                'img' => '/images/products/recipe0000023.jpg',
+                'author' => 1,
+                'cooking_time' => 10,
+                'cooking_level' => 'easy',
+                'weight' => 400,
+                'type_id' => 1
+            ],
         ];
 
         $data = [];
